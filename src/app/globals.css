@@ -1,1 +1,31 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --primary: #0245a5;
+}
+
+html,
+body {
+  font-family: var(--font-roboto) !important;
+}
+
+.phone-input-container .phone-input-field {
+  @apply !w-full !pl-[60px] !pr-4 !h-[56px] !border !border-[#66666659] !rounded-xl !text-sm lg:!text-base !text-[#666666];
+}
+.phone-input-container .phone-input-button {
+  @apply !w-[50px] !h-[56px] !rounded-tl-xl !rounded-bl-xl !border-[#66666659] !border-0 !bg-transparent;
+}
+
+.react-tel-input .selected-flag {
+  padding-left: 17px !important;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background: transparent !important;
+}
+
+.scroll-0::-webkit-scrollbar {
+  width: 0;
+}
