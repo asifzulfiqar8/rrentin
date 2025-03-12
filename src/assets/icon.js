@@ -9,6 +9,8 @@ import ProposalsIcon from "./aside/ProposalsIcon";
 import NotificationIcon from "./aside/NotificationIcon";
 import MessagesIcon from "./aside/MessagesIcon";
 import ArrowIcon from "./aside/ArrowIcon";
+import ReloadIcon from "./default/ReloadIcon";
+import NotificationBoxIcon from "./default/NotificationBoxIcon";
 
 export {
   DashboardIcon,
@@ -22,4 +24,6 @@ export {
   NotificationIcon,
   MessagesIcon,
   ArrowIcon,
+  ReloadIcon,
+  NotificationBoxIcon
 };
