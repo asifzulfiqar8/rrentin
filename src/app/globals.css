@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-@theme {
+:root {
   --font-roboto: "Roboto", sans-serif;
   --primary: #0245a5;
 }
@@ -28,4 +28,13 @@ body {
 
 .scroll-0::-webkit-scrollbar {
   width: 0;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 5px;
+  background: #d6e3f4cc;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary);
 }

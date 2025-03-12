@@ -45,6 +45,7 @@ const ResetPasswordForm = () => {
             type={showPassword ? "text" : "password"}
             value={formData.password}
             onChange={handleInputChange}
+            autoComplete="new-password"
           />
           <div
             className="absolute top-0 right-0 flex items-center gap-2 cursor-pointer text-sm lg:text-lg text-[#666666CC]"
@@ -70,6 +71,7 @@ const ResetPasswordForm = () => {
             type={showConfirmPassword ? "text" : "password"}
             value={formData.confirmPassword}
             onChange={handleInputChange}
+            autoComplete="new-password"
           />
           <div
             className="absolute top-0 right-0 flex items-center gap-2 cursor-pointer text-sm lg:text-lg text-[#666666CC]"

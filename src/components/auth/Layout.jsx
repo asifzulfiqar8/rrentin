@@ -11,7 +11,7 @@ const Layout = ({ title, secondTitle, thirdTitle, children }) => {
           width={219}
           height={60}
           alt="logo"
-          className="lg:absolute lg:top-[80px] lg:left-5 mx-auto w-[150px] lg:w-[219px]"
+          className="lg:absolute lg:top-[80px] lg:left-5 mx-auto w-[150px] lg:w-[219px] h-auto"
         />
         <div className="flex flex-col justify-center">
           <Title title={title} />

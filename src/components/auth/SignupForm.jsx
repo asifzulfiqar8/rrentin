@@ -94,6 +94,7 @@ const SignupForm = () => {
             containerClass="phone-input-container"
             inputClass="phone-input-field"
             buttonClass="phone-input-button"
+            autoComplete="new-phone"
           />
         </div>
         <div className="lg:col-span-12 relative">
@@ -103,6 +104,7 @@ const SignupForm = () => {
             type={showPassword ? "text" : "password"}
             value={formData.password}
             onChange={handleInputChange}
+            autoComplete="new-password"
           />
           <div
             className="absolute top-0 right-0 flex items-center gap-2 cursor-pointer text-sm lg:text-lg text-[#666666CC]"
