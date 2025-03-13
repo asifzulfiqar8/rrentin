@@ -11,6 +11,9 @@ import MessagesIcon from "./aside/MessagesIcon";
 import ArrowIcon from "./aside/ArrowIcon";
 import ReloadIcon from "./default/ReloadIcon";
 import NotificationBoxIcon from "./default/NotificationBoxIcon";
+import EyeIcon from "./default/EyeIcon";
+import BuildingIcon from "./dashboard/BuildingIcon";
+import ListIcon from "./dashboard/ListIcon";
 
 export {
   DashboardIcon,
@@ -25,5 +28,8 @@ export {
   MessagesIcon,
   ArrowIcon,
   ReloadIcon,
-  NotificationBoxIcon
+  NotificationBoxIcon,
+  EyeIcon,
+  BuildingIcon,
+  ListIcon,
 };

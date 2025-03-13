@@ -22,7 +22,7 @@ const pages = [
   {
     id: 1,
     title: "Dashboard",
-    link: "/owner",
+    link: "/owner" || "/owner/add-property",
     icon: <DashboardIcon />,
   },
   {
@@ -150,14 +150,12 @@ const LinkItem = ({ page, pathname, isMenuOpen }) => {
       className={`flex items-center py-[10px] px-[13px] rounded-lg text-sm font-medium transition-all duration-300 ${
         isMenuOpen ? "gap-0 justify-center" : "gap-3"
       } ${
-        page?.link === pathname
-          ? "bg-[#E8F2FF] text-[#0245A5]"
-          : "text-[#1F1F1F]"
+        page?.link === pathname ? "bg-[#E8F2FF] text-primary" : "text-[#1F1F1F]"
       }`}
     >
       {React.cloneElement(page?.icon, { isLinkActive })}
       <span
-        className={`transition-opacity duration-300 ${
+        className={`transition-all duration-300 text-nowrap ${
           isMenuOpen
             ? "opacity-0 scale-x-0 w-0 h-0"
             : "opacity-100 scale-x-100 h-auto w-auto"

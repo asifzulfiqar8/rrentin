@@ -8,7 +8,7 @@ const DashboardLayout = ({ children }) => {
         <Aside />
         <div className="flex-1">
           <Header />
-          <main className="mt-[14px] h-[calc(100vh-104px)] overflow-y-scroll custom-scroll">
+          <main className="mt-[14px] h-[calc(100vh-104px)] overflow-y-scroll overflow-x-hidden custom-scroll">
             {children}
           </main>
         </div>

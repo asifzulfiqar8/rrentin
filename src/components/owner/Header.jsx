@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <header className="bg-white rounded-lg h-[74px] p-4 flex items-center justify-between gap-4">
       <div>
-        <h2 className="text-xl lg:text-[22px] font-semibold text-[#32343C]">
+        <h2 className="text-xl lg:text-[22px] font-semibold text-text-textColor">
           Dashboard
         </h2>
         <p className="text-xs text-[#969696]">{date}</p>
@@ -58,7 +58,7 @@ export default Header;
 
 const SwitchButton = () => (
   <button
-    className="hidden md:flex items-center gap-3 py-2 px-5 rounded-[5px] text-sm md:text-base font-medium text-[#32343C] cursor-pointer"
+    className="hidden md:flex items-center gap-3 py-2 px-5 rounded-[5px] text-sm md:text-base font-medium text-text-textColor cursor-pointer"
     style={{ boxShadow: "0px 1px 6px 0px #00000014" }}
   >
     <ReloadIcon />

@@ -12,11 +12,11 @@ const NotificationMenu = ({ isNotificationOpen }) => {
       }`}
       style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
     >
-      <h6 className="text-base md:text-xl font-semibold text-[#32343C]">
+      <h6 className="text-base md:text-xl font-semibold text-text-textColor">
         Notifications
       </h6>
       <div className="mt-4">
-        <h6 className="text-sm md:text-base font-medium text-[#32343C]">
+        <h6 className="text-sm md:text-base font-medium text-text-textColor">
           Today
         </h6>
         <div className="mt-4 flex flex-col gap-4">
@@ -26,18 +26,18 @@ const NotificationMenu = ({ isNotificationOpen }) => {
         </div>
       </div>
       <div className="mt-4">
-        <h6 className="text-sm md:text-base font-medium text-[#32343C]">
+        <h6 className="text-sm md:text-base font-medium text-text-textColor">
           Yesterday
         </h6>
         <div className="mt-4 flex flex-col gap-4">
-          {notificationsData.slice(0, 3).map((list, i) => (
+          {notificationsData.slice(0, 2).map((list, i) => (
             <List list={list} key={i} />
           ))}
         </div>
       </div>
       {/* view more button */}
       <div className="mt-4">
-        <button className="flex items-center justify-center gap-2 bg-[#0245A5] py-[6px] px-2 rounded-[4px] text-white text-sm font-medium mx-auto cursor-pointer">
+        <button className="flex items-center justify-center gap-[6px] bg-primary py-[6px] px-2 rounded-[4px] text-white text-sm font-medium mx-auto cursor-pointer">
           View more
           <RiArrowRightUpLine className="text-white text-base mt-1" />
         </button>

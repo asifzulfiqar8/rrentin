@@ -26,4 +26,42 @@ const notificationsData = [
   },
 ];
 
-export { notificationsData };
+const homeCardsData = [
+  {
+    title: "Total Revenue",
+    value: "$273,38",
+    valueAdded: "12",
+    para: "It’s +$23.14 better then last month",
+    img: "/images/dashboard/dollar.png",
+  },
+  {
+    title: "Rental Field",
+    value: "32%",
+    valueAdded: "10",
+    para: "Your properties are generating +10% returns.",
+    img: "/images/dashboard/rental.png",
+  },
+  {
+    title: "Lease Renewal Rate",
+    value: "77%",
+    valueAdded: "43",
+    para: "+$43.14 of tenants have renewed their leases.",
+    img: "/images/dashboard/lease.png",
+  },
+  {
+    title: "Tenant Intent",
+    value: "45%",
+    valueAdded: "23",
+    para: "+43% tenants showed interest in leasing.",
+    img: "/images/dashboard/tenant.png",
+  },
+  {
+    title: "Inquiry Rate",
+    value: "123",
+    valueAdded: "08",
+    para: "+$8.45 growth in tenant inquiries.",
+    img: "/images/dashboard/rental.png",
+  },
+];
+
+export { notificationsData, homeCardsData };
