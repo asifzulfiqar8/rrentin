@@ -38,9 +38,10 @@ const Card = ({ card }) => {
             </span>
           )}
         </div>
-        <p className="mt-2 text-[#969696] text-xs">
-          It’s +$23.14 better then last month
-        </p>
+        <p
+          className="mt-2 text-[#969696] text-xs"
+          dangerouslySetInnerHTML={{ __html: card.para }}
+        ></p>
       </div>
     </div>
   );
