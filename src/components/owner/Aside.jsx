@@ -22,61 +22,61 @@ const pages = [
   {
     id: 1,
     title: "Dashboard",
-    link: "/owner" || "/owner/add-property",
+    link: ["/owner", "/owner/add-property"],
     icon: <DashboardIcon />,
   },
   {
     id: 2,
     title: "Properties",
-    link: "/owner/properties",
+    link: ["/owner/properties"],
     icon: <PropertiesIcon />,
   },
   {
     id: 3,
     title: "Tenants",
-    link: "/owner/tenants",
+    link: ["/owner/tenants"],
     icon: <TenantIcon />,
   },
   {
     id: 4,
     title: "On Demand Service",
-    link: "/owner/on-demand-service",
+    link: ["/owner/on-demand-service"],
     icon: <OnDemandIcon />,
   },
   {
     id: 5,
     title: "Payments",
-    link: "/owner/payments",
+    link: ["/owner/payments"],
     icon: <PaymentsIcon />,
   },
   {
     id: 6,
     title: "Insights",
-    link: "/owner/insights",
+    link: ["/owner/insights"],
     icon: <InsightsIcon />,
   },
   {
     id: 7,
     title: "Membership",
-    link: "/owner/membership",
+    link: ["/owner/membership"],
     icon: <MembershipIcon />,
   },
   {
     id: 8,
     title: "Proposals",
-    link: "/owner/proposals",
+    link: ["/owner/proposals"],
     icon: <ProposalsIcon />,
   },
   {
     id: 9,
     title: "Notification",
-    link: "/owner/notification",
+    link: ["/owner/notification"],
     icon: <NotificationIcon />,
   },
   {
     id: 10,
     title: "Messages",
-    link: "/owner/messages",
+    link: ["/owner/messages"],
     icon: <MessagesIcon />,
   },
 ];
@@ -143,15 +143,14 @@ const Aside = () => {
 export default Aside;
 
 const LinkItem = ({ page, pathname, isMenuOpen }) => {
-  const isLinkActive = page?.link === pathname ? true : false;
+  const isLinkActive = page?.link.some((item) => item === pathname);
+  console.log("islinkactive", pathname, isLinkActive);
   return (
     <Link
-      href={page?.link}
+      href={page?.link[0]}
       className={`flex items-center py-[10px] px-[13px] rounded-lg text-sm font-medium transition-all duration-300 ${
         isMenuOpen ? "gap-0 justify-center" : "gap-3"
-      } ${
-        page?.link === pathname ? "bg-[#E8F2FF] text-primary" : "text-[#1F1F1F]"
-      }`}
+      } ${isLinkActive ? "bg-[#E8F2FF] text-primary" : "text-[#1F1F1F]"}`}
     >
       {React.cloneElement(page?.icon, { isLinkActive })}
       <span
