@@ -31,7 +31,7 @@ const LoginForm = () => {
       className="bg-white p-5 lg:py-8 lg:px-[8%] rounded-xl w-full"
       onSubmit={handleForm}
     >
-      <h6 className="text-center md:text-left text-xl lg:text-[32px] font-semibold text-text-textColor">
+      <h6 className="text-center md:text-left text-xl lg:text-2xl font-semibold text-text-textColor">
         Login now
       </h6>
       <div className="mt-5 lg:mt-7 grid grid-cols-1 lg:grid-cols-12 gap-4">

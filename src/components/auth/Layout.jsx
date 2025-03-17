@@ -27,19 +27,19 @@ const Layout = ({ title, secondTitle, thirdTitle, children }) => {
 export default Layout;
 
 const Title = ({ title }) => (
-  <h1 className="text-white text-3xl lg:text-[42px] font-bold text-center lg:text-left">
+  <h1 className="text-white text-3xl lg:text-4xl font-bold text-center lg:text-left">
     {title}
   </h1>
 );
 
 const SecondTitle = ({ title }) => (
-  <h6 className="text-white text-lg lg:text-[28px] font-semibold mt-3 hidden lg:block">
+  <h6 className="text-white text-lg lg:text-xl font-semibold mt-3 hidden lg:block">
     {title}
   </h6>
 );
 
 const ThirdTitle = ({ title }) => (
-  <h6 className="text-white text-sm lg:text-2xl font-medium mt-3 text-center lg:text-left">
+  <h6 className="text-white text-sm lg:text-lg font-medium mt-3 text-center lg:text-left">
     {title}
   </h6>
 );

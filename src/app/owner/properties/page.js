@@ -1,5 +1,13 @@
+import PropertyHeader from "@/components/owner/properties/PropertyHeader";
+import TopCards from "@/components/owner/properties/TopCards";
+
 const Properties = () => {
-  return <div>Properties</div>;
+  return (
+    <>
+      <PropertyHeader />
+      <TopCards />
+    </>
+  );
 };
 
 export default Properties;

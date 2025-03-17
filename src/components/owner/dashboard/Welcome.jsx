@@ -1,6 +1,5 @@
 "use client";
 import { BuildingIcon, EyeIcon, ListIcon } from "@/assets/icon";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";

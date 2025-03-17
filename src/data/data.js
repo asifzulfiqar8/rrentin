@@ -224,6 +224,39 @@ const bookingSummaryData = [
   },
 ];
 
+const propertiesCardsData = [
+  {
+    title: "Total Properties",
+    value: "12",
+    para: "You have 12 properties in your portfolio.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Free Property",
+    value: "32",
+    para: "03 properties are actively rented out.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Rented Property",
+    value: "09",
+    para: "09 properties are currently free for rent.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Pending Approvals",
+    value: "09",
+    para: "These properties are waiting for admin approval to go live.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Property Views",
+    value: "4,474",
+    para: "It’s<span class='font-medium text-[#E35454]'> +$43.14 </span>better then last month.",
+    img: "/images/dashboard/tenant.png",
+  },
+];
+
 export {
   notificationsData,
   homeCardsData,
@@ -235,4 +268,5 @@ export {
   propertiesData,
   tableStyles,
   bookingSummaryData,
+  propertiesCardsData,
 };

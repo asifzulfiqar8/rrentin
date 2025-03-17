@@ -54,7 +54,7 @@ const SignupForm = () => {
       className="bg-white p-5 lg:py-8 lg:px-[8%] rounded-xl w-full"
       onSubmit={handleForm}
     >
-      <h6 className="text-center md:text-left text-xl lg:text-[32px] font-semibold text-text-textColor">
+      <h6 className="text-center md:text-left text-xl lg:text-2xl font-semibold text-text-textColor">
         Sign up now
       </h6>
       <div className="mt-5 lg:mt-7 grid grid-cols-1 lg:grid-cols-12 gap-4">
@@ -84,7 +84,9 @@ const SignupForm = () => {
           />
         </div>
         <div className="lg:col-span-3 flex items-end">
-          <Button text="Verify Email" height="h-[40px] md:h-[56px]" />
+          <button className="bg-primary text-white w-full h-[56px] rounded-xl text-sm md:text-base font-medium px-4">
+            Verify Email
+          </button>
         </div>
         <div className="lg:col-span-12">
           <PhoneInput
