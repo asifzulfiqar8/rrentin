@@ -1,3 +1,27 @@
+const tableStyles = {
+  headCells: {
+    style: {
+      fontSize: "14px",
+      fontWeight: 500,
+      color: "#7E7E7E",
+      borderBottom: "1px solid #32343CB2 !important",
+    },
+  },
+  rows: {
+    style: {
+      background: "transparent",
+      padding: "10px 0",
+      margin: "0",
+      borderBottomStyle: "dashed !important",
+    },
+  },
+  cells: {
+    style: {
+      color: "#32343C",
+      fontSize: "13px",
+    },
+  },
+};
 const notificationsData = [
   {
     reason: "Rent Payment Due",
@@ -137,6 +161,69 @@ const propertiesData = [
   },
 ];
 
+const bookingSummaryData = [
+  {
+    _id: 1,
+    tenantName: "John Doe",
+    propertyName: "Apartment #12",
+    agentInvolved: "Sarah Johnson",
+    leasePeriod: "Jan 2025 - Dec 2025",
+    monthlyRent: "$1200",
+    totalCharges: "$12092",
+    action: "",
+  },
+  {
+    _id: 2,
+    tenantName: "Emma Smith",
+    propertyName: "Villa #5",
+    agentInvolved: "Michael Brown",
+    leasePeriod: "Feb 2025 - Jan 2026",
+    monthlyRent: "$2500",
+    totalCharges: "$30100",
+    action: "",
+  },
+  {
+    _id: 3,
+    tenantName: "Liam Williams",
+    propertyName: "Studio #8",
+    agentInvolved: "David Lee",
+    leasePeriod: "Mar 2025 - Feb 2026",
+    monthlyRent: "$900",
+    totalCharges: "$10850",
+    action: "",
+  },
+  {
+    _id: 4,
+    tenantName: "Olivia Taylor",
+    propertyName: "Penthouse #3",
+    agentInvolved: "Jessica White",
+    leasePeriod: "Apr 2025 - Mar 2026",
+    monthlyRent: "$3200",
+    totalCharges: "$38500",
+    action: "",
+  },
+  {
+    _id: 5,
+    tenantName: "Noah Martinez",
+    propertyName: "House #15",
+    agentInvolved: "Daniel Wilson",
+    leasePeriod: "May 2025 - Apr 2026",
+    monthlyRent: "$1800",
+    totalCharges: "$21500",
+    action: "",
+  },
+  {
+    _id: 6,
+    tenantName: "Sophia Anderson",
+    propertyName: "Condo #22",
+    agentInvolved: "Emily Davis",
+    leasePeriod: "Jun 2025 - May 2026",
+    monthlyRent: "$1400",
+    totalCharges: "$16850",
+    action: "",
+  },
+];
+
 export {
   notificationsData,
   homeCardsData,
@@ -146,4 +233,6 @@ export {
   incomeLegendLabels,
   earningsData,
   propertiesData,
+  tableStyles,
+  bookingSummaryData,
 };

@@ -71,17 +71,20 @@ const CustomTooltip = ({ active, payload, label }) => {
 export default function CustomLineChart({
   data,
   width = "100%",
-  height = 300,
+  height = 350,
 }) {
   return (
     <div
       style={{ width, height }}
       className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm"
     >
+      <h6 className="text-sm md:text-base text-textColor font-semibold">
+        Earnings
+      </h6>
       <ResponsiveContainer>
         <AreaChart
           data={data}
-          margin={{ top: 15, right: 15, left: -15, bottom: 0 }}
+          margin={{ top: 15, right: 15, left: -15, bottom: 20 }}
         >
           {/* Gradients for the filled areas under each line */}
           <defs>
@@ -106,7 +109,7 @@ export default function CustomLineChart({
             axisLine={false}
             tickLine={false}
             domain={[0, 1000]}
-            ticks={[0, 50, 100, 150, 1000]}
+            ticks={[0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 1000]}
             tickFormatter={(val) => (val === 1000 ? "1k+" : val)}
             tick={{ fill: "#666" }}
           />

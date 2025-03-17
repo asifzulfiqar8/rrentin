@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const getColor = (type) => {
-  console.log("type", type);
   switch (type) {
     case "Most Demanding Property":
       return "text-[#FDAC3B]";

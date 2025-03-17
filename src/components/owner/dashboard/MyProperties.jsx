@@ -6,7 +6,7 @@ import { propertiesData } from "@/data/data";
 
 const MyProperties = () => {
   return (
-    <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm h-[637px] overflow-y-scroll custom-scroll">
+    <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm h-full max-h-[688px] overflow-y-scroll scroll-0">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
           <Image

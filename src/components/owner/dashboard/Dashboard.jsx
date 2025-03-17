@@ -11,6 +11,7 @@ import {
 } from "@/data/data";
 import MyProperties from "./MyProperties";
 import CustomLineChart from "@/components/shared/charts/CustomLineChart";
+import BookingSummary from "./BookingSummary";
 const CustomPieChart = dynamic(() =>
   import("@/components/shared/charts/CustomPieChart")
 );
@@ -43,6 +44,9 @@ const Dashboard = () => {
         </div>
         <div className="lg:col-span-5">
           <MyProperties />
+        </div>
+        <div className="lg:col-span-12">
+          <BookingSummary />
         </div>
       </div>
     </>
