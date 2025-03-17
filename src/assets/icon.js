@@ -14,6 +14,7 @@ import NotificationBoxIcon from "./default/NotificationBoxIcon";
 import EyeIcon from "./default/EyeIcon";
 import BuildingIcon from "./dashboard/BuildingIcon";
 import ListIcon from "./dashboard/ListIcon";
+import RightArrowForwardIcon from "./dashboard/RightArrowForwardIcon";
 
 export {
   DashboardIcon,
@@ -32,4 +33,5 @@ export {
   EyeIcon,
   BuildingIcon,
   ListIcon,
+  RightArrowForwardIcon,
 };

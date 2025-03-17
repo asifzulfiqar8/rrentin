@@ -144,7 +144,6 @@ export default Aside;
 
 const LinkItem = ({ page, pathname, isMenuOpen }) => {
   const isLinkActive = page?.link.some((item) => item === pathname);
-  console.log("islinkactive", pathname, isLinkActive);
   return (
     <Link
       href={page?.link[0]}

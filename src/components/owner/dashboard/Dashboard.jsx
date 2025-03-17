@@ -9,6 +9,7 @@ import {
 } from "@/data/data";
 import CustomPieChart from "@/components/shared/charts/CustomPieChart";
 import MyProperties from "./MyProperties";
+import EarningsChart from "@/components/shared/charts/EarningsChart";
 
 const Dashboard = () => {
   return (
@@ -31,6 +32,9 @@ const Dashboard = () => {
               data={incomeBreakdata}
               legend={incomeLegendLabels}
             />
+          </div>
+          <div className="lg:col-span-12">
+            <EarningsChart />
           </div>
         </div>
         <div className="lg:col-span-5">

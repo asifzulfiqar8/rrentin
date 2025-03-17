@@ -60,7 +60,7 @@ const homeCardsData = [
     value: "123",
     valueAdded: "08",
     para: "<span class='font-medium text-[#E35454]'>+$8.45</span> growth in tenant inquiries.",
-    img: "/images/dashboard/rental.png",
+    img: "/images/dashboard/inquiry.png",
   },
 ];
 
