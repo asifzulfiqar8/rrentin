@@ -10,25 +10,21 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// Example data; tweak values to match your design exactly.
-const sampleData = [
-  { day: "Sun", current: 800, previous: 60 },
-  { day: "Mon", current: 748, previous: 100 },
-  { day: "Tue", current: 573, previous: 50 },
-  { day: "Wed", current: 574, previous: 110 },
-  { day: "Thu", current: 510, previous: 300 },
-  { day: "Fri", current: 900, previous: 90 },
-  { day: "Sat", current: 304, previous: 80 },
-];
-
-// Draws the vertical orange line, circle, and dollar label on hover
 const CustomActiveDot = (props) => {
   const { cx, cy, value } = props;
   if (cx == null || cy == null) return null;
+  const chartBottom = 240 - 20;
   return (
     <g>
       {/* Vertical orange line from the top of chart to the data point */}
-      <line x1={cx} y1={0} x2={cx} y2={cy} stroke="#FB923C" strokeWidth={2} />
+      <line
+        x1={cx}
+        y1={chartBottom}
+        x2={cx}
+        y2={cy}
+        stroke="#FB923C"
+        strokeWidth={2}
+      />
       {/* Dot at the hovered data point */}
       <circle
         cx={cx}
@@ -53,7 +49,6 @@ const CustomActiveDot = (props) => {
   );
 };
 
-// Optional floating tooltip box (if you also want the standard Recharts tooltip)
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -73,8 +68,8 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-export default function EarningsChart({
-  data = sampleData,
+export default function CustomLineChart({
+  data,
   width = "100%",
   height = 300,
 }) {
@@ -129,7 +124,7 @@ export default function EarningsChart({
             stroke="#CBD5E1"
             strokeWidth={2}
             fill="url(#colorPrevious)"
-            activeDot={false} // no hover effect for the "previous" line
+            activeDot={false}
           />
 
           {/* "Current" line/area with custom active dot */}

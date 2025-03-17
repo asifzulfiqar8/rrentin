@@ -84,6 +84,59 @@ const incomeLegendLabels = [
   "Expenses (30%)",
 ];
 
+const earningsData = [
+  { day: "Sun", current: 800, previous: 60 },
+  { day: "Mon", current: 748, previous: 100 },
+  { day: "Tue", current: 573, previous: 50 },
+  { day: "Wed", current: 574, previous: 110 },
+  { day: "Thu", current: 510, previous: 300 },
+  { day: "Fri", current: 900, previous: 90 },
+  { day: "Sat", current: 304, previous: 80 },
+];
+
+const propertiesData = [
+  {
+    name: "Charming Homes in Thailand",
+    address: "123 Sunset Road, Phuket, Thailand",
+    price: "234",
+    image: "/images/dashboard/property-card-1.png",
+    speciality: "Most Demanding Property",
+    rental: "Rent",
+  },
+  {
+    name: "Luxury Villa in Dubai",
+    address: "45 Palm Jumeirah, Dubai, UAE",
+    price: "890",
+    image: "/images/dashboard/property-four.jpeg",
+    speciality: "Most Viewed Property",
+    rental: "Free",
+  },
+  {
+    name: "Modern Apartment in New York",
+    address: "789 5th Avenue, Manhattan, NY",
+    price: "1250",
+    image: "/images/dashboard/property-two.jpeg",
+    speciality: "Most Viewed Property",
+    rental: "Rent",
+  },
+  {
+    name: "Cozy Cottage in Switzerland",
+    address: "56 Lake Road, Interlaken, Switzerland",
+    price: "670",
+    image: "/images/dashboard/property-three.jpeg",
+    speciality: "Least Demanding Property",
+    rental: "Rent",
+  },
+  {
+    name: "Beachfront House in Bali",
+    address: "101 Ocean Drive, Bali, Indonesia",
+    price: "450",
+    image: "/images/dashboard/property-four.jpeg",
+    speciality: "Most Rented Property",
+    rental: "Rent",
+  },
+];
+
 export {
   notificationsData,
   homeCardsData,
@@ -91,4 +144,6 @@ export {
   totalEarningschartConfig,
   incomeBreakdata,
   incomeLegendLabels,
+  earningsData,
+  propertiesData,
 };

@@ -1,15 +1,19 @@
+import dynamic from "next/dynamic";
 import { PieChartHalf } from "@/components/shared/charts/PieChartHalf";
 import HomeCards from "./HomeCards";
 import Welcome from "./Welcome";
 import {
+  earningsData,
   incomeBreakdata,
   incomeLegendLabels,
   totalEarningschartConfig,
   totalEarningsChartData,
 } from "@/data/data";
-import CustomPieChart from "@/components/shared/charts/CustomPieChart";
 import MyProperties from "./MyProperties";
-import EarningsChart from "@/components/shared/charts/EarningsChart";
+import CustomLineChart from "@/components/shared/charts/CustomLineChart";
+const CustomPieChart = dynamic(() =>
+  import("@/components/shared/charts/CustomPieChart")
+);
 
 const Dashboard = () => {
   return (
@@ -34,7 +38,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="lg:col-span-12">
-            <EarningsChart />
+            <CustomLineChart data={earningsData} />
           </div>
         </div>
         <div className="lg:col-span-5">

@@ -2,10 +2,11 @@ import { RightArrowForwardIcon } from "@/assets/icon";
 import Image from "next/image";
 import Link from "next/link";
 import PropertyCard from "./PropertyCard";
+import { propertiesData } from "@/data/data";
 
 const MyProperties = () => {
   return (
-    <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm h-full">
+    <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm h-[637px] overflow-y-scroll custom-scroll">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
           <Image
@@ -20,8 +21,10 @@ const MyProperties = () => {
           <RightArrowForwardIcon />
         </Link>
       </div>
-      <div className="mt-[18px]">
-        <PropertyCard />
+      <div className="mt-[18px] flex flex-col gap-4 md:gap-6">
+        {propertiesData.slice(0, 5).map((card, i) => (
+          <PropertyCard data={card} key={i} />
+        ))}
       </div>
     </div>
   );
