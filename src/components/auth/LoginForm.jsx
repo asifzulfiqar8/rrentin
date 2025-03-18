@@ -69,6 +69,14 @@ const LoginForm = () => {
             )}
           </div>
         </div>
+        <div className="lg:col-span-12 flex justify-end">
+          <Link
+            href="/forgot-password"
+            className="underline text-primary font-medium"
+          >
+            Forget Password
+          </Link>
+        </div>
         <div className="lg:col-span-12 flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6">
           <Button
             width="w-full md:w-[184px]"

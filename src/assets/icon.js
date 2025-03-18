@@ -15,6 +15,7 @@ import EyeIcon from "./default/EyeIcon";
 import BuildingIcon from "./dashboard/BuildingIcon";
 import ListIcon from "./dashboard/ListIcon";
 import RightArrowForwardIcon from "./dashboard/RightArrowForwardIcon";
+import SelectorDownIcon from "./default/SelectorDownIcon";
 
 export {
   DashboardIcon,
@@ -34,4 +35,5 @@ export {
   BuildingIcon,
   ListIcon,
   RightArrowForwardIcon,
+  SelectorDownIcon,
 };
