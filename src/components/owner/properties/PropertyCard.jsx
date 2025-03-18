@@ -7,14 +7,15 @@ const PropertyCard = ({ data }) => {
   return (
     <div className="relative min-w-[270px] min-h-[255px] w-full h-full rounded-md">
       <Image
-        src="/images/dashboard/property-card-1.png"
+        src={data?.image}
         width={270}
         height={225}
         className="absolute inset-0 w-full h-full object-cover rounded-md"
         alt="property image"
       />
+      <div className="absolute inset-0 w-full h-full rounded-md bg-black/20"></div>
       <div className="bg-white absolute top-0 left-0 py-1 px-2 rounded-br-xs text-[10px] font-semibold text-[#3582E7]">
-        Residential Flat
+        {data?.house}
       </div>
       <div className="absolute top-2 right-2 cursor-pointer">
         <FaRegEdit className="text-white text-xl" />
@@ -23,10 +24,10 @@ const PropertyCard = ({ data }) => {
         <div className="flex items-end justify-between gap-2">
           <div>
             <h6 className="text-xs text-[#FDAC3B] font-bold">
-              Most Demanded Property
+              {data?.speciality}
             </h6>
             <h4 className="text-sm md:text-base font-semibold text-textColor leading-none">
-              Dream House
+              {data?.name}
             </h4>
           </div>
           <span
@@ -37,15 +38,16 @@ const PropertyCard = ({ data }) => {
         </div>
         <p className="my-1 flex items-center gap-1 text-[10px] text-[#969696]">
           <PiMapPinFill className="text-[#0345A5]" />
-          Evergreen 15 Jakarta, Thailand
+          {data?.address}
         </p>
         <div className="border-t border-[#d8d8d8dc] pt-1 flex items-center justify-between">
           <p className="text-sm md:text-base text-textColor font-semibold">
-            $388.00<span className="text-[10px] text-[#C2C2C2]">/month</span>
+            ${data?.price}.00
+            <span className="text-[10px] text-[#C2C2C2]">/month</span>
           </p>
           <div className="flex items-center gap-1">
             <TbStarFilled className="text-[#FAD400] text-sm" />
-            <p className="text-[10px] text-[#969696]">4.9/5</p>
+            <p className="text-[10px] text-[#969696]">{data?.ratings}</p>
           </div>
         </div>
       </div>

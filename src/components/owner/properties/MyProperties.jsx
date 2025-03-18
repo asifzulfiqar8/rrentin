@@ -2,7 +2,11 @@
 import { useState } from "react";
 import MyPropertiesHeader from "./MyPropertiesHeader";
 import PropertyCard from "./PropertyCard";
-import ShowMap from "@/components/shared/ShowMap";
+import dynamic from "next/dynamic";
+import { myPropertiesData } from "@/data/data";
+const ShowMap = dynamic(() => import("@/components/shared/ShowMap"), {
+  ssr: false,
+});
 
 const MyProperties = () => {
   const [tabView, setTabView] = useState("Grid View");
@@ -15,11 +19,9 @@ const MyProperties = () => {
       <div className="mt-5">
         {tabView === "Grid View" ? (
           <div className="grid grid-cols-1 mg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 8, 9, 78, 7, 6, 6, 6].map(
-              (card, i) => (
-                <PropertyCard key={i} />
-              )
-            )}
+            {myPropertiesData.map((card, i) => (
+              <PropertyCard data={card} key={i} />
+            ))}
           </div>
         ) : (
           <ShowMap />

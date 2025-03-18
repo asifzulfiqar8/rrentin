@@ -1,15 +1,7 @@
-"use client"; // If you're using Next.js App Router
+"use client";
 
 import React from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  Polygon,
-  useMap,
-  Tooltip,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -19,25 +11,15 @@ const buildingIcon = L.icon({
   iconAnchor: [28, 56],
 });
 
-const createPriceIcon = (label) =>
-  L.divIcon({
-    className: "custom-price-icon",
-    html: `<div>${label}</div>`,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-  });
+const centerMarkerPosition = [13.7563, 100.5018];
 
-// ----------- SAMPLE DATA -------------
-const polygonCoords = [
-  [51.51, -0.12],
-  [51.52, -0.1],
-  [51.51, -0.08],
-  [51.5, -0.09],
+const buildings = [
+  { position: [13.757, 100.5025] },
+  { position: [13.7555, 100.5] },
+  { position: [13.758, 100.503] },
+  { position: [13.756, 100.5005] },
 ];
-// The main property marker in the center
-const centerMarkerPosition = [51.507, -0.09];
 
-// ----------- COMPONENT -------------
 const ShowMap = () => {
   return (
     <div
@@ -59,8 +41,9 @@ const ShowMap = () => {
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           attribution='&copy; <a href="https://carto.com/">CARTO</a> contributors'
         />
-
-        <Polygon
+        <Circle
+          center={centerMarkerPosition}
+          radius={2000}
           pathOptions={{
             color: "#1a73e8",
             weight: 2,
@@ -68,79 +51,69 @@ const ShowMap = () => {
             fillColor: "#c2e5ff",
             fillOpacity: 0.2,
           }}
-          positions={polygonCoords}
         />
-
-        {/* MAIN PROPERTY MARKER WITH CUSTOM POPUP */}
-        <Marker position={centerMarkerPosition} icon={buildingIcon}>
-          <Popup className="custom-popup">
-            <div style={{ width: "200px" }}>
-              {/* Image or thumbnail */}
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Property"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "6px",
-                  marginBottom: "8px",
-                }}
-              />
-
-              {/* Property Title */}
-              <h3
-                style={{
-                  margin: 0,
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  color: "#333",
-                }}
-              >
-                Dream House
-              </h3>
-
-              {/* Sub info */}
-              <p style={{ margin: "4px 0", fontSize: "14px", color: "#666" }}>
-                8 Properties in Surin, Thailand
-              </p>
-
-              {/* Price & Tag */}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "4px",
-                }}
-              >
-                <span style={{ fontWeight: "600", color: "#333" }}>
-                  $388.00/month
-                </span>
-                <span
+        {buildings.map((b, i) => (
+          <Marker key={i} position={b.position} icon={buildingIcon}>
+            <Popup>
+              <div style={{ width: "200px" }}>
+                <img
+                  src="https://via.placeholder.com/300x200"
+                  alt="Property"
                   style={{
-                    background: "#ffe066",
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "6px",
+                    marginBottom: "8px",
+                  }}
+                />
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: "16px",
+                    fontWeight: "600",
                     color: "#333",
-                    padding: "2px 6px",
-                    borderRadius: "4px",
-                    fontSize: "12px",
                   }}
                 >
-                  Free
-                </span>
+                  Dream House
+                </h3>
+                <p style={{ margin: "4px 0", fontSize: "14px", color: "#666" }}>
+                  8 Properties in Surin, Thailand
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "4px",
+                  }}
+                >
+                  <span style={{ fontWeight: "600", color: "#333" }}>
+                    $388.00/month
+                  </span>
+                  <span
+                    style={{
+                      background: "#ffe066",
+                      color: "#333",
+                      padding: "2px 6px",
+                      borderRadius: "4px",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Free
+                  </span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={{ marginRight: "4px" }}>4.5</span>
+                  <img
+                    src="/images/dashboard/star.png"
+                    alt="star"
+                    style={{ width: "16px", height: "16px" }}
+                  />
+                </div>
               </div>
-
-              {/* Rating */}
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span style={{ marginRight: "4px" }}>4.5</span>
-                <img
-                  src="/images/dashboard/star.png"
-                  alt="star"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-          </Popup>
-        </Marker>
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </div>
   );
