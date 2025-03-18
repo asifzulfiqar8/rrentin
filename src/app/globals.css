@@ -69,6 +69,9 @@ body {
   border-radius: 5px !important;
   box-shadow: 0px 1px 8px 0px #00000014 !important;
   height: 39px !important;
+  border: 0 !important;
+  display: flex;
+  align-items: center !important;
 }
 
 .goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
@@ -94,6 +97,12 @@ body {
 }
 
 #goog-gt-vt {
+  display: none !important;
+  border: 0 !important;
+  box-shadow: unset !important;
+}
+
+.VIpgJd-yAWNEb-L7lbkb {
   display: none !important;
   border: 0 !important;
   box-shadow: unset !important;

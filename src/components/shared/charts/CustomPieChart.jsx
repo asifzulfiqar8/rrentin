@@ -11,26 +11,28 @@ const CustomPieChart = ({ title, data, legend }) => {
       </h6>
       <div className="flex items-center gap-5">
         {/* Pie Chart */}
-        <PieChart width={200} height={200}>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            innerRadius={66}
-            outerRadius={90}
-            fill="#8884d8"
-            paddingAngle={4}
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={colors[index % colors.length]}
-                cornerRadius={5}
-              />
-            ))}
-          </Pie>
-        </PieChart>
+        {data?.length > 0 && (
+          <PieChart width={200} height={200}>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              innerRadius={66}
+              outerRadius={90}
+              fill="#8884d8"
+              paddingAngle={4}
+              dataKey="value"
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={colors[index % colors.length]}
+                  cornerRadius={5}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        )}
 
         {/* Legend Section */}
         <div className="flex flex-col gap-4">
