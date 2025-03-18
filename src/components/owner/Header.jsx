@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import NotificationMenu from "../shared/NotificationMenu";
+import { usePathname, useRouter } from "next/navigation";
+import GoogleTranslate from "../googleTranslate";
 
 const Header = () => {
   const [date, setDate] = useState("");
@@ -48,7 +50,8 @@ const Header = () => {
           </button>
           <NotificationMenu isNotificationOpen={isNotificationOpen} />
         </div>
-        <LanguageSwitch />
+        {/* <LanguageSwitch /> */}
+        <GoogleTranslate />
       </div>
     </header>
   );
@@ -67,19 +70,58 @@ const SwitchButton = () => (
 );
 
 const LanguageSwitch = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [locale, setLocale] = useState("th");
+  const router = useRouter();
+
+  const changeLanguage = (lang) => {
+    if (lang === locale) return;
+    localStorage.setItem("lang", lang);
+    setLocale(lang);
+    router.refresh();
+  };
   return (
-    <button
-      className="py-2 px-5 rounded-[5px] hidden md:flex items-center gap-1 text-xs text-[#969696]"
-      style={{ boxShadow: "0px 1px 6px 0px #00000014" }}
-    >
-      <Image
-        src="/images/default/english-flag.png"
-        width={20}
-        height={13}
-        alt="flag image"
-      />
-      English
-      <IoIosArrowDown className="text-base text-[#969696]" />
-    </button>
+    <div className="relative">
+      <button
+        className="py-2 px-5 rounded-[5px] hidden md:flex items-center gap-1 text-xs text-[#969696] cursor-pointer"
+        onClick={() => setIsOpen(!isOpen)}
+        style={{ boxShadow: "0px 1px 6px 0px #00000014" }}
+      >
+        <Image
+          src={`/images/default/${
+            locale === "en" ? "english" : "thai"
+          }-flag.png`}
+          width={20}
+          height={13}
+          alt="flag"
+          className="rounded-[] object-cover w-[20px]"
+        />
+        {locale === "en" ? "English" : "ไทย"}
+        <IoIosArrowDown className="text-base text-[#969696]" />
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-10 left-0 w-[120px] bg-white rounded-md shadow-lg">
+          <button
+            className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            onClick={() => {
+              changeLanguage("en");
+              setIsOpen(false);
+            }}
+          >
+            🇬🇧 English
+          </button>
+          <button
+            className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            onClick={() => {
+              changeLanguage("th");
+              setIsOpen(false);
+            }}
+          >
+            🇹🇭 ไทย
+          </button>
+        </div>
+      )}
+    </div>
   );
 };

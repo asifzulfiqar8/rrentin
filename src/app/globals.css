@@ -46,6 +46,57 @@
 html,
 body {
   font-family: var(--font-roboto) !important;
+  overflow: hidden;
+  top: 0 !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
+}
+
+.skiptranslate .goog-te-gadget-icon {
+  display: none !important;
+}
+
+#google_translate_element {
+  border-radius: 5px;
+  box-shadow: 0px 1px 8px 0px #00000014;
+  width: auto !important;
+  height: 39px;
+}
+
+#google_translate_element .goog-te-gadget-simple {
+  border-radius: 5px !important;
+  box-shadow: 0px 1px 8px 0px #00000014 !important;
+  height: 39px !important;
+}
+
+.goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  color: #000;
+  display: flex;
+}
+
+.goog-tooltip {
+  display: none !important;
+}
+
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+#goog-gt-vt {
+  display: none !important;
+  border: 0 !important;
+  box-shadow: unset !important;
 }
 
 .phone-input-container .phone-input-field {

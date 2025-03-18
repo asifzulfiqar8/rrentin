@@ -5,7 +5,7 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 const NotificationMenu = ({ isNotificationOpen }) => {
   return (
     <div
-      className={`absolute top-[45px] right-0 w-[300px] md:w-[400px] bg-white rounded-lg py-4 px-5 transition-all duration-200 overflow-y-scroll custom-scroll ${
+      className={`absolute top-[45px] right-0 z-[99] w-[300px] md:w-[400px] bg-white rounded-lg py-4 px-5 transition-all duration-200 overflow-y-scroll custom-scroll ${
         isNotificationOpen
           ? "h-[300px] md:h-[500px] opacity-100"
           : "h-0 opacity-0"
