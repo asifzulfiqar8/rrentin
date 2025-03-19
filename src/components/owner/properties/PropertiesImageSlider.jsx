@@ -31,7 +31,7 @@ const PropertiesImageSlider = () => {
           spaceBetween={10}
           loop
           navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
-          pagination
+          pagination={{ clickable: true }}
         >
           {mainImages.map((img, i) => (
             <SwiperSlide key={i}>
@@ -47,10 +47,10 @@ const PropertiesImageSlider = () => {
         </Swiper>
         <div className="absolute flex items-center justify-between w-full top-[50%] translate-y-[-50%] z-50 px-6">
           <div className="custom-next bg-white size-[27px] rounded-full grid place-items-center">
-            <IoIosArrowBack className="text-primary text-base cursor-pointer" />
+            <IoIosArrowBack className="text-primary text-base cursor-pointer -ml-[2px]" />
           </div>
           <div className="custom-prev bg-white size-[27px] rounded-full grid place-items-center">
-            <IoIosArrowBack className="text-primary text-base rotate-180 cursor-pointer" />
+            <IoIosArrowBack className="text-primary text-base rotate-180 cursor-pointer -mr-[2px]" />
           </div>
         </div>
       </div>
