@@ -10,7 +10,7 @@ const SearchInput = ({ cn, ...rest }) => {
       <input
         type="search"
         {...rest}
-        className="outline-none bg-transparent text-sm text-[#969696e0]"
+        className="outline-none bg-transparent text-sm text-[#969696e0] w-full"
       />
     </div>
   );

@@ -39,7 +39,7 @@ const MyPropertiesHeader = ({ tabView, setTabView }) => {
         {["Map View", "Grid View"].map((view, i) => (
           <button
             key={i}
-            className={`flex items-center gap-[6px] h-[30px] w-[104px] rounded-sm px-2 text-sm text-white font-medium cursor-pointer ${
+            className={`flex items-center gap-[6px] h-[30px]  rounded-sm px-2 text-sm text-white font-medium cursor-pointer ${
               view === tabView ? "bg-primary" : "bg-[#7C848DB2]"
             }`}
             onClick={() => setTabView(view)}

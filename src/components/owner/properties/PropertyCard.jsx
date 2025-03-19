@@ -1,11 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaRegEdit } from "react-icons/fa";
 import { PiMapPinFill } from "react-icons/pi";
 import { TbStarFilled } from "react-icons/tb";
 
 const PropertyCard = ({ data }) => {
   return (
-    <div className="relative min-w-[270px] min-h-[255px] w-full h-full rounded-md">
+    <Link
+      href={`/owner/properties/details/${data?._id}`}
+      className="relative min-w-[270px] min-h-[255px] w-full h-full rounded-md"
+    >
       <Image
         src={data?.image}
         width={270}
@@ -51,7 +55,7 @@ const PropertyCard = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -259,6 +259,7 @@ const propertiesCardsData = [
 
 const myPropertiesData = [
   {
+    _id: 1,
     house: "Residential Flat",
     name: "Dream House",
     speciality: "Most Demanded Property",
@@ -268,6 +269,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-card-1.png",
   },
   {
+    _id: 2,
     house: "Condominium",
     name: "Ocean View",
     speciality: "Luxury Living",
@@ -277,6 +279,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-two.jpeg",
   },
   {
+    _id: 3,
     house: "Townhouse",
     name: "City Escape",
     speciality: "Urban Delight",
@@ -286,6 +289,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-three.jpeg",
   },
   {
+    _id: 4,
     house: "Apartment",
     name: "Sky High",
     speciality: "Modern Living",
@@ -295,6 +299,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-four.jpeg",
   },
   {
+    _id: 5,
     house: "Residential Flat",
     name: "Green Residence",
     speciality: "Eco Friendly",
@@ -304,6 +309,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-two.jpeg",
   },
   {
+    _id: 6,
     house: "Penthouse",
     name: "Luxury Loft",
     speciality: "Exclusive",
@@ -313,6 +319,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-card-1.png",
   },
   {
+    _id: 7,
     house: "Studio",
     name: "Compact Living",
     speciality: "Budget Friendly",
@@ -322,6 +329,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-three.jpeg",
   },
   {
+    _id: 8,
     house: "Villa",
     name: "Paradise Retreat",
     speciality: "Beachside Bliss",
@@ -331,6 +339,7 @@ const myPropertiesData = [
     image: "/images/dashboard/property-four.jpeg",
   },
   {
+    _id: 9,
     house: "Duplex",
     name: "Family Haven",
     speciality: "Spacious & Comfortable",
