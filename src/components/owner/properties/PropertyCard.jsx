@@ -1,13 +1,18 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegEdit } from "react-icons/fa";
 import { PiMapPinFill } from "react-icons/pi";
 import { TbStarFilled } from "react-icons/tb";
+import { useRouter } from "next/navigation";
 
 const PropertyCard = ({ data }) => {
+  const router = useRouter();
   return (
-    <Link
-      href={`/owner/properties/details/${data?._id}`}
+    <div
+      onClick={() => router.push(`/owner/properties/details/${data?._id}`)}
+
+      // href={`/owner/properties/details/${data?._id}`}
       className="relative min-w-[270px] min-h-[255px] w-full h-full rounded-md"
     >
       <Image
@@ -55,7 +60,7 @@ const PropertyCard = ({ data }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

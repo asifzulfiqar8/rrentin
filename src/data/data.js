@@ -256,6 +256,38 @@ const propertiesCardsData = [
     img: "/images/dashboard/tenant.png",
   },
 ];
+const tenantsCardsData = [
+  {
+    title: "Total Tenants",
+    value: "12",
+    para: "You have 12 properties in your portfolio.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Active Tenants",
+    value: "32",
+    para: "03 properties are actively rented out.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Pending Payments",
+    value: "09",
+    para: "09 properties are currently free for rent.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "lease Ending Soon",
+    value: "09",
+    para: "These properties are waiting for admin approval to go live.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Property Views",
+    value: "4,474",
+    para: "It’s<span class='font-medium text-[#E35454]'> +$43.14 </span>better then last month.",
+    img: "/images/dashboard/tenant.png",
+  },
+];
 
 const myPropertiesData = [
   {
@@ -349,6 +381,119 @@ const myPropertiesData = [
     image: "/images/dashboard/property-two.jpeg",
   },
 ];
+const tenants = [
+  {
+    id: 1,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'John Doe',
+    address: '123 Sukhumvit Rd, Bangkok',
+    phone: '(123)-453-092',
+    agentName: 'Agent Name',
+    rent: '$654'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  {
+    id: 2,
+    bgImage: '/images/properties/Bg.png',
+    profileImage: '/images/properties/Buildings.png',
+    name: 'Jane Smith',
+    address: '456 Silom Rd, Bangkok',
+    phone: '(321)-654-098',
+    agentName: 'Agent Name',
+    rent: '$800'
+  },
+  // Add more tenant objects as needed
+];
 
 export {
   notificationsData,
@@ -363,4 +508,6 @@ export {
   bookingSummaryData,
   propertiesCardsData,
   myPropertiesData,
+  tenantsCardsData,
+  tenants
 };

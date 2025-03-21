@@ -1,0 +1,27 @@
+import React from 'react';
+import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
+
+function ReviewsCard() {
+    return (
+        <section className='mt-5'>
+            <h1 className='text-lg font-semibold'>Reviews</h1>
+            <div className='flex flex-col  items-center border-[#D5E0F6] shadow-lg h-[146px] rounded-lg p-4'>
+                <h1 className='text-[22px] font-semibold'>Average Rating</h1>
+                <div className='flex items-center '>
+                    <span className='text-[42px] font-bold'>4.0</span>
+                    <div className='flex text-[#ECBA0B]'>
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaRegStar /> 
+                    </div>
+                </div>
+                <div className='text-xs text-[#323232]'>Average Rating on this Year</div>
+            </div>
+        </section>
+
+    );
+}
+
+export default ReviewsCard;
