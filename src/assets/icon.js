@@ -41,6 +41,8 @@ import Security from "./propertyDetails/Security";
 import Cctv from "./propertyDetails/Cctv";
 import Canal from "./propertyDetails/Canal";
 import GreenView from "./propertyDetails/GreenView";
+import Chat from "./agent/Chat";
+import MessageUser from "./agent/MessageUser";
 
 export {
   DashboardIcon,
@@ -86,4 +88,6 @@ export {
   Cctv,
   Canal,
   GreenView,
+  Chat,
+  MessageUser
 };

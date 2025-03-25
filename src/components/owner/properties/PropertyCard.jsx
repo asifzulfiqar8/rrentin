@@ -13,7 +13,7 @@ const PropertyCard = ({ data }) => {
       onClick={() => router.push(`/owner/properties/details/${data?._id}`)}
 
       // href={`/owner/properties/details/${data?._id}`}
-      className="relative min-w-[270px] min-h-[255px] w-full h-full rounded-md"
+      className="relative cursor-pointer min-w-[270px] min-h-[255px] w-full h-full rounded-md"
     >
       <Image
         src={data?.image}

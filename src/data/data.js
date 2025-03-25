@@ -385,6 +385,38 @@ const tenantsCardsData = [
     img: "/images/dashboard/tenant.png",
   },
 ];
+const agentCardsData = [
+  {
+    title: "Agent Available",
+    value: "12",
+    para: "You have 12 properties in your portfolio.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Hired Agents",
+    value: "32",
+    para: "03 properties are actively rented out.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Agent Dues",
+    value: "09",
+    para: "09 properties are currently free for rent.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Pending Requests",
+    value: "09",
+    para: "These properties are waiting for admin approval to go live.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Property Views",
+    value: "4,474",
+    para: "It’s<span class='font-medium text-[#E35454]'> +$43.14 </span>better then last month.",
+    img: "/images/dashboard/tenant.png",
+  },
+];
 
 const myPropertiesData = [
   {
@@ -478,6 +510,90 @@ const myPropertiesData = [
     image: "/images/dashboard/property-two.jpeg",
   },
 ];
+const myAgentData = [
+  {
+    _id: 1,
+    name: "John Doe",
+    task: "Inspection",
+    address: "Evergreen 15, Jakarta, Thailand",
+    ratings: "4.8",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 2,
+    name: "Jane Smith",
+    task: "Repair",
+    address: "Maple Street 22, New York, USA",
+    ratings: "4.7",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 3,
+    name: "Bob Johnson",
+    task: "Maintenance",
+    address: "Pine Avenue 10, Los Angeles, USA",
+    ratings: "4.9",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 4,
+    name: "Alice Brown",
+    task: "Inspection",
+    address: "Cedar Road 45, Chicago, USA",
+    ratings: "4.6",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 5,
+    name: "Michael Davis",
+    task: "Repair",
+    address: "Elm Street 33, London, UK",
+    ratings: "4.8",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 6,
+    name: "Emily Wilson",
+    task: "Inspection",
+    address: "Birch Lane 18, Sydney, Australia",
+    ratings: "4.7",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 7,
+    name: "David Martinez",
+    task: "Maintenance",
+    address: "Oak Drive 12, Toronto, Canada",
+    ratings: "4.9",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 8,
+    name: "Sarah Lee",
+    task: "Repair",
+    address: "Willow Way 27, Singapore",
+    ratings: "4.5",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 9,
+    name: "Chris Taylor",
+    task: "Inspection",
+    address: "Poplar Court 35, Berlin, Germany",
+    ratings: "4.6",
+    image: "/images/dashboard/property-card-1.png",
+  },
+  {
+    _id: 10,
+    name: "Lisa Anderson",
+    task: "Maintenance",
+    address: "Fir Street 50, Paris, France",
+    ratings: "4.8",
+    image: "/images/dashboard/property-card-1.png",
+  },
+];
+
+
 const tenants = [
   {
     id: 1,
@@ -607,5 +723,7 @@ export {
   myPropertiesData,
   tenantsCardsData,
   tenants,
-  transactionHistoryData
+  transactionHistoryData,
+  agentCardsData,
+  myAgentData
 };

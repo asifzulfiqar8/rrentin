@@ -39,6 +39,12 @@ const pages = [
   },
   {
     id: 4,
+    title: "Agent",
+    link: ["/owner/agent"],
+    icon: <OnDemandIcon />,
+  },
+  {
+    id: 4,
     title: "On Demand Service",
     link: ["/owner/on-demand-service"],
     icon: <OnDemandIcon />,
