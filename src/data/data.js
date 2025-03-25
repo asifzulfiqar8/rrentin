@@ -22,6 +22,30 @@ const tableStyles = {
     },
   },
 };
+const transactionTableStyles = {
+  headCells: {
+    style: {
+      fontSize: "14px",
+      fontWeight: 500,
+      color: "#7E7E7E",
+      borderBottom: "1px solid #32343CB2 !important",
+    },
+  },
+  rows: {
+    style: {
+      background: "transparent",
+      padding: "10px 0",
+      margin: "0",
+      borderBottomStyle: "dashed !important",
+    },
+  },
+  cells: {
+    style: {
+      color: "#32343C",
+      fontSize: "13px",
+    },
+  },
+};
 const notificationsData = [
   {
     reason: "Rent Payment Due",
@@ -222,6 +246,79 @@ const bookingSummaryData = [
     totalCharges: "$16850",
     action: "",
   },
+];
+const transactionHistoryData = [
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "rejected",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "paid",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceID: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  
 ];
 
 const propertiesCardsData = [
@@ -509,5 +606,6 @@ export {
   propertiesCardsData,
   myPropertiesData,
   tenantsCardsData,
-  tenants
+  tenants,
+  transactionHistoryData
 };

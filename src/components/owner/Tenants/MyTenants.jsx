@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import MyTenantsHeader from './MyTenantsHeader';
 import Image from 'next/image';
@@ -7,8 +8,12 @@ import Agents from '@/assets/Tenants/Agents';
 import LeaseList from './LeaseList';
 import { GoArrowUpRight } from "react-icons/go";
 import { tenants } from '@/data/data';
+import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/router';
 
 function MyTenants() {
+    const router = useRouter();
+
     return (
         <section
             className="bg-white rounded-lg p-4 mt-4"
@@ -16,9 +21,9 @@ function MyTenants() {
         >
             <MyTenantsHeader />
             <div className="grid grid-cols-1 mg:grid-cols-2 mt-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
-                {tenants.map((tenant, index)  => (
+                {tenants.map((tenant, index) => (
                     <div
-                    key={`${tenant.id}-${index}`}
+                        key={`${tenant.id}-${index}`}
                         className='min-w-[360px]  bg-white border border-[#D5E0F6] min-h-[330px] w-full h-full rounded-md px-[9px] py-[5px]'
                     >
                         <div className="relative overflow-visible">
@@ -64,7 +69,10 @@ function MyTenants() {
                                     </div>
                                 </div>
                                 <div className='h-6 flex justify-end rounded-[2px]'>
-                                    <Button text={'View Profile'} icon={<GoArrowUpRight />} />
+                                    <Button
+                                        onClick={() => router.push(`/owner/tenants/tenants-profile/${tenant?.id}`)}
+
+                                        text={'View Profile'} icon={<GoArrowUpRight />} />
                                 </div>
                             </div>
 
