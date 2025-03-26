@@ -43,6 +43,8 @@ import Canal from "./propertyDetails/Canal";
 import GreenView from "./propertyDetails/GreenView";
 import Chat from "./agent/Chat";
 import MessageUser from "./agent/MessageUser";
+import PropertyInspection from "./demand/PropertyInspection";
+import ShowAgent from "./demand/ShowAgent";
 
 export {
   DashboardIcon,
@@ -89,5 +91,7 @@ export {
   Canal,
   GreenView,
   Chat,
-  MessageUser
+  MessageUser,
+  PropertyInspection,
+  ShowAgent,
 };

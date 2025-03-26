@@ -5,8 +5,13 @@ import { BsChatSquareDotsFill } from "react-icons/bs";
 import { FaBookmark } from "react-icons/fa";
 import { BsPatchCheckFill } from "react-icons/bs";
 import { MessageUser } from '@/assets/icon';
+import UserReviewsCard from '../properties/UserReviewsCard';
+import { FaStar, FaRegStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 function BasicDetails() {
+
+
+
     return (
         <div
             className=" w-full flex flex-col gap-4"
@@ -112,15 +117,34 @@ function BasicDetails() {
                                         <li>Property Showing ( Base price ): ฿$200</li>
                                         <li>Inspection Fee ( Base price ): ฿$900</li>
                                     </ul>
-                                   
+
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div className='grid col-span-4 bg-white rounded-lg'>
-                    sydgi
+                <div className='grid col-span-4 p-6 bg-white rounded-lg'>
+                    <div className=' flex flex-col justify-between'>
+                        <div className='flex items-center  justify-between'>
+                            <div>
+                                <p className='text-lg font-semibold'>Reviews</p>
+                            </div>
+                            <div className='flex items-center gap-3'>
+                                <p className='text-lg font-semibold'>4.0</p>
+                                <div className="flex text-[#ECBA0B]">
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaRegStar />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <UserReviewsCard />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

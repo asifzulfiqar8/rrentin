@@ -773,4 +773,5 @@ export {
   agentCardsData,
   myAgentData,
   proposalSummaryData,
+  transactionTableStyles
 };

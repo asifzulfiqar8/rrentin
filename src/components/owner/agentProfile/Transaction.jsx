@@ -1,8 +1,11 @@
 import React from 'react'
+import AgentTransactionHistory from './AgentTransactionHistory'
 
 function Transaction() {
   return (
-    <div>Transaction</div>
+    <div className='w-full'>
+      <AgentTransactionHistory/>
+    </div>
   )
 }
 
