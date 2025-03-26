@@ -12,6 +12,8 @@ const Header = () => {
   const [date, setDate] = useState("");
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const notificationRef = useRef(null);
+  const pathname = usePathname();
+  const pathName = pathname.split("/").pop().split("-").join(" ");
 
   useEffect(() => {
     setDate(getDate());
@@ -33,8 +35,8 @@ const Header = () => {
   return (
     <header className="bg-white rounded-lg h-[74px] p-4 flex items-center justify-between gap-4">
       <div>
-        <h2 className="text-xl lg:text-[22px] font-semibold text-text-textColor">
-          Dashboard
+        <h2 className="text-xl lg:text-[22px] font-semibold text-text-textColor capitalize">
+          {pathName}
         </h2>
         <p className="text-xs text-[#969696]">{date}</p>
       </div>

@@ -1,5 +1,7 @@
+import ChatPage from "@/components/owner/messages/ChatPage";
+
 const Messages = () => {
-  return <div>Messages</div>;
+  return <ChatPage />;
 };
 
 export default Messages;
