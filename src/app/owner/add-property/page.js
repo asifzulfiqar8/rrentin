@@ -1,5 +1,7 @@
-const AddProperty = () => {
-  return <div>AddProperty</div>;
+import AddProperty from "@/components/owner/addProperty/AddProperty";
+
+const page = () => {
+  return <AddProperty />;
 };
 
-export default AddProperty;
+export default page;

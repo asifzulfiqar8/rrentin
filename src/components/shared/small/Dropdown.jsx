@@ -4,6 +4,7 @@ import { GoChevronDown } from "react-icons/go";
 
 const Dropdown = ({
   options = [],
+  shadow = false,
   defaultText = "Select",
   onSelect,
   label,
@@ -46,13 +47,15 @@ const Dropdown = ({
   return (
     <div className={`relative ${width ? width : "w-full"}`} ref={dropdownRef}>
       {label && (
-        <label className="text-sm lg:text-base text-[#666666]">{label}</label>
+        <label className="text-sm lg:text-base text-[#666666] font-medium">
+          {label}
+        </label>
       )}
       <button
         type="button"
         aria-expanded={isOpen}
         aria-label={`Dropdown for ${label || "options"}`}
-        className={`${
+        className={`${shadow && "shadow-input"} ${
           readOnly ? "cursor-not-allowed" : "border-[#E0E0E9]"
         } ${mainClassName} mt-2 px-4 h-[56px] border border-[#66666659] rounded-xl w-full text-sm lg:text-base text-[#666666] flex items-center justify-between`}
         onClick={() => !readOnly && setIsOpen(!isOpen)}
