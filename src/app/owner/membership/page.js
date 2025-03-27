@@ -1,5 +1,7 @@
+import MembershipDetails from "@/components/owner/memebership/MembershipDetails";
+
 const Membership = () => {
-  return <div>Membership</div>;
+  return <MembershipDetails />;
 };
 
 export default Membership;

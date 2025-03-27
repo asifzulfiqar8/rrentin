@@ -9,6 +9,7 @@
   --font-roboto: "Roboto", sans-serif;
   --primary: #0245a5;
   --text-color: #32343c;
+  --custom-shadow: 0px 0px 12px 0px #6879811c;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -94,6 +95,7 @@ body {
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-textColor: var(--text-color);
+  --shadow-custom: var(--custom-shadow);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);

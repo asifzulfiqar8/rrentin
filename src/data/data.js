@@ -754,6 +754,111 @@ const proposalSummaryData = [
   },
 ];
 
+const subscriptionPlans = [
+  {
+    id: 1,
+    name: "Free",
+    description: "For individual hobby landlords.",
+    price: "0",
+    features: [
+      "3 Properties",
+      "Contract Details",
+      "Limited Insights",
+      "Limited reports",
+      "Limited Customer Support",
+    ],
+    buttonText: "Current Plan",
+    buttonType: "disabled",
+  },
+  {
+    id: 2,
+    name: "Plus",
+    description: "For landlords with expanding portfolios.",
+    price: "699",
+    features: [
+      "10 Properties",
+      "Listings Status",
+      "Listing Performance",
+      "Contract Details",
+      "Business Insights",
+      "Rental Yield Insights",
+      "Tenant traffic insights",
+      "Financial Insights",
+      "Reports",
+      "Customer Support",
+    ],
+    buttonText: "Upgrade to Plus",
+    buttonType: "primary",
+  },
+  {
+    id: 3,
+    name: "Portfolio",
+    description: "For investors managing multiple properties",
+    price: "no-pricing",
+    features: [
+      "10+ Properties",
+      "All plus plan features",
+      "Advanced Insights",
+      "Lower rate",
+      "Priority Customer support",
+      "Onboarding",
+    ],
+    buttonText: "Contact us",
+    buttonType: "primary",
+  },
+];
+
+const alreadySubscribedData = [
+  {
+    _id: 1,
+    planName: "Basic",
+    startDate: "23-Jan-2025",
+    endDate: "23-Feb-2025",
+    amount: "$454",
+    status: "Active",
+  },
+  {
+    _id: 2,
+    planName: "Standard",
+    startDate: "01-Feb-2025",
+    endDate: "01-Mar-2025",
+    amount: "$600",
+    status: "Active",
+  },
+  {
+    _id: 3,
+    planName: "Premium",
+    startDate: "15-Feb-2025",
+    endDate: "15-Mar-2025",
+    amount: "$750",
+    status: "Expired",
+  },
+  {
+    _id: 4,
+    planName: "Basic",
+    startDate: "05-Mar-2025",
+    endDate: "05-Apr-2025",
+    amount: "$454",
+    status: "Active",
+  },
+  {
+    _id: 5,
+    planName: "Standard",
+    startDate: "10-Mar-2025",
+    endDate: "10-Apr-2025",
+    amount: "$600",
+    status: "Cancelled",
+  },
+  {
+    _id: 6,
+    planName: "Premium",
+    startDate: "20-Mar-2025",
+    endDate: "20-Apr-2025",
+    amount: "$750",
+    status: "Active",
+  },
+];
+
 export {
   notificationsData,
   homeCardsData,
@@ -773,5 +878,7 @@ export {
   agentCardsData,
   myAgentData,
   proposalSummaryData,
-  transactionTableStyles
+  transactionTableStyles,
+  subscriptionPlans,
+  alreadySubscribedData,
 };

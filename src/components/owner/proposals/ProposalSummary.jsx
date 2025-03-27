@@ -3,6 +3,7 @@ import { proposalSummaryData, tableStyles } from "@/data/data";
 import { useState } from "react";
 import DataTable from "react-data-table-component";
 import ProposalModal from "./ProposalModal";
+import { GoArrowUpRight } from "react-icons/go";
 
 const ProposalSummary = () => {
   const [modal, setModal] = useState(false);
@@ -29,6 +30,12 @@ const ProposalSummary = () => {
         fixedHeader
         fixedHeaderScrollHeight="70vh"
       />
+      <div className="flex justify-center mt-4">
+        <button className="flex items-center gap-1 bg-primary py-[6px] px-2 rounded-sm text-white text-sm found-medium cursor-pointer">
+          View more
+          <GoArrowUpRight className="text-base text-white" />
+        </button>
+      </div>
       {modal && selectedRow && (
         <ProposalModal
           onClose={modalCloseHandler}

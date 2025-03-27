@@ -17,7 +17,7 @@ const agents = [
     name: "Zilan",
     role: "Admin1",
     avatar: "/images/default/avatar.jpeg",
-    status: "online",
+    status: "offline",
     location: "123 Sukhumvit Rd, Bangkok, Thailand",
     time: "12:34 PM",
   },
@@ -52,7 +52,7 @@ const tenants = [
     name: "Nora",
     role: "Admin2",
     avatar: "/images/default/avatar-2.jpeg",
-    status: "online",
+    status: "offline",
     location: "123 Sukhumvit Rd, Bangkok, Thailand",
     time: "12:34 PM",
   },
@@ -256,8 +256,8 @@ export default function ChatPage() {
               <p
                 className={`text-sm font-medium capitalize ${
                   selectedUser?.status === "online"
-                    ? "text-onlineTextColor"
-                    : "text-redText"
+                    ? "text-[#36CE00]"
+                    : "text-red-600"
                 }`}
               >
                 {selectedUser?.status}
