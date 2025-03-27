@@ -45,7 +45,7 @@ import Chat from "./agent/Chat";
 import MessageUser from "./agent/MessageUser";
 import PropertyInspection from "./demand/PropertyInspection";
 import ShowAgent from "./demand/ShowAgent";
-
+import Arrow from "./payment/Arrow";
 export {
   DashboardIcon,
   PropertiesIcon,
@@ -94,4 +94,5 @@ export {
   MessageUser,
   PropertyInspection,
   ShowAgent,
+  Arrow,
 };

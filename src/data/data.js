@@ -125,7 +125,17 @@ const incomeBreakdata = [
   { name: "Pending Payments", value: 30 },
   { name: "Expenses", value: 30 },
 ];
+const tenantIntent = [
+  { name: "Total Rent Collected", value: 40 },
+  { name: "Pending Payments", value: 30 },
+  { name: "Expenses", value: 30 },
+];
 
+const tenantIncomeLegendLabels = [
+  "Total Rent Collected (40%)",
+  "Pending Payments (30%)",
+  "Expenses (30%)",
+];
 const incomeLegendLabels = [
   "Total Rent Collected (40%)",
   "Pending Payments (30%)",
@@ -320,6 +330,88 @@ const transactionHistoryData = [
   },
 ];
 
+const paymentTransactionData = [
+  {
+    invoiceHistory: "Invoice#0021",
+    accountDetails: 1,
+    date: "23-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0022",
+    accountDetails: 2,
+    date: "24-jan-2025",
+    amount: "$500",
+    paymentStatus: "rejected",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0023",
+    accountDetails: 3,
+    date: "25-jan-2025",
+    amount: "$600",
+    paymentStatus: "paid",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0024",
+    accountDetails: 4,
+    date: "26-jan-2025",
+    amount: "$700",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0025",
+    accountDetails: 5,
+    date: "27-jan-2025",
+    amount: "$800",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0026",
+    accountDetails: 6,
+    date: "28-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0027",
+    accountDetails: 7,
+    date: "29-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0028",
+    accountDetails: 8,
+    date: "30-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0029",
+    accountDetails: 9,
+    date: "31-jan-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+  {
+    invoiceHistory: "Invoice#0030",
+    accountDetails: 10,
+    date: "01-feb-2025",
+    amount: "$454",
+    paymentStatus: "pending",
+    slip: "",
+  },
+];
 const propertiesCardsData = [
   {
     title: "Total Properties",
@@ -350,6 +442,43 @@ const propertiesCardsData = [
     value: "4,474",
     para: "It’s<span class='font-medium text-[#E35454]'> +$43.14 </span>better then last month.",
     img: "/images/dashboard/tenant.png",
+  },
+];
+const insightCardsData = [
+  {
+    title: "Total Properties Listed",
+    value: "12",
+    percentage: '+13%',
+    para: "You have 12 properties in your portfolio.",
+    img: "/images/dashboard/rental.png",
+  },
+  {
+    title: "Total Views (30 Days)",
+    value: "32",
+    percentage: '+13%',
+    para: "03 properties are actively rented out.",
+    img: "/images/dashboard/tenant.png",
+  },
+  {
+    title: "Total Inquiries Received",
+    value: "09",
+    percentage: '+13%',
+    para: "09 properties are currently free for rent.",
+    img: "/images/insight/Window.png",
+  },
+  {
+    title: "Total Revenue Earned",
+    value: "09",
+    percentage: '+13%',
+    para: "These properties are waiting for admin approval to go live.",
+    img: "/images/properties/dollar.png",
+  },
+  {
+    title: "Occupancy Rate",
+    value: "4,474",
+    percentage: '+13%',
+    para: "It’s<span class='font-medium text-[#E35454]'> +$43.14 </span>better then last month.",
+    img: "/images/insight/Graph.png",
   },
 ];
 const tenantsCardsData = [
@@ -753,6 +882,115 @@ const proposalSummaryData = [
     status: "pending",
   },
 ];
+export const PropertyPerformanceData = [
+  {
+    propertyName: "Luxury Villa",
+    view: 120,
+    inquiries: 15,
+    status: "Confirmed",
+    revenue: 7500,
+  },
+  {
+    propertyName: "Ocean View Apartment",
+    view: 95,
+    inquiries: 10,
+    status: "Pending",
+    revenue: 4300,
+  },
+  {
+    propertyName: "Mountain Retreat",
+    view: 150,
+    inquiries: 20,
+    status: "Cancelled",
+    revenue: 2500,
+  },
+  {
+    propertyName: "City Loft",
+    view: 85,
+    inquiries: 8,
+    status: "Confirmed",
+    revenue: 5600,
+  },
+  {
+    propertyName: "Beach House",
+    view: 110,
+    inquiries: 12,
+    status: "Pending",
+    revenue: 4900,
+  },
+];
+export const PropertyPerformanceTableStyles = {
+  headCells: {
+    style: {
+      fontSize: "14px",
+      fontWeight: 600,
+      color: "black",
+      // borderBottom: "1px solid #32343CB2 !important",
+    },
+  },
+  rows: {
+    style: {
+      // background: "transparent",
+      padding: "10px 0",
+      margin: "0",
+      background: "#0245A51A",
+      borderRadius: "20px",
+      margin: "4px 0",
+      border: 'none',
+      height:'38px'
+      // borderBottomStyle: "dashed !important",
+    },
+  },
+  cells: {
+    style: {
+      color: "#32343C",
+      fontSize: "13px",
+    },
+  },
+};
+export const TenantDisputesData = [
+  {
+    tenantName: "John Doe",
+    propertyName: "Sunset Boulevard",
+    view: 135,
+    inquiryType: "Late Rent Payment",
+    status: "Pending",
+    date: "Mar 10",
+  },
+  {
+    tenantName: "Alice Smith",
+    propertyName: "Greenwood Apartment",
+    view: 90,
+    inquiryType: "Property Damage",
+    status: "Resolved",
+    date: "Feb 25",
+  },
+  {
+    tenantName: "Michael Brown",
+    propertyName: "Lakeview Condo",
+    view: 145,
+    inquiryType: "Noisy Neighbors",
+    status: "Under Review",
+    date: "Mar 5",
+  },
+  {
+    tenantName: "Sarah Johnson",
+    propertyName: "Downtown Loft",
+    view: 75,
+    inquiryType: "Unauthorized Pets",
+    status: "Rejected",
+    date: "Feb 15",
+  },
+  {
+    tenantName: "David Wilson",
+    propertyName: "Palm Beach House",
+    view: 120,
+    inquiryType: "Security Deposit Dispute",
+    status: "Confirmed",
+    date: "Mar 1",
+  },
+];
+
 
 const subscriptionPlans = [
   {
@@ -881,4 +1119,8 @@ export {
   transactionTableStyles,
   subscriptionPlans,
   alreadySubscribedData,
+  paymentTransactionData,
+  insightCardsData,
+  tenantIntent,
+  tenantIncomeLegendLabels
 };
