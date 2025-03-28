@@ -990,7 +990,143 @@ export const TenantDisputesData = [
     date: "Mar 1",
   },
 ];
-
+export const notificationData = [
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due',
+    binPercentage: 95,
+    time1: '30min',
+    time2: '45min',
+    status: 'Bin at Location 1 is full and needs collection',
+    date: '2025-03-13T10:00:00', // Today (if today is March 13, 2025)
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 50,
+    time1: '15min',
+    time2: '30min',
+    status: 'half',
+    date: '2025-03-12T09:00:00', // Yesterday
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 20,
+    time1: '5min',
+    time2: '20min',
+    status: 'serviced',
+    date: '2025-03-11T08:00:00', // 2 days ago (Tuesday if today is Wednesday, adjust as needed)
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 85,
+    time1: '40min',
+    time2: '55min',
+    status: 'Bin at Location 4 is full and needs collection',
+    date: '2025-03-10T07:00:00', // 3 days ago
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 65,
+    time1: '35min',
+    time2: '50min',
+    status: 'half',
+    date: '2025-03-09T06:00:00', // 4 days ago
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 10,
+    time1: '20min',
+    time2: '40min',
+    status: 'serviced',
+    date: '2025-03-08T12:00:00', // 5 days ago
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 100,
+    time1: '45min',
+    time2: '60min',
+    status: 'Bin at Location 7 is full and needs collection',
+    date: '2025-03-07T14:00:00', // 6 days ago
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 75,
+    time1: '25min',
+    time2: '35min',
+    status: 'Bin at Location 8 is full and needs collection',
+    date: '2025-03-06T16:00:00', // 7 days ago
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -',
+    binPercentage: 30,
+    time1: '10min',
+    time2: '20min',
+    status: 'half',
+    date: '2025-03-05T11:00:00', // 8 days ago → Previous
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -0',
+    binPercentage: 55,
+    time1: '20min',
+    time2: '30min',
+    status: 'serviced',
+    date: '2025-03-04T10:00:00', // 9 days ago → Previous
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -1',
+    binPercentage: 80,
+    time1: '40min',
+    time2: '55min',
+    status: 'Bin at Location 11 is full and needs collection',
+    date: '2025-03-03T09:00:00', // 10 days ago → Previous
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -2',
+    binPercentage: 45,
+    time1: '15min',
+    time2: '25min',
+    status: 'half',
+    date: '2025-03-02T08:00:00', // 11 days ago → Previous
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -3',
+    binPercentage: 35,
+    time1: '10min',
+    time2: '20min',
+    status: 'serviced',
+    date: '2025-03-01T07:00:00', // 12 days ago → Previous
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -4',
+    binPercentage: 90,
+    time1: '50min',
+    time2: '65min',
+    status: 'Bin at Location 14 is full and needs collection',
+    date: '2025-02-28T06:00:00', // 13 days ago → Previous
+  },
+  {
+    image: '/images/agent/UserProfile.png',
+    binName: 'Rent Payment due -5',
+    binPercentage: 60,
+    time1: '30min',
+    time2: '45min',
+    status: 'half',
+    date: '2025-02-27T05:00:00', // 14 days ago → Previous
+  },
+];
 
 const subscriptionPlans = [
   {

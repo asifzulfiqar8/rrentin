@@ -15,7 +15,7 @@ const AgentCard = ({ data }) => {
     const router = useRouter();
     return (
         <div
-            className="relative cursor-pointer min-w-[270px] min-h-[255px] w-full h-full rounded-md"
+            className="relative  min-w-[270px] min-h-[255px] w-full h-full rounded-md"
         >
             <Image
                 src={data?.image}
