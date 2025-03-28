@@ -83,7 +83,7 @@ const Step = ({ step, index, currentStep, setCurrentStep, stepsLength }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M0 1L200 0.999989" stroke="#0245A5" stroke-width="1.7" />
+            <path d="M0 1L200 0.999989" stroke="#0245A5" strokeWidth="1.7" />
           </svg>
         </span>
       )}
