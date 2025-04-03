@@ -18,7 +18,7 @@ const MyProperties = () => {
       <MyPropertiesHeader tabView={tabView} setTabView={setTabView} />
       <div className="mt-5">
         {tabView === "Grid View" ? (
-          <div className="grid grid-cols-1 mg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
             {myPropertiesData.map((card, i) => (
               <PropertyCard data={card} key={i} />
             ))}

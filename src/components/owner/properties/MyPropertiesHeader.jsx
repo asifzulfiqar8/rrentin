@@ -12,7 +12,7 @@ const MyPropertiesHeader = ({ tabView, setTabView }) => {
   const [selectedType, setSelectedType] = useState("Type");
 
   return (
-    <section className="flex items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
+    <section className="flex flex-col md:flex-row items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
       <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
         <Image
           src="/images/dashboard/rental.png"
@@ -23,7 +23,9 @@ const MyPropertiesHeader = ({ tabView, setTabView }) => {
         My Properties
       </div>
       <div className="flex items-center gap-6">
-        <SearchInput placeholder="properties" cn="!w-[440px]" />
+      <div className="w-full lg:w-[440px]">
+        <SearchInput placeholder="properties"  />
+      </div>
         <Selector
           lists={["All", "Active", "Inactive"]}
           selectedOption={selectedStatus}

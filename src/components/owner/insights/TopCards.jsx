@@ -3,14 +3,13 @@ import Image from "next/image";
 
 const TopCards = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 mt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-5 gap-4 md:gap-6 mt-4">
             {insightCardsData.map((card, i) => (
                 <Card key={i} card={card} />
             ))}
         </div>
     );
 };
-
 export default TopCards;
 
 const Card = ({ card }) => {

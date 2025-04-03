@@ -14,26 +14,26 @@ const Insights = () => {
         Insight Details
       </h3>
       <TopCards />
-      <div className="grid grid-cols-3  h-[247px] gap-4 ">
-        <div className="flex bg-white  h-[247px] shadow-md rounded-md">
+      <div className="grid grid-cols-1 lg:grid-cols-12   gap-4 ">
+        <div className="flex bg-white grid-cols-12  lg:col-span-4 h-[247px] shadow-md rounded-md">
           <TenantIntent
             title="Tenant Intent"
             data={tenantIntent}
             legend={tenantIncomeLegendLabels}
           />
         </div>
-        <div className="flex bg-white  h-[247px] shadow-md rounded-md">
+        <div className="flex bg-white grid-cols-12  lg:col-span-4 h-[247px] shadow-md rounded-md">
           <TotalRevenue />
         </div>
-        <div className="flex bg-white  h-[247px] shadow-md rounded-md">
+        <div className="flex bg-white grid-cols-12  lg:col-span-4 h-[247px] shadow-md rounded-md">
           <InquiryRate />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className=" bg-white h-[336px] p-5 shadow-md rounded-md">
-          {/* <PropertyPerformance /> */}
+      <div className="grid grid-cols-1  lg:grid-cols-12 gap-4">
+        <div className=" bg-white lg:col-span-6 h-[336px] p-5 shadow-md rounded-md">
+          <PropertyPerformance />
         </div>
-        <div className=" bg-white h-[336px] p-5 shadow-md rounded-md">
+        <div className=" bg-white lg:col-span-6 h-[336px] p-5 shadow-md rounded-md">
           <TenantDisputes />
         </div>
       </div>

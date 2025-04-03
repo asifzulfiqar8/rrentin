@@ -14,7 +14,7 @@ const TenantIntent = ({ title, data, legend }) => {
     if (!isClient) return null; // Prevents SSR from mismatching HTML
 
     return (
-        <div className="bg-white flex items-start flex-col gap-1 p-4 h-full">
+        <div className="bg-white flex items-start flex-col gap-1 p-4 w-full h-full">
             <h6 className="text-center text-gray-700 text-base font-semibold">
                 {title}
             </h6>

@@ -83,7 +83,8 @@ function HiringNewAgent() {
         className="bg-white rounded-lg p-4 mt-4"
         style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
       >
-        <NewAgentCardHeader />
+
+          <NewAgentCardHeader />
         <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] ">
           {cardsData.map((data, index) => (
             <NewAgentCard key={index} data={data} />

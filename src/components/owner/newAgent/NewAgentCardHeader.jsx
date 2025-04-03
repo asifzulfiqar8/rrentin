@@ -24,7 +24,10 @@ const NewAgentCardHeader = ({ tabView, setTabView }) => {
                 Available Agents
             </div>
             <div className="flex items-center gap-6">
-                <SearchInput placeholder="properties" cn="!w-[440px]" />
+                <div className="w-[200px] lg:w-[440px]">
+
+                    <SearchInput placeholder="properties" cn="!w-[440px]" />
+                </div>
                 <Selector
                     lists={["All", "Active", "Inactive"]}
                     selectedOption={selectedLocation}

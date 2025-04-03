@@ -23,7 +23,10 @@ const AgentCardHeader = ({ tabView, setTabView }) => {
                 My On Demand Agents
             </div>
             <div className="flex items-center gap-6">
-                <SearchInput placeholder="properties" cn="!w-[440px]" />
+                <div className="w-full lg:w-[440px]">
+
+                    <SearchInput placeholder="properties"  />
+                </div>
                 <Selector
                     lists={["All", "Active", "Inactive"]}
                     selectedOption={selectedStatus}
@@ -35,7 +38,7 @@ const AgentCardHeader = ({ tabView, setTabView }) => {
                     setSelectedOption={setSelectedType}
                 />
             </div>
-            
+
         </section>
     );
 };

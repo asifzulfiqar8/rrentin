@@ -20,7 +20,7 @@ function Stripe() {
                 <p className='text-lg font-bold'>Available Balance</p>
                 <p className='text-[34px] font-bold'>$144,000.00</p>
             </div>
-            <div>
+            <div className='mb-3.5'>
                 <button
                     onClick={() => setIsModalOpen(true)}
                     className='px-3 py-2 bg-primary rounded-md text-white'

@@ -60,7 +60,7 @@ function UserReviewsCard() {
   return (
     <div className="flex flex-col mt-2 items-center border-[#D5E0F6] shadow-lg rounded-lg p-4 w-full">
       {/* User Info & Rating */}
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full flex-col lg:flex-row  items-center justify-between">
         <div className="flex gap-2 items-center">
           <Image
             src={currentReview.image}
