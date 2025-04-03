@@ -29,7 +29,7 @@ const CustomActiveDot = (props) => {
       <circle
         cx={cx}
         cy={cy}
-        r={5}
+        r={10}
         fill="#FFF"
         stroke="#FB923C"
         strokeWidth={2}
@@ -71,7 +71,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 export default function InsightEarning({
   data,
   width = "100%",
-  height = 350,
+  height = 320,
 }) {
   return (
     <div

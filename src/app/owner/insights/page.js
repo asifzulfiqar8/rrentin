@@ -34,11 +34,11 @@ const Insights = () => {
           {/* <PropertyPerformance /> */}
         </div>
         <div className=" bg-white h-[336px] p-5 shadow-md rounded-md">
-          {/* <TenantDisputes /> */}
+          <TenantDisputes />
         </div>
       </div>
       <div className="grid grid-cols-1 bg-white h-[370px] p-5 shadow-md rounded-md">
-        {/* <InsightEarning  data={earningsData}/> */}
+        <InsightEarning  data={earningsData}/>
       </div>
     </div>
   )

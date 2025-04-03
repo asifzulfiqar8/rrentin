@@ -20,7 +20,7 @@ const transformedData = dailyData.map(item => ({
 
 function InquiryRate() {
     return (
-        <div className="flex flex-col  rounded-lg  p-1 w-full md:p-3 ">
+        <div className="flex flex-col rounded-lg  p-1 w-full md:p-3 ">
             <h6 className=" text-gray-700 text-base font-semibold">Inquiry Rate</h6>
             <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart

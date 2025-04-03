@@ -15,9 +15,16 @@ import {
 } from "@/assets/icon";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { BsThreeDots } from "react-icons/bs";
 
+
+
+const Aside = () => {
+  const {id} =useParams()
+  const params = useParams();
+  const tenantId = params.tenantId
+  const agentid = params.agentid
 const pages = [
   {
     id: 1,
@@ -28,25 +35,25 @@ const pages = [
   {
     id: 2,
     title: "Properties",
-    link: ["/owner/properties"],
+    link: ["/owner/properties",`/owner/properties/details/${id}`],
     icon: <PropertiesIcon />,
   },
   {
     id: 3,
     title: "Tenants",
-    link: ["/owner/tenants"],
+    link: ["/owner/tenants", `/owner/tenants/tenants-profile/${tenantId}`],
     icon: <TenantIcon />,
   },
   {
     id: 4,
     title: "Agent",
-    link: ["/owner/agent"],
+    link: ["/owner/agent",`/owner/agent/agent-profile/${agentid}`],
     icon: <OnDemandIcon />,
   },
   {
     id: 4,
     title: "On Demand Service",
-    link: ["/owner/on-demand-service"],
+    link: ["/owner/on-demand-service" ,'/owner/inspection',"/owner/agent/hiring-new-agent"],
     icon: <OnDemandIcon />,
   },
   {
@@ -87,7 +94,6 @@ const pages = [
   },
 ];
 
-const Aside = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (

@@ -72,7 +72,8 @@ function MyTenants() {
                                     <Button
                                         onClick={() => router.push(`/owner/tenants/tenants-profile/${tenant?.id}`)}
 
-                                        text={'View Profile'} icon={<GoArrowUpRight />} />
+                                        text={'View Profile'} icon={<GoArrowUpRight />}
+                                    />
                                 </div>
                             </div>
 

@@ -9,10 +9,7 @@ import { useRouter } from "next/navigation";
 const PropertyCard = ({ data }) => {
   const router = useRouter();
   return (
-    <div
-      onClick={() => router.push(`/owner/properties/details/${data?._id}`)}
-
-      // href={`/owner/properties/details/${data?._id}`}
+    <Link href={`/owner/properties/details/${data?._id}`} passHref
       className="relative cursor-pointer min-w-[270px] min-h-[255px] w-full h-full rounded-md"
     >
       <Image
@@ -60,7 +57,7 @@ const PropertyCard = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

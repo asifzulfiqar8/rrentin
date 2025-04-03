@@ -44,6 +44,11 @@ const ProposalSummary = () => {
         >
           <div>
             <p className="text-base md:text-2xl text-center text-textColor">
+              <strong className="text-2xl font-semibold">
+                Proposal Overview
+              </strong>
+            </p>
+            <p className="text-base md:text-2xl text-center text-textColor">
               Proposal ID: {selectedRow.proposalId}
             </p>
             <p className="text-center text-textColor text-sm md:text-base">
@@ -51,32 +56,69 @@ const ProposalSummary = () => {
             </p>
             <hr className="my-2 border-textColor border-dashed" />
             <div className="space-y-2">
-              <p>
-                <strong>Sent To:</strong> {selectedRow.sentTo}
-              </p>
-              <p>
-                <strong>Property Name:</strong> {selectedRow.propertyName}
-              </p>
-              <p>
-                <strong>Proposal Type:</strong> {selectedRow.proposalType}
-              </p>
-              <p>
-                <strong>Date Sent:</strong> {selectedRow.dateSent}
-              </p>
-              <p>
-                <strong>Status:</strong>{" "}
-                <span
-                  className={`capitalize ${
-                    selectedRow.status === "accepted"
+              <div className="px-8 py-6 border-[#32343C] border-b  ">
+                <p className="flex justify-between">
+                  <strong>Sent To:</strong>
+                  <p>
+                    {selectedRow.sentTo}
+                  </p>
+                </p>
+              </div>
+              <div className="px-8 py-6 border-[#32343C] border-b  ">
+                <p className="flex justify-between">
+                  <strong>Property Name:</strong>
+                  <p>
+                    {selectedRow.propertyName}
+                  </p>
+                </p>
+              </div>
+              <div className="px-8 py-6 border-[#32343C] border-b  ">
+                <p className="flex justify-between">
+                  <strong>Property Address:</strong>
+                  <p>
+                    {selectedRow.proposalType}
+                  </p>
+                </p>
+              </div>
+              <div className="px-8 py-6 border-[#32343C] border-b  ">
+                <p className="flex justify-between">
+                  <strong>Rent Amount:</strong>
+                  <p>
+                    {selectedRow.dateSent}
+                  </p>
+                </p>
+              </div>
+              <div className="px-8 py-6 border-[#32343C] border-b  ">
+                <p className="flex justify-between">
+                  <strong>Contact Duration:</strong>
+                  <p>
+                    {selectedRow.dateSent}
+                  </p>
+                </p>
+              </div>
+              <div className="px-8 py-6 border-[#32343C] border-b  ">
+                <p className="flex justify-between">
+                  <strong>Proposed Move-in Date:</strong>
+                  <p>
+                    {selectedRow.dateSent}
+                  </p>
+                </p>
+              </div>
+              <div className="px-8 py-6 border-[#32343C] border-b  ">
+                <p className="flex justify-between">
+                  <strong>Status:</strong>{" "}
+                  <span
+                    className={`capitalize ${selectedRow.status === "accepted"
                       ? "text-green-500"
                       : selectedRow.status === "pending"
-                      ? "text-yellow-500"
-                      : "text-red-500"
-                  }`}
-                >
-                  {selectedRow.status}
-                </span>
-              </p>
+                        ? "text-yellow-500"
+                        : "text-red-500"
+                      }`}
+                  >
+                    {selectedRow.status}
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </ProposalModal>
@@ -115,8 +157,8 @@ const columns = (modalOpenHandler) => [
         {row.status === "accepted"
           ? "✅"
           : row.status === "pending"
-          ? "⌛"
-          : "❌"}{" "}
+            ? "⌛"
+            : "❌"}{" "}
         {row.status}
       </span>
     ),

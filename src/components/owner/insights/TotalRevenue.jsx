@@ -54,7 +54,7 @@ function TotalRevenue() {
             if (activePayload) {
                 return (
                     <div className="custom-tooltip p-2 bg-primary border rounded shadow">
-                        <p className="label">{`${activePayload.value} bin`}</p>
+                        <p className="label">{`${activePayload.value} Revenue`}</p>
                     </div>
                 );
             }
@@ -76,10 +76,10 @@ function TotalRevenue() {
                     <option value="monthly">Monthly</option>
                 </select>
             </div>
-            <ResponsiveContainer width="100%" height='100%'>
+            <ResponsiveContainer background='red' width="100%" height='100%'>
                 <ComposedChart
                     data={transformedData}
-                    margin={{ top: 10, right: 10, left: 10, bottom: 10 }}
+                    margin={{ top: 0, right: 10, left: 10, bottom: 10 }}
                 >
                     <XAxis
                         dataKey="name"
@@ -99,6 +99,7 @@ function TotalRevenue() {
                         dataKey="remaining"
                         stackId="a"
                         fill="#F4F5F9"
+                        margin='10px'
                         barSize={50}
                     />
                     <Line
