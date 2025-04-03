@@ -34,7 +34,7 @@ const InspectionCard = ({ data }) => {
                 />
                 <div className="absolute w-[75px] h-[75px] z-10 -bottom-5 left-1/2 transform -translate-x-1/2">
                     <Image
-                        src={userImage}
+                        src={data.userImage}
                         width={75}
                         height={75}
                         alt="Profile Image"
