@@ -115,9 +115,16 @@ const homeCardsData = [
 const totalEarningsChartData = [
   { month: "January", desktop: 1260, mobile: 570 },
 ];
+export const totalEarningsRentChartData = [
+  { month: "January", desktop: 1260, mobile: 570 },
+];
 const totalEarningschartConfig = {
   desktop: { label: "Earned Amount", color: "#5390E0" },
   mobile: { label: "Withdrawn Amount", color: "#0245A5" },
+};
+export const totalEarningsRentChartConfig = {
+  desktop: { label: "Paid Rent", color: "#5390E0" },
+  mobile: { label: "Pending Rent", color: "#0245A5" },
 };
 
 const incomeBreakdata = [

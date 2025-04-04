@@ -46,6 +46,9 @@ import MessageUser from "./agent/MessageUser";
 import PropertyInspection from "./demand/PropertyInspection";
 import ShowAgent from "./demand/ShowAgent";
 import Arrow from "./payment/Arrow";
+import FavoriteIcon from "./aside/FavoriteIcon";
+import BrowseProperties from "./aside/BrowseProperties";
+
 export {
   DashboardIcon,
   PropertiesIcon,
@@ -95,4 +98,6 @@ export {
   PropertyInspection,
   ShowAgent,
   Arrow,
+  FavoriteIcon,
+  BrowseProperties,
 };

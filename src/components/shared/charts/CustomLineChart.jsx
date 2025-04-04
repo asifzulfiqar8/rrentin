@@ -1,5 +1,6 @@
-"use client";
-import React from "react";
+
+'use client'
+import React, { useState } from "react";
 import {
   AreaChart,
   Area,
@@ -9,6 +10,9 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { LuChevronRight } from "react-icons/lu";
+import { ListIcon } from "@/assets/icon";
+import { IoIosArrowDown } from "react-icons/io";
 
 const CustomActiveDot = (props) => {
   const { cx, cy, value } = props;
@@ -16,7 +20,6 @@ const CustomActiveDot = (props) => {
   const chartBottom = 240 - 20;
   return (
     <g>
-      {/* Vertical orange line from the top of chart to the data point */}
       <line
         x1={cx}
         y1={chartBottom}
@@ -25,7 +28,6 @@ const CustomActiveDot = (props) => {
         stroke="#FB923C"
         strokeWidth={2}
       />
-      {/* Dot at the hovered data point */}
       <circle
         cx={cx}
         cy={cy}
@@ -34,7 +36,6 @@ const CustomActiveDot = (props) => {
         stroke="#FB923C"
         strokeWidth={2}
       />
-      {/* Label above the dot (e.g. "$510") */}
       <text
         x={cx}
         y={cy - 10}
@@ -68,25 +69,49 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-export default function CustomLineChart({
-  data,
+const CustomLineChart = ({
+  title,
+  earningsData,
   width = "100%",
   height = 350,
-}) {
+}) => {
+  const [selectedRange, setSelectedRange] = useState("daily");
+  const [filteredData, setFilteredData] = useState(earningsData);
+
+  const handleRangeChange = (event) => {
+    const range = event.target.value;
+    setSelectedRange(range);
+
+    if (range === "daily") {
+      setFilteredData(earningsData); // Daily data
+    } else if (range === "weekly") {
+      setFilteredData(earningsData.slice(0, 7)); // First 7 days, for example
+    } else if (range === "monthly") {
+      setFilteredData(earningsData); // Assuming we would have monthly data here
+    }
+  };
+
   return (
     <div
       style={{ width, height }}
-      className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm"
+      className="  p-4 lg:p-5"
     >
-      <h6 className="text-sm md:text-base text-textColor font-semibold">
-        Earnings
-      </h6>
+      <div className="flex justify-between items-center">
+        <div>
+          <h6 className="text-sm md:text-base text-textColor font-semibold">
+            {title || "Earnings"}
+          </h6>
+        </div>
+        <div className="">
+
+          <CustomDropDown lists={["Week", "Month", "Year"]} />
+        </div>
+      </div>
       <ResponsiveContainer>
         <AreaChart
-          data={data}
+          data={filteredData}
           margin={{ top: 15, right: 15, left: -15, bottom: 20 }}
         >
-          {/* Gradients for the filled areas under each line */}
           <defs>
             <linearGradient id="colorPrevious" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#CBD5E1" stopOpacity={0.2} />
@@ -98,7 +123,6 @@ export default function CustomLineChart({
             </linearGradient>
           </defs>
 
-          {/* Axes */}
           <XAxis
             dataKey="day"
             axisLine={false}
@@ -113,14 +137,8 @@ export default function CustomLineChart({
             tickFormatter={(val) => (val === 1000 ? "1k+" : val)}
             tick={{ fill: "#666" }}
           />
-
-          {/* Remove default grid lines or customize as needed */}
           <CartesianGrid horizontal={false} vertical={false} />
-
-          {/* Tooltip with custom cursor disabled (we have our own vertical line) */}
           <Tooltip content={<CustomTooltip />} cursor={false} />
-
-          {/* "Previous" line/area */}
           <Area
             type="monotone"
             dataKey="previous"
@@ -129,8 +147,6 @@ export default function CustomLineChart({
             fill="url(#colorPrevious)"
             activeDot={false}
           />
-
-          {/* "Current" line/area with custom active dot */}
           <Area
             type="monotone"
             dataKey="current"
@@ -143,4 +159,47 @@ export default function CustomLineChart({
       </ResponsiveContainer>
     </div>
   );
-}
+};
+
+export default CustomLineChart;
+
+
+const CustomDropDown = ({ lists }) => {
+  const [isOptionOpen, setIsOptionOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("Week");
+  const selectHandler = (option) => {
+    setSelectedOption(option);
+    setIsOptionOpen(false);
+  };
+  const optionsHandler = () => setIsOptionOpen(!isOptionOpen);
+  return (
+    <div className="relative w-[110px] z-50">
+      <div
+        className="flex items-center justify-between text-sm bg-[#7C848D] text-white gap-2 cursor-pointer p-2 rounded-[4px] text-nowrap"
+        onClick={() => optionsHandler()}
+      >
+        <ListIcon />
+        {selectedOption}
+        <div
+          className={`transition-all duration-300 ${isOptionOpen ? "rotate-180" : "rotate-0"
+            }`}
+        >
+          <IoIosArrowDown fontSize={18} />
+        </div>
+      </div>
+      {isOptionOpen && (
+        <ul className="flex flex-col bg-white rounded-lg shadow-md absolute top-[40px] left-0 w-full">
+          {lists.map((list, i) => (
+            <li
+              key={i}
+              className="py-1 px-2 border-b text-sm cursor-pointer text-[#00000099] hover:bg-gray-100"
+              onClick={() => selectHandler(list)}
+            >
+              {list}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
