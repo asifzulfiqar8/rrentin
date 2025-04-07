@@ -1,8 +1,13 @@
+import BrowserHeader from '@/components/tenant/browserProperty/BrowserHeader'
+import Main from '@/components/tenant/browserProperty/Main'
 import React from 'react'
 
 function BrowserProperty() {
   return (
-    <div>BrowserProperty</div>
+    <div>
+      <BrowserHeader/>
+      {/* <Main/> */}
+    </div>
   )
 }
 

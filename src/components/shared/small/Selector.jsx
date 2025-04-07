@@ -3,7 +3,7 @@
 import { SelectorDownIcon } from "@/assets/icon";
 import { useEffect, useRef, useState } from "react";
 
-const Selector = ({ lists, selectedOption, setSelectedOption }) => {
+const Selector = ({ lists, selectedOption, setSelectedOption,cn }) => {
   const [isOptionOpen, setIsOptionOpen] = useState(false);
   const selectorRef = useRef(null);
   const selectHandler = (option) => {
@@ -24,7 +24,7 @@ const Selector = ({ lists, selectedOption, setSelectedOption }) => {
     };
   }, []);
   return (
-    <div className="relative w-[110px] z-50" ref={selectorRef}>
+    <div className={`${cn} relative w-[110px] z-50`} ref={selectorRef}>
       <div
         className="flex items-center justify-center text-sm bg-white rounded-sm h-[40px] gap-2 cursor-pointer p-2 text-[#969696] text-nowrap border border-[#DCDCDC4D]"
         style={{ boxShadow: "0px 2px 12px 0px #3582E70F" }}

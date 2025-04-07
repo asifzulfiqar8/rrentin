@@ -48,6 +48,7 @@ import ShowAgent from "./demand/ShowAgent";
 import Arrow from "./payment/Arrow";
 import FavoriteIcon from "./aside/FavoriteIcon";
 import BrowseProperties from "./aside/BrowseProperties";
+import SqftIcon from "./tenant/browser-property/SqftIcon";
 
 export {
   DashboardIcon,
@@ -100,4 +101,5 @@ export {
   Arrow,
   FavoriteIcon,
   BrowseProperties,
+  SqftIcon,
 };

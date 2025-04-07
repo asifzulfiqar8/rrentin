@@ -23,9 +23,9 @@ const MyPropertiesHeader = ({ tabView, setTabView }) => {
         My Properties
       </div>
       <div className="flex items-center gap-6">
-      <div className="w-full lg:w-[440px]">
-        <SearchInput placeholder="properties"  />
-      </div>
+        <div className="w-full lg:w-[440px]">
+          <SearchInput placeholder="properties" />
+        </div>
         <Selector
           lists={["All", "Active", "Inactive"]}
           selectedOption={selectedStatus}
@@ -41,9 +41,8 @@ const MyPropertiesHeader = ({ tabView, setTabView }) => {
         {["Map View", "Grid View"].map((view, i) => (
           <button
             key={i}
-            className={`flex items-center gap-[6px] h-[30px]  rounded-sm px-2 text-sm text-white font-medium cursor-pointer ${
-              view === tabView ? "bg-primary" : "bg-[#7C848DB2]"
-            }`}
+            className={`flex items-center gap-[6px] h-[30px]  rounded-sm px-2 text-sm text-white font-medium cursor-pointer ${view === tabView ? "bg-primary" : "bg-[#7C848DB2]"
+              }`}
             onClick={() => setTabView(view)}
           >
             {view === "Map View" ? (
