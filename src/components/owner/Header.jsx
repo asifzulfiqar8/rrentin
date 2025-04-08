@@ -7,6 +7,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import NotificationMenu from "../shared/NotificationMenu";
 import { usePathname, useRouter } from "next/navigation";
 import GoogleTranslate from "../googleTranslate";
+import { RxHamburgerMenu } from "react-icons/rx";
+import Aside from "./Aside";
 
 const Header = () => {
   const [date, setDate] = useState("");
@@ -30,30 +32,70 @@ const Header = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  const [mobileNav, setMobileNav] = useState(false);
+
+  const mobileNavHandler = () => {
+    setMobileNav(!mobileNav); // Toggle the mobileNav state
+  };
+console.log("mobileNav",mobileNav)
+
   return (
-    <header className="bg-white rounded-lg h-[74px] p-4 flex items-center justify-between gap-4">
-      <div>
-        <h2 className="text-xl lg:text-[22px] font-semibold text-text-textColor capitalize">
-          Owner
-        </h2>
-        <p className="text-xs text-[#969696]">{date}</p>
-      </div>
-      <div className="flex items-center gap-[14px]">
-        <SwitchButton />
-        <div className="relative" ref={notificationRef}>
-          <button
-            className="p-2 rounded-[5px] cursor-pointer"
-            style={{ boxShadow: "0px 1px 6px 0px #00000014" }}
-            onClick={() => setIsNotificationOpen(!isNotificationOpen)}
-          >
-            <NotificationBoxIcon />
-          </button>
-          <NotificationMenu isNotificationOpen={isNotificationOpen} />
+    <div>
+      <div className="flex items-center justify-between xl:hidden py-4">
+        <div
+          className="bg-primary p-2 rounded-md cursor-pointer"
+          onClick={mobileNavHandler}
+        >
+          <RxHamburgerMenu color="#fff" fontSize={20} />
         </div>
-        {/* <LanguageSwitch /> */}
-        <GoogleTranslate />
+        <div>
+          <Image
+            src="/images/default/home.png"
+            width={35}
+            height={35}
+            alt="logo"
+            className="mx-auto"
+          />
+        </div>
       </div>
-    </header>
+
+      {/* Mobile Nav Overlay */}
+      <div
+        className={`block xl:hidden fixed w-full h-full inset-0 bg-[#00000071] z-50 transition-all duration-500 ${mobileNav ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"}`}
+        onClick={() => setMobileNav(false)} // Close when clicking outside
+      >
+        <div
+          className={`absolute top-0 left-0 h-full  w-[246px] transition-transform duration-500 ${mobileNav ? "translate-x-0" : "-translate-x-full"}`}
+        >
+          <Aside mobileNav={mobileNav} setMobileNav={setMobileNav}  /> {/* Your Sidebar component */}
+        </div>
+      </div>
+      <header className="bg-white rounded-lg h-[74px] p-4 flex items-center justify-between gap-4">
+        <div>
+          <h2 className="text-xl lg:text-[22px] font-semibold text-text-textColor capitalize">
+            Owner
+          </h2>
+          <p className="text-xs text-[#969696]">{date}</p>
+        </div>
+        <div className="flex items-center gap-[14px]">
+          <SwitchButton />
+          <div className="relative" ref={notificationRef}>
+            <button
+              className="p-2 rounded-[5px] cursor-pointer"
+              style={{ boxShadow: "0px 1px 6px 0px #00000014" }}
+              onClick={() => setIsNotificationOpen(!isNotificationOpen)}
+            >
+              <NotificationBoxIcon />
+            </button>
+            <NotificationMenu isNotificationOpen={isNotificationOpen} />
+          </div>
+          {/* <LanguageSwitch /> */}
+          <GoogleTranslate />
+        </div>
+      </header>
+    </div>
+
   );
 };
 
@@ -88,9 +130,8 @@ const LanguageSwitch = () => {
         style={{ boxShadow: "0px 1px 6px 0px #00000014" }}
       >
         <Image
-          src={`/images/default/${
-            locale === "en" ? "english" : "thai"
-          }-flag.png`}
+          src={`/images/default/${locale === "en" ? "english" : "thai"
+            }-flag.png`}
           width={20}
           height={13}
           alt="flag"

@@ -39,7 +39,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="lg:col-span-12">
-            <CustomLineChart data={earningsData} />
+            <CustomLineChart earningsData={earningsData} />
           </div>
         </div>
         <div className="lg:col-span-5">

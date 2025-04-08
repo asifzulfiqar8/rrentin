@@ -20,7 +20,7 @@ import { BsThreeDots } from "react-icons/bs";
 
 
 
-const Aside = () => {
+const Aside = ({mobileNav}) => {
   const {id} =useParams()
   const params = useParams();
   const tenantId = params.tenantId
@@ -98,7 +98,7 @@ const pages = [
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <aside
-      className={`relative transition-all duration-300 hidden xl:block ${
+      className={`relative transition-all duration-300 ${mobileNav ?"block xl:hidden h-full ":"hidden xl:block"}  ${
         isMenuOpen ? "w-[84px]" : "w-[246px]"
       }`}
     >

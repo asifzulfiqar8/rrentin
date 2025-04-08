@@ -3,33 +3,42 @@ import Dropdown from "@/components/shared/small/Dropdown";
 import Input from "@/components/shared/small/Input";
 import Textarea from "@/components/shared/small/Textarea";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 const PhotosAndDetails = ({ setCurrentStep }) => {
   const handleNext = () => setCurrentStep((prevStep) => prevStep + 1);
   const handlePrevious = () => setCurrentStep((prevStep) => prevStep - 1);
 
-
+  const fileInputRef = useRef(null);
   const [image, setImage] = useState(null);
 
-  // Handler for file input change event
   const handleImageUpload = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const uploadedFile = event.target.files[0];
-      const imageURL = URL.createObjectURL(uploadedFile);
-      setImage(imageURL);
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
     }
   };
 
-  // Handler for drop event
   const handleDrop = (event) => {
     event.preventDefault();
-    if (event.dataTransfer.files && event.dataTransfer.files[0]) {
-      const droppedFile = event.dataTransfer.files[0];
-      const imageURL = URL.createObjectURL(droppedFile);
-      setImage(imageURL);
+    const file = event.dataTransfer.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
     }
+  };
+
+  const handleClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleButtonClick = (event) => {
+    event.stopPropagation(); // ✅ Stop event bubbling to parent
+    handleClick();
   };
 
   return (
@@ -63,7 +72,38 @@ const PhotosAndDetails = ({ setCurrentStep }) => {
         </div>
 
         <div className="lg:col-span-12 grid grid-cols-12 gap-4">
-          {/* Left side: Display the uploaded image */}
+          
+          <div
+            className="col-span-6 flex flex-col items-center justify-center p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={handleDrop}
+            onClick={handleClick}
+          >
+            <AiOutlineCloudUpload className="w-10 h-10 text-primary" />
+            <p className="text-[#32343C] text-xs mt-2">
+              Click here to upload your ownership documents
+            </p>
+            <p className="text-[#32343C] text-sm mt-2">
+              (Condo Title Deed, House Book, Land Title, Etc.)
+            </p>
+
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              ref={fileInputRef}
+              onChange={handleImageUpload}
+            />
+            <button
+              type="button" // ✅ Add this line
+              onClick={handleButtonClick}
+              className="mt-3 px-4 py-2 bg-primary text-white rounded-lg cursor-pointer hover:bg-blue-600"
+            >
+              Browse
+            </button>
+          </div>
+
+
           <div className="col-span-6 flex items-center justify-center">
             {image ? (
               <div className="relative w-full h-[180px] p-4 border-2 border-dashed border-gray-300 rounded-lg">
@@ -84,33 +124,7 @@ const PhotosAndDetails = ({ setCurrentStep }) => {
           </div>
 
 
-          {/* Right side: Upload input */}
-          <div
-            className="col-span-6 flex flex-col items-center justify-center p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500"
-            onDragOver={(e) => e.preventDefault()}
-            onDrop={handleDrop}
-          >
-            <AiOutlineCloudUpload className="w-10 h-10 text-primary" />
-            <p className="text-[#32343C] text-xs mt-2">
-              Click here to upload your ownership documents
-            </p>
-            <p className="text-[#32343C] text-sm mt-2">
-              (Condo Title Deed, House Book, Land Title, Etc.)
-            </p>
-            <input
-              type="file"
-              accept="image/*"
-              className="hidden"
-              id="fileInput"
-              onChange={handleImageUpload}
-            />
-            <label
-              htmlFor="fileInput"
-              className="mt-3 px-4 py-2 bg-primary text-white rounded-lg cursor-pointer hover:bg-blue-600"
-            >
-              Browse
-            </label>
-          </div>
+
         </div>
 
 

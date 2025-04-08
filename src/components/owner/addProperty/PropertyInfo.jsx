@@ -3,28 +3,43 @@ import Dropdown from "@/components/shared/small/Dropdown";
 import Input from "@/components/shared/small/Input";
 import InputDropdown from "@/components/shared/small/InputDropdown";
 import { UploadCloud } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaUser } from "react-icons/fa"; // Example icon from react-icons
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import Image from "next/image";
 
 const PropertyInfo = ({ setCurrentStep }) => {
   const handleNext = () => setCurrentStep((prevStep) => prevStep + 1);
   const handlePrevious = () => setCurrentStep((prevStep) => prevStep - 1);
+  const fileInputRef = useRef(null); // ✅ Define the ref
   const [image, setImage] = useState(null);
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
+  const handleImageUpload = (e) => {
+    const file = e.target.files?.[0];
     if (file) {
-      setImage(URL.createObjectURL(file));
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
     }
   };
 
-  const handleDrop = (event) => {
-    event.preventDefault();
-    const file = event.dataTransfer.files[0];
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files?.[0];
     if (file) {
-      setImage(URL.createObjectURL(file));
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
     }
+  };
+
+  const handleClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleButtonClick = (event) => {
+    event.stopPropagation(); // ✅ Prevent bubbling
+    handleClick();
   };
   // Updated arrays for dropdown values
   const bedroomOptions = [
@@ -145,44 +160,58 @@ const PropertyInfo = ({ setCurrentStep }) => {
         <div className="lg:col-span-12">
 
           <div
-            className="flex flex-col w-full items-center justify-center  p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500"
+            className="flex flex-col w-full items-center justify-center p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500"
             onDragOver={(e) => e.preventDefault()}
             onDrop={handleDrop}
+            onClick={handleClick}
           >
             <AiOutlineCloudUpload className="w-10 h-10 text-primary" />
-            <p className="text-[#32343C] text-xs  mt-2">Click here to upload your ownership documents</p>
+            <p className="text-[#32343C] text-xs mt-2">Click here to upload your ownership documents</p>
             <p className="text-[#32343C] text-sm mt-2">(Condo Title Deed, House Book, Land Title, Etc.)</p>
+
             <input
               type="file"
               accept="image/*"
               className="hidden"
-              id="fileInput"
+              ref={fileInputRef} // ✅ Attach the ref here
               onChange={handleImageUpload}
             />
-            <label
-              htmlFor="fileInput"
+
+            <button
+              type="button"
+              onClick={handleButtonClick}
               className="mt-3 px-4 py-2 bg-primary text-white rounded-lg cursor-pointer hover:bg-blue-600"
             >
               Browse
-            </label>
-            {image && <img src={image} alt="Uploaded" className="mt-3 w-40 h-40 object-cover rounded-lg" />}
+            </button>
+
+            {image && (
+              <div className="mt-3 w-40 h-40 relative">
+                <Image
+                  src={image}
+                  alt="Uploaded"
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+            )}
           </div>
         </div>
 
-      <div className="lg:col-span-12 flex justify-end gap-[14px]">
-        <button
-          className="cursor-pointer py-[10px] px-5 rounded-sm bg-[#7C848DB2] text-white text-sm md:text-base font-medium"
-          onClick={handlePrevious}
-        >
-          Previous
-        </button>
-        <button
-          onClick={handleNext}
-          className="cursor-pointer py-[10px] px-5 rounded-sm bg-primary text-white text-sm md:text-base font-medium"
-        >
-          Next
-        </button>
-      </div>
+        <div className="lg:col-span-12 flex justify-end gap-[14px]">
+          <button
+            className="cursor-pointer py-[10px] px-5 rounded-sm bg-[#7C848DB2] text-white text-sm md:text-base font-medium"
+            onClick={handlePrevious}
+          >
+            Previous
+          </button>
+          <button
+            onClick={handleNext}
+            className="cursor-pointer py-[10px] px-5 rounded-sm bg-primary text-white text-sm md:text-base font-medium"
+          >
+            Next
+          </button>
+        </div>
       </form>
     </div>
   );

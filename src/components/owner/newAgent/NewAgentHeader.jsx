@@ -40,7 +40,7 @@ const NewAgentHeader = () => {
         <div className="flex items-center gap-4 md:gap-5">
           {/* ✅ Fixed: Correct onClick handler */}
           
-          <Link href="/owner/add-property">
+          <Link href="/owner/agent">
             <Button text="My Agent" icon={<LuCircleUser className="text-white text-base" />} />
           </Link>
         </div>

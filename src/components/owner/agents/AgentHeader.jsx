@@ -37,7 +37,7 @@ const AgentHeader = () => {
                 </h3>
                 <div className="flex items-center gap-4 md:gap-5">
                    
-                    <Link href="/owner/add-property">
+                    <Link href="/owner/agent/hiring-new-agent">
                         <Button text="Hire New Agent" icon={<LuCircleUser className="text-white text-base" />} />
                     </Link>
                 </div>

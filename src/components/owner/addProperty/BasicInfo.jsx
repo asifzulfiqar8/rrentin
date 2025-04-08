@@ -1,6 +1,7 @@
 import Dropdown from "@/components/shared/small/Dropdown";
 import Input from "@/components/shared/small/Input";
 import { useState } from "react";
+import MyMap from "./MyMap";
 
 const BasicInfo = ({ setCurrentStep }) => {
   const handleNext = () => setCurrentStep((prevStep) => prevStep + 1);
@@ -70,15 +71,8 @@ const BasicInfo = ({ setCurrentStep }) => {
         </div>
         {/* MAP (iframe) */}
         <div className="lg:col-span-12 h-[300px] md:h-[400px]">
-          <iframe
-            width="100%"
-            height="100%"
-            src={mapUrl}
-            style={{ border: 0, borderRadius: "10px" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <MyMap location={streetAddress} />
+
         </div>
         <div className="lg:col-span-12 flex justify-end gap-[14px]">
           <button
@@ -89,6 +83,7 @@ const BasicInfo = ({ setCurrentStep }) => {
           </button>
         </div>
       </form>
+
     </div>
   );
 };
