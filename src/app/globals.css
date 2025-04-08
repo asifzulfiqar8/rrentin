@@ -228,3 +228,23 @@ body {
 .swiper-pagination-bullet-active {
   background: var(--primary) !important;
 }
+.scale-on-hover {
+  transition: transform 300ms ease-in-out;
+  will-change: transform;
+  cursor: pointer;
+}
+.scale-on-hover:hover {
+  transform: scale(1.1);
+}
+
+.slider-panel {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slider-open {
+  transform: translateX(0);
+}
+
+.slider-closed {
+  transform: translateX(100%);
+}

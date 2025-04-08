@@ -49,7 +49,10 @@ import Arrow from "./payment/Arrow";
 import FavoriteIcon from "./aside/FavoriteIcon";
 import BrowseProperties from "./aside/BrowseProperties";
 import SqftIcon from "./tenant/browser-property/SqftIcon";
-
+import BedIcons from "./tenant/browser-property/BedIcons";
+import Rooms from "./tenant/browser-property/Rooms";
+import Kitchens from "./tenant/browser-property/Kitchens";
+import Garage from "./tenant/browser-property/Garage";
 export {
   DashboardIcon,
   PropertiesIcon,
@@ -102,4 +105,8 @@ export {
   FavoriteIcon,
   BrowseProperties,
   SqftIcon,
+  BedIcons,
+  Rooms,
+  Kitchens,
+  Garage,
 };
