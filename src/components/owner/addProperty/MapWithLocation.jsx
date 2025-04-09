@@ -1,40 +1,38 @@
-'use client'
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
-// Convert a React icon to static markup for use in a Leaflet DivIcon.
 const iconMarkup = renderToStaticMarkup(
   <FaMapMarkerAlt style={{ color: 'red', fontSize: '2rem' }} />
 );
 const customDivIcon = L.divIcon({
-  html: iconMarkup,      // Use the generated HTML from the React Icon
-  className: '',         // Remove default styling if desired
+  html: iconMarkup,
+  className: '',
   iconSize: [30, 30],
-  iconAnchor: [15, 30],  // The tip of the marker points to the location
+  iconAnchor: [15, 30],
   popupAnchor: [0, -30],
 });
 
-// A helper component to recenter the map when the coordinates change.
 const RecenterAutomatically = ({ latlng }) => {
   const map = useMap();
-  map.setView(latlng);
+  useEffect(() => {
+    map.setView(latlng);
+  }, [latlng, map]);
+
   return null;
 };
 
-// A function that fetches coordinates from the Nominatim API.
 const getCoordinates = async (locationName) => {
-  // Encode the location name and limit the result to the best match.
-  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}&limit=1`;
-  const response = await fetch(url, {
-    headers: { 'Accept': 'application/json' },
-  });
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+    locationName
+  )}&limit=1`;
+  const response = await fetch(url);
   const data = await response.json();
   if (data.length > 0) {
     const { lat, lon } = data[0];
-    return [parseFloat(lat), parseFloat(lon)]; // Return coordinates as [lat, lon]
+    return [parseFloat(lat), parseFloat(lon)];
   }
   return null;
 };
@@ -42,10 +40,8 @@ const getCoordinates = async (locationName) => {
 const MapWithLocation = ({ location }) => {
   const [position, setPosition] = useState(null);
   const [error, setError] = useState('');
-  // Use a default center before any valid location is found (London in this case)
   const defaultCenter = [51.505, -0.09];
 
-  // When the location prop changes, fetch its coordinates.
   useEffect(() => {
     if (location) {
       getCoordinates(location).then((coords) => {
@@ -59,6 +55,11 @@ const MapWithLocation = ({ location }) => {
       });
     }
   }, [location]);
+
+  // If window is not defined (SSR), do not render the map
+  if (typeof window === 'undefined') {
+    return null;
+  }
 
   return (
     <div style={{ height: '500px', width: '100%' }}>

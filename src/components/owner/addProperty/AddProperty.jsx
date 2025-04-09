@@ -8,7 +8,7 @@ import PropertyInfo from "@/components/owner/addProperty/PropertyInfo";
 import { useState } from "react";
 
 const AddProperty = () => {
-  const [currentStep, setCurrentStep] = useState(4);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const steps = [
     "Basic Info",

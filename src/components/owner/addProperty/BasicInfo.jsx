@@ -1,7 +1,11 @@
 import Dropdown from "@/components/shared/small/Dropdown";
 import Input from "@/components/shared/small/Input";
+import dynamic from "next/dynamic";
 import { useState } from "react";
-import MyMap from "./MyMap";
+
+const MapWithLocation = dynamic(() => import('./MapWithLocation'), {
+  ssr: false,
+});
 
 const BasicInfo = ({ setCurrentStep }) => {
   const handleNext = () => setCurrentStep((prevStep) => prevStep + 1);
@@ -71,7 +75,7 @@ const BasicInfo = ({ setCurrentStep }) => {
         </div>
         {/* MAP (iframe) */}
         <div className="lg:col-span-12 h-[300px] md:h-[400px]">
-          <MyMap location={streetAddress} />
+          <MapWithLocation location={streetAddress} />
 
         </div>
         <div className="lg:col-span-12 flex justify-end gap-[14px]">
