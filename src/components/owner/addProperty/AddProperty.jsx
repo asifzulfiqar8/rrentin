@@ -39,7 +39,7 @@ const AddProperty = () => {
       <h2 className="text-xl md:text-[22px] font-semibold text-textColor text-center">
         Add Property
       </h2>
-      <div className="mt-4 md:mt-5 flex flex-wrap items-center md:justify-between gap-4 md:gap-8 max-w-[900px] mx-auto">
+      <div className="mt-4 md:mt-5 flex flex-wrap items-center justify-between gap-4 md:gap-8 max-w-[900px] mx-auto">
         {steps.map((step, i) => (
           <Step
             step={step}
@@ -63,30 +63,32 @@ export default AddProperty;
 const Step = ({ step, index, currentStep, setCurrentStep, stepsLength }) => {
   return (
     <div
-      className={`flex flex-col items-center gap-2 relative z-50 ${
-        currentStep >= index
+      className={`flex flex-col items-center gap-2 relative z-10 ${currentStep >= index
           ? "opacity-100 cursor-pointer"
           : "opacity-95 grayscale pointer-events-none"
-      }`}
+        }`}
       onClick={() => setCurrentStep(index)}
     >
-      <span className="size-[50px] rounded-full bg-primary text-white text-xl md:text-2xl font-semibold grid place-items-center">
+      <span className=" size-[30px] md:size-[50px] rounded-full bg-primary text-white text-base md:text-2xl font-semibold grid place-items-center">
         {index + 1}
       </span>
-      <p className="text-xs sm:text-sm text-primary font-medium">{step}</p>
-      {index < stepsLength - 1 && (
-        <span className="absolute top-[30%] left-[67%] z-0">
-          <svg
-            width="200"
-            height="2"
-            viewBox="0 0 200 2"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M0 1L200 0.999989" stroke="#0245A5" strokeWidth="1.7" />
-          </svg>
-        </span>
-      )}
+      <p className="text-[8px] md:text-sm  text-primary font-medium">{step}</p>
+      <div className="hidden lg:block">
+
+        {index < stepsLength - 1 && (
+          <span className="absolute top-[30%] left-[67%] z-0">
+            <svg
+              width="200"
+              height="2"
+              viewBox="0 0 200 2"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 1L200 0.999989" stroke="#0245A5" strokeWidth="1.7" />
+            </svg>
+          </span>
+        )}
+      </div>
     </div>
   );
 };

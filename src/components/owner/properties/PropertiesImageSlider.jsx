@@ -133,7 +133,7 @@ const PropertiesImageSlider = () => {
             </div>
           )}
         </div>
-        <div className="grid grid-cols-2 lg:col-span-12 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:col-span-12 gap-4">
           <div className="space-y-2">
             <div className="flex items-center gap-4">
               <span className="text-xl font-semibold text-black">
@@ -156,7 +156,7 @@ const PropertiesImageSlider = () => {
             </button>
           </div>
           {/* Property Features */}
-          <div className="flex items-center justify-end gap-8">
+          <div className="flex items-center justify-center md:justify-end gap-8">
             {[
               { icon: <BedIcon />, label: "Bed", count: 2 },
               { icon: <BathIcon />, label: "Bath", count: 2 },

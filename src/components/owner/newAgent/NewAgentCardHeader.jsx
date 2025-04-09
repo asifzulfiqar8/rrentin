@@ -13,7 +13,7 @@ const NewAgentCardHeader = ({ tabView, setTabView }) => {
     const [Favorite, setFavorite] = useState("Favorite");
 
     return (
-        <section className="flex items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
+        <section className="flex flex-col md:flex-row items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
             <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
                 <Image
                     src="/images/dashboard/rental.png"
@@ -23,10 +23,10 @@ const NewAgentCardHeader = ({ tabView, setTabView }) => {
                 />
                 Available Agents
             </div>
-            <div className="flex items-center gap-6">
-                <div className="w-[200px] lg:w-[440px]">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="w-[100px] lg:w-[440px]">
 
-                    <SearchInput placeholder="properties" cn="!w-[440px]" />
+                    <SearchInput placeholder="properties" cn="  md:!w-[100px] lg:!w-[440px]" />
                 </div>
                 <Selector
                     lists={["All", "Active", "Inactive"]}

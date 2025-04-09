@@ -62,12 +62,12 @@ const MapWithLocation = ({ location }) => {
   }
 
   return (
-    <div style={{ height: '500px', width: '100%' }}>
+    <div className='h-[300px] md:h-[400px] w-full' >
       <MapContainer
         center={position || defaultCenter}
         zoom={13}
         scrollWheelZoom={false}
-        style={{ height: '400px', width: '100%' }}
+        style={{ height: '100%', width: '100%' }}
         attributionControl={false}
       >
         <TileLayer

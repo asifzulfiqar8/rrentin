@@ -10,7 +10,7 @@ const Welcome = () => {
       <h3 className="text-lg md:text-[22px] font-semibold text-textColor">
         Welcome! <span className="font-normal">Alexander</span>
       </h3>
-      <div className="flex items-center gap-4 md:gap-5">
+      <div className="flex flex-wrap items-center gap-4 md:gap-5">
         <Button text="Views & Interested Tenants" icon={<EyeIcon />} />
         <Link href="owner/add-property">
           <Button text="Add Property" icon={<BuildingIcon />} />

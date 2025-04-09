@@ -18,7 +18,7 @@ const TenantIntent = ({ title, data, legend }) => {
             <h6 className="text-center text-gray-700 text-base font-semibold">
                 {title}
             </h6>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-2 md:gap-5">
                 {/* Pie Chart */}
                 {data?.length > 0 && (
                     <PieChart width={200} height={200}>

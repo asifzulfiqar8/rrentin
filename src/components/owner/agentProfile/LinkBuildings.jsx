@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 function LinkBuildings() {
   return (
-    <div className='w-full '>
+    <div className='w-full bg-white rounded-lg p-3.5 '>
       {<div className="flex items-center gap-4">
         <Image
           src="/images/dashboard/rental.png"
@@ -14,7 +14,9 @@ function LinkBuildings() {
         />
         <span className="text-sm font-semibold">Linked Properties</span>
       </div>}
-      <AgentProperties/>
+      <div className="mt-4 w-[400px]  md:w-full">
+        <AgentProperties />
+      </div>
     </div>
   )
 }

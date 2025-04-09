@@ -12,8 +12,8 @@ const AgentCardHeader = ({ tabView, setTabView }) => {
     const [selectedType, setSelectedType] = useState("Type");
 
     return (
-        <section className="flex items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
-            <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
+        <section className="flex flex-col md:flex-row items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
+            <div className="flex  items-center gap-[10px] text-sm font-semibold text-textColor">
                 <Image
                     src="/images/dashboard/rental.png"
                     width={32}
@@ -22,10 +22,10 @@ const AgentCardHeader = ({ tabView, setTabView }) => {
                 />
                 My On Demand Agents
             </div>
-            <div className="flex items-center gap-6">
-                <div className="w-full lg:w-[440px]">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className=" w-[150px] lg:w-[440px]">
 
-                    <SearchInput placeholder="properties"  />
+                    <SearchInput placeholder="properties" cn='' />
                 </div>
                 <Selector
                     lists={["All", "Active", "Inactive"]}

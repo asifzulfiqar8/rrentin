@@ -38,11 +38,10 @@ const Header = () => {
   const mobileNavHandler = () => {
     setMobileNav(!mobileNav); // Toggle the mobileNav state
   };
-console.log("mobileNav",mobileNav)
 
   return (
     <div>
-      <div className="flex items-center justify-between xl:hidden py-4">
+      <div className="flex items-center p-4 justify-between xl:hidden py-4">
         <div
           className="bg-primary p-2 rounded-md cursor-pointer"
           onClick={mobileNavHandler}

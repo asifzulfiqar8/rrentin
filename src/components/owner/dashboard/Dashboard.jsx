@@ -22,7 +22,7 @@ const Dashboard = () => {
       <Welcome />
       <HomeCards />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 mt-4">
-        <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+        <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
           <div className="lg:col-span-6">
             <PieChartHalf
               title="Payment Overview"
@@ -39,7 +39,9 @@ const Dashboard = () => {
             />
           </div>
           <div className="lg:col-span-12">
-            <CustomLineChart earningsData={earningsData} />
+            <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm">
+              <CustomLineChart earningsData={earningsData} />
+            </div>
           </div>
         </div>
         <div className="lg:col-span-5">

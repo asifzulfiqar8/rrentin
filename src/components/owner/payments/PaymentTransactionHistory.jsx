@@ -87,8 +87,8 @@ function PaymentTransactionHistory() {
     );
 
     return (
-        <div className="px-5 py-4 h-[340px] rounded-lg shadow-lg">
-            <div className="flex items-center justify-between mb-4">
+        <div className="px-5 py-4  rounded-lg shadow-lg">
+            <div className="flex flex-col md:flex-row items-center justify-between mb-4">
                 <h1 className="text-lg font-semibold">Transaction History</h1>
                 <div className="flex gap-4">
                     <button className="bg-primary text-white rounded-md p-2 flex items-center gap-1">

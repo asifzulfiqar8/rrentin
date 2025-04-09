@@ -67,8 +67,8 @@ const TenantsProfileHeader = () => {
       </div>
       <div className="flex items-end justify-end h-full   ">
         <div className="flex items-center justify-center gap-4">
-          <div className="size-9 flex items-center justify-center  bg-[#E9F2FF]"> <BsChatSquareDotsFill className="text-[#0245A5]" /></div>
-          <div className="size-9 flex items-center justify-center  bg-[#E9F2FF]"><FaBookmark className="text-[#0245A5]" /> </div>
+          <div className="size-9 flex items-center justify-center scale-on-hover  bg-[#E9F2FF]"> <BsChatSquareDotsFill className="text-[#0245A5]" /></div>
+          <div className="size-9 flex items-center justify-center scale-on-hover bg-[#E9F2FF]"><FaBookmark className="text-[#0245A5]" /> </div>
         </div>
       </div>
     </section>

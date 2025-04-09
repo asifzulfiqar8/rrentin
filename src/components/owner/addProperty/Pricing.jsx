@@ -55,7 +55,7 @@ const Pricing = ({ setCurrentStep }) => {
       <form className="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-5">
         <div className="lg:col-span-12">
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-10">
+            <div className="col-span-9">
 
               <InputDropdown
                 placeholder="0"
@@ -69,7 +69,7 @@ const Pricing = ({ setCurrentStep }) => {
               // width="w-[79px]"
               />
             </div>
-            <div className="col-span-2 ">
+            <div className="col-span-3 ">
               <div className="flex h-full items-end justify-end">
 
                 <IconButton
