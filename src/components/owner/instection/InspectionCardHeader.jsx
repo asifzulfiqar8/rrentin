@@ -23,21 +23,24 @@ const InspectionCardHeader = ({ tabView, setTabView }) => {
                 />
                 Available Agents
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-[200px]  lg:w-[440px]">
-                    <SearchInput placeholder="properties" cn="!w-[200px] md:!w-[200px] lg:!w-[440px]" />
+            <div className="flex flex-col w-full md:flex-row items-center gap-2 md:gap-6">
+                <div className="w-full lg:w-[440px]">
+                    <SearchInput placeholder="properties" cn="!w-full md:!w-[200px] lg:!w-[440px]" />
                 </div>
                 <Selector
+                    cn='!w-full md:!w-[110px]'
                     lists={["All", "Active", "Inactive"]}
                     selectedOption={selectedLocation}
                     setSelectedOption={setLocation}
                 />
                 <Selector
+                    cn='!w-full md:!w-[110px]'
                     lists={["Rented", "Free"]}
                     selectedOption={selectedPrice}
                     setSelectedOption={setSelectedPrice}
                 />
                 <Selector
+                    cn='!w-full md:!w-[110px]'
                     lists={["Rented", "Free"]}
                     selectedOption={Favorite}
                     setSelectedOption={setFavorite}

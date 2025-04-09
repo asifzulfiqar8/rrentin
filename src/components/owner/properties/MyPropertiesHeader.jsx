@@ -22,9 +22,9 @@ const MyPropertiesHeader = ({ tabView, setTabView }) => {
         />
         My Properties
       </div>
-      <div className="flex items-center gap-6">
-        <div className="w-full lg:w-[440px]">
-          <SearchInput placeholder="properties" />
+      <div className="flex items-center gap-2 md:gap-6">
+        <div className=" lg:w-[440px]">
+          <SearchInput placeholder="properties" cn='' />
         </div>
         <Selector
           lists={["All", "Active", "Inactive"]}

@@ -1,5 +1,3 @@
-// import InspectionCardHeader from '@/components/owner/inspection/InspectionCardHeader'
-// import InspectionHeader from '@/components/owner/inspection/InspectionHeader'
 import { MessageUser } from '@/assets/icon'
 import InspectionCard from '@/components/owner/instection/InspectionCard'
 import InspectionCardHeader from '@/components/owner/instection/InspectionCardHeader'
@@ -92,10 +90,10 @@ function Inspection() {
                 style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
             >
                 <InspectionCardHeader />
-                    <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-auto ">
-                        {cardsData.map((data, index) => (
-                            <InspectionCard key={index} data={data} />
-                        ))}
+                <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-auto ">
+                    {cardsData.map((data, index) => (
+                        <InspectionCard key={index} data={data} />
+                    ))}
                 </div>
             </section>
         </div>

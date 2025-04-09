@@ -22,9 +22,8 @@ const AgentCardHeader = ({ tabView, setTabView }) => {
                 />
                 My On Demand Agents
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className=" w-[150px] lg:w-[440px]">
-
+            <div className="flex items-center gap-2 md:gap-6">
+                <div className=" lg:w-[440px]">
                     <SearchInput placeholder="properties" cn='' />
                 </div>
                 <Selector

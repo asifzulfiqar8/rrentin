@@ -41,7 +41,7 @@ const CustomDropDown = ({ lists }) => {
   };
   const optionsHandler = () => setIsOptionOpen(!isOptionOpen);
   return (
-    <div className="relative w-[110px] z-50">
+    <div className="relative w-[110px] z-10">
       <div
         className="flex items-center justify-between text-sm bg-[#7C848D] text-white gap-2 cursor-pointer p-2 rounded-[4px] text-nowrap"
         onClick={() => optionsHandler()}

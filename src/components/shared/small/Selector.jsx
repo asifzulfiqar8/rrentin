@@ -3,7 +3,7 @@
 import { SelectorDownIcon } from "@/assets/icon";
 import { useEffect, useRef, useState } from "react";
 
-const Selector = ({ lists, selectedOption, setSelectedOption,cn }) => {
+const Selector = ({ lists, selectedOption, setSelectedOption, cn }) => {
   const [isOptionOpen, setIsOptionOpen] = useState(false);
   const selectorRef = useRef(null);
   const selectHandler = (option) => {
@@ -24,17 +24,18 @@ const Selector = ({ lists, selectedOption, setSelectedOption,cn }) => {
     };
   }, []);
   return (
-    <div className={`${cn} relative w-[110px] z-50`} ref={selectorRef}>
+    <div className={`${cn} relative w-[110px] z-10`} ref={selectorRef}>
       <div
-        className="flex items-center justify-center text-sm bg-white rounded-sm h-[40px] gap-2 cursor-pointer p-2 text-[#969696] text-nowrap border border-[#DCDCDC4D]"
+        className="flex items-center justify-between text-sm bg-white rounded-sm h-[40px] gap-2 cursor-pointer p-2 text-[#969696] text-nowrap border border-[#DCDCDC4D]"
         style={{ boxShadow: "0px 2px 12px 0px #3582E70F" }}
         onClick={() => optionsHandler()}
       >
-        {selectedOption}
+        <div>
+          {selectedOption}
+        </div>
         <div
-          className={`transition-all duration-300 ${
-            isOptionOpen ? "rotate-180" : "rotate-0"
-          }`}
+          className={`transition-all duration-300 ${isOptionOpen ? "rotate-180" : "rotate-0"
+            }`}
         >
           <SelectorDownIcon />
         </div>
