@@ -1,8 +1,11 @@
+import FavoriteHeader from '@/components/tenant/favorite/FavoriteHeader'
 import React from 'react'
 
 function Favorite() {
   return (
-    <div>Favorite</div>
+    <div>
+      <FavoriteHeader/>
+    </div>
   )
 }
 

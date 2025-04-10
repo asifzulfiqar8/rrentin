@@ -6,7 +6,6 @@ function BrowserProperty() {
   return (
     <div>
       <BrowserHeader/>
-      {/* <Main/> */}
     </div>
   )
 }

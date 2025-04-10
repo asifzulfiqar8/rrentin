@@ -1,12 +1,24 @@
 'use client'
-import { Rooms } from '@/assets/icon';
+import { Bath, BedIcons, Garage, Kitchens, Rooms, SqftIcon } from '@/assets/icon';
+import UserReviewsCard from '@/components/owner/properties/UserReviewsCard';
+// import MapWithLocation from '../../owner/addProperty/MapWithLocation';
+import Button from '@/components/shared/small/Button';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { MdLocationPin } from "react-icons/md";
+import { GoArrowUpRight } from "react-icons/go";
+import Link from 'next/link';
 
+// import HouseMap from './HouseMap';
+const HouseMap = dynamic(() => import('./HouseMap'), {
+  ssr: false,
+});
 
 function PropertyDetailsSlider({ data, onClose }) {
+
+// console.log("data",data);
 
 
   const [selectedTab, setSelectedTab] = useState('overview');
@@ -17,12 +29,18 @@ function PropertyDetailsSlider({ data, onClose }) {
   };
 
   return (
-    <div className="p-5 h-full overflow-y-auto">
+    <div className="p-5 h-full overflow-y-auto scroll-0">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Property Details</h2>
         <button onClick={onClose} className="text-xl">
           <FaTimes />
         </button>
+        <h2 className="text-2xl font-bold">Property Details</h2>
+        <Link
+          href={`/tenant/browser-property/property-details/${data?.id}`}
+          className="size-6 bg-primary flex items-center justify-center rounded-sm cursor-pointer"
+        >
+          <GoArrowUpRight className="text-white font-bold" />
+        </Link>
       </div>
       <div className="grid grid-cols-6 gap-2">
         {/* Main large image */}
@@ -51,7 +69,7 @@ function PropertyDetailsSlider({ data, onClose }) {
             </div>
             <div className="flex flex-col gap-2 relative">
               <Image
-                src={data?.images[2]}
+                src={data?.images[1]}
                 width={101}
                 height={101}
                 alt="icon"
@@ -114,24 +132,36 @@ function PropertyDetailsSlider({ data, onClose }) {
                 <p className='text-base font-semibold'>Description</p>
                 <p className='h-12 overflow-auto custom-scroll  text-sm tracking-tight leading-tight '>{data?.description}</p>
               </div>
-              <div>
-                <div>
-                  <div>
-                    <Rooms />
-                    {data?.rooms}
-                    Rooms
-                  </div>
+              <div className='my-5'>
+                <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
+                  <FeatureItem icon={Rooms} value={data?.rooms} label="Rooms" />
+                  <FeatureItem icon={BedIcons} value={data?.beds} label="Beds" />
+                  <FeatureItem icon={Bath} value={data?.baths} label="Baths" />
                 </div>
-                <div></div>
+
+                <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-4">
+                  <FeatureItem icon={Kitchens} value={data?.kitchens} label="Kitchens" />
+                  <FeatureItem icon={SqftIcon} value={data?.beds} label="sqft" />
+                  <FeatureItem icon={Garage} value={data?.garages} label="Garage" />
+                </div>
+              </div>
+              <div className='flex flex-col md:flex-row gap-4'>
+                <Button
+                  text='Visit Now'
+                />
+                <Button
+                  text='Book Now'
+                />
+              </div>
+              <div className='mt-5'>
+                <HouseMap location={data?.address} image={data?.images[0]} name={'Dream house'} />
               </div>
             </div>
           )}
 
           {selectedTab === 'reviews' && (
             <div className="p-4">
-              {/* Your Reviews Content */}
-              <h3 className="text-xl font-semibold">Reviews</h3>
-              <p>{data?.reviews}</p>
+              <UserReviewsCard />
             </div>
           )}
         </div>
@@ -143,3 +173,11 @@ function PropertyDetailsSlider({ data, onClose }) {
 }
 
 export default PropertyDetailsSlider;
+
+
+const FeatureItem = ({ icon: Icon, value, label }) => (
+  <div className="flex items-center justify-center gap-1 px-[14px] py-2 border rounded-md">
+    <Icon />
+    {value} {label}
+  </div>
+);

@@ -4,14 +4,17 @@ import IconDropdown from '@/components/shared/small/IconDropdown';
 import Image from 'next/image';
 import { useState } from 'react';
 import { LuArrowUpDown } from "react-icons/lu";
-import FiltersSection from './FiltersSection';
-import HeaderGreeting from './HeaderGreeting';
-import ListView from './ListView';
-import ViewSwitcher from './ViewSwitcher';
+// import FiltersSection from './FiltersSection';
+// import HeaderGreeting from './HeaderGreeting';
+// import ListView from './ListView';
+// import ViewSwitcher from './ViewSwitcher';
+import HeaderGreeting from '../browserProperty/HeaderGreeting';
+import FiltersSection from '../browserProperty/FiltersSection';
+import ViewSwitcher from '../browserProperty/ViewSwitcher';
+import ListView from '../browserProperty/ListView';
 import { houses } from '@/data/data';
-import MapView from './MapView';
 
-function BrowserHeader() {
+function FavoriteHeader() {
     const [tabView, setTabView] = useState("List");
     const [selectedType, setSelectedType] = useState("All Types");
     const [selectedPrice, setSelectedPrice] = useState("Price");
@@ -51,7 +54,6 @@ function BrowserHeader() {
             </div>
             <div className='bg-white rounded-md shadow-md px-6 py-4'>
                 <section className="flex flex-col md:flex-row items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
-
                     <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
                         <Image
                             src="/images/dashboard/rental.png"
@@ -82,7 +84,7 @@ function BrowserHeader() {
                     <ListView handleCloseSlider={handleCloseSlider} handleCardClick={handleCardClick} houses={houses} selectedProperty={selectedProperty} />
                 ) : (
                     <div>
-                        <MapView handleCloseSlider={handleCloseSlider} handleCardClick={handleCardClick} houses={houses} selectedProperty={selectedProperty} />
+                        map
                     </div>
                 )}
             </div>
@@ -90,4 +92,5 @@ function BrowserHeader() {
     );
 }
 
-export default BrowserHeader;
+export default FavoriteHeader;
+
