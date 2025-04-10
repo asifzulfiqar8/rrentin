@@ -31,18 +31,18 @@ function PropertyDetailsSlider({ data, onClose }) {
   return (
     <div className="p-5 h-full overflow-y-auto scroll-0">
       <div className="flex justify-between items-center">
-        <button onClick={onClose} className="text-xl">
+        <button onClick={onClose} className="text-xl scale-on-hover cursor-pointer">
           <FaTimes />
         </button>
         <h2 className="text-2xl font-bold">Property Details</h2>
         <Link
           href={`/tenant/browser-property/property-details/${data?.id}`}
-          className="size-6 bg-primary flex items-center justify-center rounded-sm cursor-pointer"
+          className="size-6 scale-on-hover bg-primary flex items-center justify-center rounded-sm cursor-pointer"
         >
           <GoArrowUpRight className="text-white font-bold" />
         </Link>
       </div>
-      <div className="grid grid-cols-6 gap-2">
+      <div className="grid grid-cols-6 mt-5 gap-2">
         {/* Main large image */}
         <div className="col-span-4">
           <Image
@@ -154,7 +154,7 @@ function PropertyDetailsSlider({ data, onClose }) {
                 />
               </div>
               <div className='mt-5'>
-                <HouseMap location={data?.address} image={data?.images[0]} name={'Dream house'} />
+                <HouseMap location={data?.address} image={data?.images[0]} name={'Dream house'}  status={data?.type}/>
               </div>
             </div>
           )}

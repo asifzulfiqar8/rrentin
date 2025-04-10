@@ -8,9 +8,9 @@ const AreaMapLocation = dynamic(() => import('./AreaMapLocation'), {
 });
 function MapView({handleCloseSlider,handleCardClick,selectedProperty, houses }) {
     return (
-        <div className=''>
+        <div className='pt-5 '>
             <div className='grid  grid-cols-12 gap-4'>
-                <div className=' md:col-span-4  col-span-12 space-y-3  rounded-md h-[calc(100vh-400px)] xl:h-[calc(100vh-355px)] overflow-auto'>
+                <div className=' md:col-span-4  col-span-12 space-y-3 custom-scroll rounded-md h-[calc(100vh-400px)] xl:h-[calc(100vh-355px)] overflow-auto'>
                     {houses?.map((property) => (
                         <div key={property.id}  onClick={() => handleCardClick(property)}>
                             <BrowsePropertyCard data={property} />

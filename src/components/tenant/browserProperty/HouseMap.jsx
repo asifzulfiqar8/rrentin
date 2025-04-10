@@ -1,11 +1,11 @@
 
-
-import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
+'use client'
 import L from 'leaflet';
+import { useEffect, useState } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import Image from 'next/image';
+import { MapContainer, Marker, TileLayer, Tooltip, useMap } from 'react-leaflet';
+import MapHover from './MapHover';
 
 // Create a custom icon using an icon from react-icons.
 const iconMarkup = renderToStaticMarkup(
@@ -45,7 +45,7 @@ const getCoordinates = async (locationName) => {
   return null;
 };
 
-const HouseMap = ({ location, image, name }) => {
+const HouseMap = ({ location, image, name, status }) => {
   const [position, setPosition] = useState(null);
   const [error, setError] = useState('');
   const defaultCenter = [51.505, -0.09];
@@ -102,24 +102,8 @@ const HouseMap = ({ location, image, name }) => {
               opacity={1}
               className="custom-tooltip"
             >
-              <div className="flex justify-between items-center gap-1 p-2.5" style={{ width: '240px' }}>
-                {/* Text container on the left */}
-                <div className="relative h-[50px] w-[50px] rounded-md bg-gray-200 overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={name}
-                    layout="fill"
-                    objectFit="cover"
-                    unoptimized={true}
-                    className="rounded-md"
-                  />
-                </div>
-                <div className="">
-                  <h4 style={{ margin: '5px 0', fontSize: '1rem' }}>{name}</h4>
-                  <p style={{ margin: 0, fontSize: '0.9rem' }}>{location}</p>
-                </div>
-                {/* Image container on the right */}
-              </div>
+              <MapHover image={image} name={name} status={status} location={location} />
+
             </Tooltip>
 
           </Marker>

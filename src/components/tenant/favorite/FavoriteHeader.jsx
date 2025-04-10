@@ -13,6 +13,7 @@ import FiltersSection from '../browserProperty/FiltersSection';
 import ViewSwitcher from '../browserProperty/ViewSwitcher';
 import ListView from '../browserProperty/ListView';
 import { houses } from '@/data/data';
+import MapView from '../browserProperty/MapView';
 
 function FavoriteHeader() {
     const [tabView, setTabView] = useState("List");
@@ -84,7 +85,7 @@ function FavoriteHeader() {
                     <ListView handleCloseSlider={handleCloseSlider} handleCardClick={handleCardClick} houses={houses} selectedProperty={selectedProperty} />
                 ) : (
                     <div>
-                        map
+                        <MapView handleCloseSlider={handleCloseSlider} handleCardClick={handleCardClick} houses={houses} selectedProperty={selectedProperty} />
                     </div>
                 )}
             </div>
