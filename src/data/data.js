@@ -200,6 +200,38 @@ const propertiesData = [
     speciality: "Most Rented Property",
     rental: "Rent",
   },
+  {
+    name: "Luxury Villa in Dubai",
+    address: "45 Palm Jumeirah, Dubai, UAE",
+    price: "890",
+    image: "/images/dashboard/property-four.jpeg",
+    speciality: "Most Viewed Property",
+    rental: "Free",
+  },
+  {
+    name: "Modern Apartment in New York",
+    address: "789 5th Avenue, Manhattan, NY",
+    price: "1250",
+    image: "/images/dashboard/property-two.jpeg",
+    speciality: "Most Viewed Property",
+    rental: "Rent",
+  },
+  {
+    name: "Cozy Cottage in Switzerland",
+    address: "56 Lake Road, Interlaken, Switzerland",
+    price: "670",
+    image: "/images/dashboard/property-three.jpeg",
+    speciality: "Least Demanding Property",
+    rental: "Rent",
+  },
+  {
+    name: "Beachfront House in Bali",
+    address: "101 Ocean Drive, Bali, Indonesia",
+    price: "450",
+    image: "/images/dashboard/property-four.jpeg",
+    speciality: "Most Rented Property",
+    rental: "Rent",
+  },
 ];
 
 const bookingSummaryData = [

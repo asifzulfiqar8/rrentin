@@ -23,7 +23,7 @@ const Dashboard = () => {
       <HomeCards />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 mt-4">
         <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 xl:col-span-12 2xl:col-span-6">
             <PieChartHalf
               title="Payment Overview"
               data={totalEarningsChartData}
@@ -31,7 +31,7 @@ const Dashboard = () => {
               totalLabel="Total Earnings"
             />
           </div>
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 xl:col-span-12 2xl:col-span-6">
             <CustomPieChart
               title="Income Breakdown"
               data={incomeBreakdata}

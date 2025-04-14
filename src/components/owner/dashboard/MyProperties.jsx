@@ -6,7 +6,7 @@ import { propertiesData } from "@/data/data";
 
 const MyProperties = () => {
   return (
-    <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm h-[710px] 2xl:h-[730px] overflow-y-scroll scroll-0">
+    <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm h-[710px] xl:h-full 2xl:h-[730px] overflow-y-scroll scroll-0">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
           <Image
@@ -22,7 +22,7 @@ const MyProperties = () => {
         </Link>
       </div>
       <div className="mt-[18px] flex flex-col gap-4 md:gap-6">
-        {propertiesData.slice(0, 5).map((card, i) => (
+        {propertiesData.slice(0, 8).map((card, i) => (
           <PropertyCard data={card} key={i} />
         ))}
       </div>

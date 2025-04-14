@@ -43,7 +43,7 @@ const PropertyCard = ({ data }) => {
               data?.rental === "Rent"
                 ? "bg-[#1D7FFF1A] text-[#0245A5]"
                 : "bg-[#E3545433] text-[#E35454]"
-            } text-xs font-semibold rounded-xs py-[3px] px-[6px]`}
+            } text-xs font-semibold h-6 rounded-xs py-[3px] px-[6px]`}
           >
             {data?.rental}
           </span>
