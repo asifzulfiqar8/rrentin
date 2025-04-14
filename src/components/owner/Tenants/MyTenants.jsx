@@ -20,7 +20,7 @@ function MyTenants() {
             style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
         >
             <MyTenantsHeader />
-            <div className="grid grid-cols-1 mg:grid-cols-2 mt-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
+            <div className="grid grid-cols-1 mg:grid-cols-2 mt-3 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
                 {tenants.map((tenant, index) => (
                     <div
                         key={`${tenant.id}-${index}`}

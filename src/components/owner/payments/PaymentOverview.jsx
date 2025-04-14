@@ -86,8 +86,8 @@ const PaymentOverview = () => {
                             cy="50%"
                             startAngle={90}
                             endAngle={collectedEndAngle}
-                            innerRadius={85}
-                            outerRadius={100}
+                            innerRadius={65}
+                            outerRadius={80}
                             fill={collectedColor}
                             dataKey="value"
                             label={renderCollectedLabel}
@@ -100,8 +100,8 @@ const PaymentOverview = () => {
                             cy="50%"
                             startAngle={90}
                             endAngle={pendingEndAngle}
-                            innerRadius={70}
-                            outerRadius={85}
+                            innerRadius={50}
+                            outerRadius={65}
                             fill={pendingColor}
                             dataKey="value"
                             label={renderPendingLabel}

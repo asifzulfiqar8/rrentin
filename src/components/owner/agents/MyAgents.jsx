@@ -10,7 +10,7 @@ function MyAgents() {
             style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
         >
             <AgentCardHeader />
-            <div className="grid mt-5 grid-cols-1 mg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
+            <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-6 max-h-[800px] overflow-y-scroll scroll-0">
                 {myAgentData.map((card, i) => (
                     <AgentCard data={card} key={i}/>
                 ))}

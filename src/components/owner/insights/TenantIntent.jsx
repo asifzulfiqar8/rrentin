@@ -51,7 +51,7 @@ const TenantIntent = ({ title, data, legend }) => {
                                 className="size-[22px] rounded-sm"
                                 style={{ backgroundColor: colors[index] }}
                             ></div>
-                            <p className="text-gray-700 text-sm">{item}</p>
+                            <p className="text-gray-700 text-wrap text-sm">{item}</p>
                         </div>
                     ))}
                 </div>

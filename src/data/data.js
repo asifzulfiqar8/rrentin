@@ -83,7 +83,7 @@ const homeCardsData = [
     img: "/images/dashboard/dollar.png",
   },
   {
-    title: "Rental Field",
+    title: "Rental Yield",
     value: "32%",
     valueAdded: "10",
     para: "Your properties are generating <span class='font-medium text-[#39DA4C]'>+10%</span> returns.",
@@ -140,7 +140,7 @@ const tenantIntent = [
 
 const tenantIncomeLegendLabels = [
   "Total Rent Collected (40%)",
-  "Pending Payments (30%)",
+  "Pending Payment (30%)",
   "Expenses (30%)",
 ];
 const incomeLegendLabels = [

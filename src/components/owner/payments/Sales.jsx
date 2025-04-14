@@ -32,8 +32,8 @@ const Sales = () => {
                             cx="50%"
                             cy="50%"
                             // Adjust inner/outer radius to change the donut thickness
-                            innerRadius={60}
-                            outerRadius={80}
+                            innerRadius={50}
+                            outerRadius={70}
                             // Increase or decrease for more/less gap between slices
                             paddingAngle={5}
                             // Rounded edges on slices

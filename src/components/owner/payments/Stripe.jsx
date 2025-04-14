@@ -34,7 +34,9 @@ function Stripe() {
 
             {/* Modal */}
             {isModalOpen && (
-                <Modal>
+                <Modal
+                    onClose={() => setIsModalOpen(false)}
+                >
                     <div className="p-5 flex flex-col items-center">
                         <Image
                             src="/images/payment/Stripe.png"

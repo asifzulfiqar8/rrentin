@@ -20,10 +20,12 @@ const MyPropertiesHeader = ({ tabView, setTabView }) => {
           height={32}
           alt="icon"
         />
-        My Properties
+        <p>
+          My Properties
+        </p>
       </div>
       <div className="flex items-center gap-2 md:gap-6">
-        <div className=" lg:w-[440px]">
+        <div className=" !w-full xl:w-[440px] ">
           <SearchInput placeholder="properties" cn='' />
         </div>
         <Selector

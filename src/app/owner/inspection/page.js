@@ -90,7 +90,7 @@ function Inspection() {
                 style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
             >
                 <InspectionCardHeader />
-                <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] overflow-auto ">
+                <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-h-[800px] overflow-auto ">
                     {cardsData.map((data, index) => (
                         <InspectionCard key={index} data={data} />
                     ))}

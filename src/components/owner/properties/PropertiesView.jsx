@@ -61,7 +61,7 @@ const properties = [
 
 function PropertiesView() {
   return (
-    <div>
+    <div className='w-[800px] lg:w-full overflow-x-auto'>
       {/* Header Section */}
       <div className='flex flex-col gap-2.5'>
         <section className="grid grid-cols-12 gap-4">

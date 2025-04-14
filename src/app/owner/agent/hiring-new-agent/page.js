@@ -85,7 +85,7 @@ function HiringNewAgent() {
       >
 
           <NewAgentCardHeader />
-        <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-h-[800px] ">
+        <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-h-[800px] ">
           {cardsData.map((data, index) => (
             <NewAgentCard key={index} data={data} />
           ))}

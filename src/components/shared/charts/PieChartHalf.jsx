@@ -14,6 +14,7 @@ export function PieChartHalf({ title, data, config, totalLabel }) {
     0
   );
 
+
   return (
     <Card className="!p-4 lg:!p-5">
       <CardHeader className="items-center pb-0">

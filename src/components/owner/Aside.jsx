@@ -46,7 +46,7 @@ const pages = [
   },
   {
     id: 4,
-    title: "Agent",
+    title: "My Agent",
     link: ["/owner/agent",`/owner/agent/agent-profile/${agentid}`],
     icon: <OnDemandIcon />,
   },

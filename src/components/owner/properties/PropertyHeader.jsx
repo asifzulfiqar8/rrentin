@@ -26,7 +26,7 @@ const PropertyHeader = () => {
             />
             <span className="text-sm font-semibold">Properties Views</span>
           </div>}
-          width="w-[320px] md:w-[1150px]"
+          // width="w-[700px] md:w-full"
         >
           <PropertiesView />
         </Modal>
