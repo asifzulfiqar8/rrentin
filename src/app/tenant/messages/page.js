@@ -1,8 +1,11 @@
+import ChatPage from '@/components/owner/messages/ChatPage'
 import React from 'react'
 
 function Message() {
   return (
-    <div>Message</div>
+    <div className='h-full'>
+      <ChatPage />
+    </div>
   )
 }
 

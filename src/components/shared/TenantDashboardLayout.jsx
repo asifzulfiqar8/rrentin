@@ -9,8 +9,8 @@ function TenantDashboardLayout({children}) {
             <TenantAside/>
             <div className="flex-1 w-full">
               <TenantHeader/>
-              <main className="mt-[14px] h-[calc(100vh-104px)] overflow-y-scroll overflow-x-hidden scroll-0">
-                {children}
+              <main className="mt-[14px] h-[calc(100vh-180px)]  xl:h-[calc(100vh-104px)] overflow-y-scroll overflow-x-hidden scroll-0">
+              {children}
               </main>
             </div>
           </section>

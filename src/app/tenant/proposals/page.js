@@ -1,8 +1,11 @@
+import TenantProposal from '@/components/tenant/perposal/TenantProposal'
 import React from 'react'
 
 function Proposals() {
   return (
-    <div>Proposals</div>
+    <div>
+      <TenantProposal/>
+    </div>
   )
 }
 

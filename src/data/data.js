@@ -26,8 +26,8 @@ const transactionTableStyles = {
   headCells: {
     style: {
       fontSize: "14px",
-      fontWeight: 500,
-      color: "#7E7E7E",
+      fontWeight: 600,
+      color: "#32343C",
       borderBottom: "1px solid #32343CB2 !important",
     },
   },
@@ -42,7 +42,9 @@ const transactionTableStyles = {
   cells: {
     style: {
       color: "#32343C",
-      fontSize: "13px",
+      fontSize: "14px",
+      fontWeight: 600,
+
     },
   },
 };
@@ -1177,8 +1179,8 @@ const subscriptionPlans = [
       "3 Properties",
       "Contract Details",
       "Limited Insights",
-      "Limited reports",
-      "Limited Customer Support",
+      // "Limited reports",
+      // "Limited Customer Support",
     ],
     buttonText: "Current Plan",
     buttonType: "disabled",
