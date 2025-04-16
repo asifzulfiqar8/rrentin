@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   ArrowIcon,
   BrowseProperties,
@@ -19,72 +19,72 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { BsThreeDots } from "react-icons/bs";
+import { MdLogout } from "react-icons/md";
+import { IoSettingsOutline } from "react-icons/io5";
 
 
 
-const TenantAside = () => {
-  const {id} =useParams()
+const TenantAside = ({ mobileNav }) => {
+  const { id } = useParams()
   const params = useParams();
   const tenantId = params.tenantId
   const agentid = params.agentid
-const pages = [
-  {
-    id: 1,
-    title: "Dashboard",
-    link: ["/tenant"],
-    icon: <DashboardIcon />,
-  },
-  {
-    id: 2,
-    title: "Browse Properties",
-    link: ["/tenant/browser-property"],
-    icon: <BrowseProperties />,
-  },
-  {
-    id: 3,
-    title: "Booking Summary",
-    link: ["/tenant/booking-summary"],
-    icon: <NotificationIcon />,
-  },
-  {
-    id: 4,
-    title: "Proposals",
-    link: ["/tenant/proposals"],
-    icon: <ProposalsIcon />,
-  },
-  {
-    id: 5,
-    title: "Notification",
-    link: ["/tenant/notification"],
-    icon: <NotificationIcon />,
-  },
-  {
-    id: 6,
-    title: "Messages",
-    link: ["/tenant/messages"],
-    icon: <MessagesIcon />,
-  },
-  {
-    id: 7,
-    title: "Favorite",
-    link: ["/tenant/favorite"],
-    icon: <FavoriteIcon />,
-  },
-];
+  const pages = [
+    {
+      id: 1,
+      title: "Dashboard",
+      link: ["/tenant"],
+      icon: <DashboardIcon />,
+    },
+    {
+      id: 2,
+      title: "Browse Properties",
+      link: ["/tenant/browser-property"],
+      icon: <BrowseProperties />,
+    },
+    {
+      id: 3,
+      title: "Booking Summary",
+      link: ["/tenant/booking-summary"],
+      icon: <NotificationIcon />,
+    },
+    {
+      id: 4,
+      title: "Proposals",
+      link: ["/tenant/proposals"],
+      icon: <ProposalsIcon />,
+    },
+    {
+      id: 5,
+      title: "Notification",
+      link: ["/tenant/notification"],
+      icon: <NotificationIcon />,
+    },
+    {
+      id: 6,
+      title: "Messages",
+      link: ["/tenant/messages"],
+      icon: <MessagesIcon />,
+    },
+    {
+      id: 7,
+      title: "Favorite",
+      link: ["/tenant/favorite"],
+      icon: <FavoriteIcon />,
+    },
+  ];
 
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <aside
-      className={`relative transition-all duration-300 hidden xl:block ${
-        isMenuOpen ? "w-[84px]" : "w-[246px]"
-      }`}
+      className={`relative transition-all duration-300 ${mobileNav ? "block xl:hidden h-full " : "hidden xl:block"
+        } ${isMenuOpen ? "w-[84px]" : "w-[246px]"}`}
     >
       {/* Arrow icon */}
       <div
-        className={`absolute top-[37px] -right-[10px] cursor-pointer z-50 transition-all duration-300 hidden xl:block ${
-          isMenuOpen ? "rotate-180" : "rotate-0"
-        }`}
+        className={`absolute top-[37px] -right-[10px] cursor-pointer z-50 transition-all duration-300 hidden xl:block ${isMenuOpen ? "rotate-180" : "rotate-0"
+          }`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <ArrowIcon />
@@ -104,9 +104,8 @@ const pages = [
         />
         <div className="mt-5">
           <h4
-            className={`text-xs text-[#545454] font-bold ${
-              isMenuOpen ? "text-center" : "pl-2"
-            }`}
+            className={`text-xs text-[#545454] font-bold ${isMenuOpen ? "text-center" : "pl-2"
+              }`}
           >
             MENU
           </h4>
@@ -137,17 +136,15 @@ const LinkItem = ({ page, pathname, isMenuOpen }) => {
   return (
     <Link
       href={page?.link[0]}
-      className={`flex items-center py-[10px] px-[13px] rounded-lg text-sm font-medium transition-all duration-300 ${
-        isMenuOpen ? "gap-0 justify-center" : "gap-3"
-      } ${isLinkActive ? "bg-[#E8F2FF] text-primary" : "text-[#1F1F1F]"}`}
+      className={`flex items-center py-[10px] px-[13px] rounded-lg text-sm font-medium transition-all duration-300 ${isMenuOpen ? "gap-0 justify-center" : "gap-3"
+        } ${isLinkActive ? "bg-[#E8F2FF] text-primary" : "text-[#1F1F1F]"}`}
     >
       {React.cloneElement(page?.icon, { isLinkActive })}
       <span
-        className={`transition-all duration-300 text-nowrap ${
-          isMenuOpen
-            ? "opacity-0 scale-x-0 w-0 h-0"
-            : "opacity-100 scale-x-100 h-auto w-auto"
-        }`}
+        className={`transition-all duration-300 text-nowrap ${isMenuOpen
+          ? "opacity-0 scale-x-0 w-0 h-0"
+          : "opacity-100 scale-x-100 h-auto w-auto"
+          }`}
       >
         {page?.title}
       </span>
@@ -165,6 +162,22 @@ const LinkItem = ({ page, pathname, isMenuOpen }) => {
 };
 
 const ProfileSec = ({ isMenuOpen }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Close the dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside)
+  }, []);
+
   return (
     <div className="border-t border-[#EBEBEB] flex items-center justify-between gap-4 w-full pt-4 px-3">
       <div className="flex items-center gap-2">
@@ -176,11 +189,10 @@ const ProfileSec = ({ isMenuOpen }) => {
           className="rounded-full size-[32px] object-cover"
         />
         <div
-          className={`transition-opacity duration-300 ${
-            isMenuOpen
-              ? "opacity-0 scale-x-0 w-0"
-              : "opacity-100 scale-x-100 w-auto"
-          }`}
+          className={`transition-opacity duration-300 ${isMenuOpen
+            ? "opacity-0 scale-x-0 w-0"
+            : "opacity-100 scale-x-100 w-auto"
+            }`}
         >
           <h6 className="text-xs md:text-sm text-[#1F1F1F] leading-none">
             Alexander
@@ -191,7 +203,42 @@ const ProfileSec = ({ isMenuOpen }) => {
         </div>
       </div>
       {!isMenuOpen && (
-        <BsThreeDots className="text-[#141B34] text-base cursor-pointer" />
+        <div className="relative inline-block">
+          {/* Three dots icon - click to toggle the menu */}
+          <BsThreeDots
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-[#141B34] text-base cursor-pointer "
+          />
+
+          {/* Dropdown Menu positioned above the icon */}
+          {menuOpen && (
+            <div
+              ref={menuRef}
+              className="absolute w-32 bottom-full mb-2 right-0 bg-white border border-gray-200 rounded shadow-md"
+            >
+              <button
+                onClick={() => console.log("Settings clicked")}
+                className=" flex items-center justify-between w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                <p>
+
+                  Settings
+                </p>
+                <IoSettingsOutline />
+              </button>
+              <button
+                onClick={() => console.log("Logout clicked")}
+                className=" flex items-center justify-between w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                <p>
+
+                  Logout
+                </p>
+                <MdLogout />
+              </button>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
