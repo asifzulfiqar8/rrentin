@@ -29,6 +29,8 @@ const transactionTableStyles = {
       fontWeight: 600,
       color: '#32343C',
       borderBottom: '1px solid #32343CB2 !important',
+      justifyContent: 'center', // center header content
+      textAlign: 'center',
     },
   },
   rows: {
@@ -44,9 +46,12 @@ const transactionTableStyles = {
       color: '#32343C',
       fontSize: '14px',
       fontWeight: 600,
+      justifyContent: 'center', // center cell content
+      textAlign: 'center',
     },
   },
 };
+
 const notificationsData = [
   {
     reason: 'Rent Payment Due',
@@ -106,6 +111,43 @@ const homeCardsData = [
   },
   {
     title: 'Inquiry Rate',
+    value: '123',
+    valueAdded: '08',
+    para: "<span class='font-medium text-[#E35454]'>+$8.45</span> growth in tenant inquiries.",
+    img: '/images/dashboard/inquiry.png',
+  },
+];
+export const agentHomeCardsData = [
+  {
+    title: 'Total Revenue',
+    value: '$273,38',
+    valueAdded: '12',
+    para: "It’s <span class='font-medium text-[#39DA4C]'>+$23.14</span> better then last month",
+    img: '/images/dashboard/dollar.png',
+  },
+  {
+    title: 'Properties Shown',
+    value: '32%',
+    valueAdded: '10',
+    para: "Your properties are generating <span class='font-medium text-[#39DA4C]'>+10%</span> returns.",
+    img: '/images/dashboard/rental.png',
+  },
+  {
+    title: 'Inspected Properties',
+    value: '77%',
+    valueAdded: '43',
+    para: "<span class='font-medium text-[#39DA4C]'>+43</span> of tenants have renewed their leases.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Leased Properties',
+    value: '45%',
+    valueAdded: '23',
+    para: "<span class='font-medium text-[#39DA4C]'>+43%</span> tenants showed interest in leasing.",
+    img: '/images/dashboard/tenant.png',
+  },
+  {
+    title: 'Pending Tasks',
     value: '123',
     valueAdded: '08',
     para: "<span class='font-medium text-[#E35454]'>+$8.45</span> growth in tenant inquiries.",
@@ -295,72 +337,72 @@ const bookingSummaryData = [
 ];
 const transactionHistoryData = [
   {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
-    paymentStatus: 'pending',
-    slip: '',
-  },
-  {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
-    paymentStatus: 'rejected',
-    slip: '',
-  },
-  {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
+    invoiceID: 101,
+    date: '10-Jan-2025',
+    amount: '$120.50',
     paymentStatus: 'paid',
     slip: '',
   },
   {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
+    invoiceID: 102,
+    date: '12-Jan-2025',
+    amount: '$98.75',
     paymentStatus: 'pending',
     slip: '',
   },
   {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
+    invoiceID: 103,
+    date: '15-Jan-2025',
+    amount: '$150.00',
+    paymentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceID: 104,
+    date: '18-Jan-2025',
+    amount: '$200.00',
+    paymentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceID: 105,
+    date: '21-Jan-2025',
+    amount: '$75.00',
     paymentStatus: 'pending',
     slip: '',
   },
   {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
+    invoiceID: 106,
+    date: '25-Jan-2025',
+    amount: '$315.20',
+    paymentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceID: 107,
+    date: '28-Jan-2025',
+    amount: '$90.00',
+    paymentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceID: 108,
+    date: '30-Jan-2025',
+    amount: '$185.99',
     paymentStatus: 'pending',
     slip: '',
   },
   {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
-    paymentStatus: 'pending',
+    invoiceID: 109,
+    date: '01-Feb-2025',
+    amount: '$230.00',
+    paymentStatus: 'paid',
     slip: '',
   },
   {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
-    paymentStatus: 'pending',
-    slip: '',
-  },
-  {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
-    paymentStatus: 'pending',
-    slip: '',
-  },
-  {
-    invoiceID: 1,
-    date: '23-jan-2025',
-    amount: '$454',
+    invoiceID: 110,
+    date: '05-Feb-2025',
+    amount: '$60.00',
     paymentStatus: 'pending',
     slip: '',
   },
@@ -479,6 +521,38 @@ const propertiesCardsData = [
     para: "It’s<span class='font-medium text-[#E35454]'> +$43.14 </span>better then last month.",
     img: '/images/dashboard/tenant.png',
   },
+];
+export const agentPropertiesCardsData = [
+  {
+    title: 'Total Properties',
+    value: '12',
+    para: 'You have 12 properties in your portfolio.',
+    img: '/images/properties/dollar.png',
+  },
+  {
+    title: 'Inspected Properties',
+    value: '32',
+    para: '03 properties are actively rented out.',
+    img: '/images/properties/dollar.png',
+  },
+  {
+    title: 'Properties Show',
+    value: '09',
+    para: '09 properties are currently free for rent.',
+    img: '/images/properties/dollar.png',
+  },
+  {
+    title: 'Pending Task',
+    value: '09',
+    para: 'These properties are waiting for admin approval to go live.',
+    img: '/images/properties/dollar.png',
+  },
+  // {
+  //   title: 'Property Views',
+  //   value: '4,474',
+  //   para: "It’s<span class='font-medium text-[#E35454]'> +$43.14 </span>better then last month.",
+  //   img: '/images/dashboard/tenant.png',
+  // },
 ];
 const insightCardsData = [
   {

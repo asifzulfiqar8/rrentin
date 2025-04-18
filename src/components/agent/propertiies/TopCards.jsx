@@ -1,9 +1,9 @@
-import { agentCardsData } from '@/data/data';
+import { propertiesCardsData } from '@/data/data';
 import Image from 'next/image';
 
 const TopCards = ({ data }) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-5 gap-4 md:gap-6 mt-4">
+    <div className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-4 gap-4 md:gap-6 mt-4">
       {data.map((card, i) => (
         <Card key={i} card={card} />
       ))}
@@ -32,7 +32,7 @@ const Card = ({ card }) => {
               ? 'Rented'
               : card.title === 'Pending Approvals'
               ? 'Pending'
-              : 'Agents'}
+              : 'Views'}
           </span>
         </div>
         <p

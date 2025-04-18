@@ -3,29 +3,17 @@ import HomeCards from '@/components/owner/dashboard/HomeCards';
 import MyProperties from '@/components/owner/dashboard/MyProperties';
 import Welcome from '@/components/owner/dashboard/Welcome';
 import CustomLineChart from '@/components/shared/charts/CustomLineChart';
-import { PieChartHalf } from '@/components/shared/charts/PieChartHalf';
 import RecentActivities from '@/components/tenant/dashboard/RecentActivities';
 import RentOverview from '@/components/tenant/dashboard/RentOverview';
-import {
-  agentIncomeOverview,
-  earningsData,
-  incomeBreakdata,
-  incomeLegendLabels,
-  totalEarningschartConfig,
-  totalEarningsChartData,
-} from '@/data/data';
+import { agentHomeCardsData, agentIncomeOverview, earningsData } from '@/data/data';
 import dynamic from 'next/dynamic';
-// import BookingSummary from './BookingSummary';
-// import HomeCards from './HomeCards';
-// import MyProperties from './MyProperties';
-// import Welcome from './Welcome';
-const CustomPieChart = dynamic(() => import('@/components/shared/charts/CustomPieChart'));
 
+const CustomPieChart = dynamic(() => import('@/components/shared/charts/CustomPieChart'));
 const AgentDashboard = () => {
   return (
     <>
       <Welcome />
-      <HomeCards />
+      <HomeCards data={agentHomeCardsData} />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 mt-4">
         <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
           <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm lg:col-span-6 xl:col-span-12 2xl:col-span-6">

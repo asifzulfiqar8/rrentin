@@ -1,12 +1,12 @@
-"use client";
-import { BuildingIcon, EyeIcon } from "@/assets/icon";
-import Modal from "@/components/shared/small/Modal";
-import Link from "next/link";
-import { useState } from "react";
-import PropertiesView from "./PropertiesView";
-import Image from "next/image";
+'use client';
+import { BuildingIcon, EyeIcon } from '@/assets/icon';
+import Modal from '@/components/shared/small/Modal';
+import Link from 'next/link';
+import { useState } from 'react';
+import PropertiesView from './PropertiesView';
+import Image from 'next/image';
 
-const PropertyHeader = () => {
+const PropertyHeader = ({ title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modalOpenHandler = () => setIsModalOpen(true);
@@ -17,15 +17,12 @@ const PropertyHeader = () => {
       {isModalOpen && (
         <Modal
           onClose={modalCloseHandler}
-          title={<div className="flex items-center gap-4">
-            <Image
-              src="/images/dashboard/rental.png"
-              width={32}
-              height={32}
-              alt="icon"
-            />
-            <span className="text-sm font-semibold">Properties Views</span>
-          </div>}
+          title={
+            <div className="flex items-center gap-4">
+              <Image src="/images/dashboard/rental.png" width={32} height={32} alt="icon" />
+              <span className="text-sm font-semibold">Properties Views</span>
+            </div>
+          }
           // width="w-[700px] md:w-full"
         >
           <PropertiesView />
@@ -33,14 +30,10 @@ const PropertyHeader = () => {
       )}
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        <h3 className="text-lg md:text-[22px] font-semibold text-textColor">
-          Properties Details
-        </h3>
+        <h3 className="text-lg md:text-[22px] font-semibold text-textColor">{title}</h3>
         <div className="flex items-center gap-4 md:gap-5">
           {/* ✅ Fixed: Correct onClick handler */}
-          <Button
-
-            onClick={modalOpenHandler} text="Property Views" icon={<EyeIcon />} />
+          <Button onClick={modalOpenHandler} text="Property Views" icon={<EyeIcon />} />
           <Link href="/owner/add-property">
             <Button text="Add Property" icon={<BuildingIcon />} />
           </Link>

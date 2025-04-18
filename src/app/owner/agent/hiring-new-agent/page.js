@@ -1,7 +1,7 @@
 import NewAgentCard from '@/components/owner/newAgent/NewAgentCard';
-import NewAgentCardHeader from '@/components/owner/newAgent/NewAgentCardHeader'
-import NewAgentHeader from '@/components/owner/newAgent/NewAgentHeader'
-import React from 'react'
+import NewAgentCardHeader from '@/components/owner/newAgent/NewAgentCardHeader';
+import NewAgentHeader from '@/components/owner/newAgent/NewAgentHeader';
+import React from 'react';
 
 function HiringNewAgent() {
   const cardsData = [
@@ -12,7 +12,7 @@ function HiringNewAgent() {
       name: 'John Doe',
       address: '123 Sukhumvit Rd, Bangkok, Thailand',
       service: 'Property Inspection',
-      role: "Property Showing",
+      role: 'Property Showing',
       price: '3,000$',
     },
     {
@@ -22,7 +22,7 @@ function HiringNewAgent() {
       name: 'Jane Smith',
       address: '456 Rama IX Rd, Bangkok, Thailand',
       service: 'Building Inspection',
-      role: "Property Showing",
+      role: 'Property Showing',
       price: '3,500$',
     },
     {
@@ -32,7 +32,7 @@ function HiringNewAgent() {
       name: 'Robert Johnson',
       address: '789 Silom Rd, Bangkok, Thailand',
       service: 'Electrical Inspection',
-      role: "Property Showing",
+      role: 'Property Showing',
       price: '2,800$',
     },
     {
@@ -42,7 +42,7 @@ function HiringNewAgent() {
       name: 'Alice Brown',
       address: '101 Ploenchit Rd, Bangkok, Thailand',
       service: 'Safety Inspection',
-      role: "Property Showing",
+      role: 'Property Showing',
       price: '4,000$',
     },
     {
@@ -52,7 +52,7 @@ function HiringNewAgent() {
       name: 'Charlie Wilson',
       address: '202 Asoke Rd, Bangkok, Thailand',
       service: 'Structural Inspection',
-      role: "Property Showing",
+      role: 'Property Showing',
       price: '3,200$',
     },
     {
@@ -62,7 +62,7 @@ function HiringNewAgent() {
       name: 'Emma Davis',
       address: '303 Sathorn Rd, Bangkok, Thailand',
       service: 'HVAC Inspection',
-      role: "Property Showing",
+      role: 'Property Showing',
       price: '3,700$',
     },
     {
@@ -72,7 +72,7 @@ function HiringNewAgent() {
       name: 'Liam Anderson',
       address: '404 Ratchadaphisek Rd, Bangkok, Thailand',
       service: 'Fire Safety Inspection',
-      role: "Property Showing",
+      role: 'Property Showing',
       price: '4,200$',
     },
   ];
@@ -81,10 +81,9 @@ function HiringNewAgent() {
       <NewAgentHeader />
       <section
         className="bg-white rounded-lg p-4 mt-4"
-        style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
+        style={{ boxShadow: '0px 2px 12px 0px #3582E71A' }}
       >
-
-          <NewAgentCardHeader />
+        <NewAgentCardHeader />
         <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-h-[800px] ">
           {cardsData.map((data, index) => (
             <NewAgentCard key={index} data={data} />
@@ -92,7 +91,7 @@ function HiringNewAgent() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default HiringNewAgent
+export default HiringNewAgent;

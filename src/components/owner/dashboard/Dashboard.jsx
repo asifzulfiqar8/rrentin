@@ -1,26 +1,25 @@
-import dynamic from "next/dynamic";
-import { PieChartHalf } from "@/components/shared/charts/PieChartHalf";
-import HomeCards from "./HomeCards";
-import Welcome from "./Welcome";
+import dynamic from 'next/dynamic';
+import { PieChartHalf } from '@/components/shared/charts/PieChartHalf';
+import HomeCards from './HomeCards';
+import Welcome from './Welcome';
 import {
   earningsData,
+  homeCardsData,
   incomeBreakdata,
   incomeLegendLabels,
   totalEarningschartConfig,
   totalEarningsChartData,
-} from "@/data/data";
-import MyProperties from "./MyProperties";
-import CustomLineChart from "@/components/shared/charts/CustomLineChart";
-import BookingSummary from "./BookingSummary";
-const CustomPieChart = dynamic(() =>
-  import("@/components/shared/charts/CustomPieChart")
-);
+} from '@/data/data';
+import MyProperties from './MyProperties';
+import CustomLineChart from '@/components/shared/charts/CustomLineChart';
+import BookingSummary from './BookingSummary';
+const CustomPieChart = dynamic(() => import('@/components/shared/charts/CustomPieChart'));
 
 const Dashboard = () => {
   return (
     <>
       <Welcome />
-      <HomeCards />
+      <HomeCards data={homeCardsData} />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 mt-4">
         <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
           <div className="lg:col-span-6 xl:col-span-12 2xl:col-span-6">

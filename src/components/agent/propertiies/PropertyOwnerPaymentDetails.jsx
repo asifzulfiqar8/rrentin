@@ -1,10 +1,15 @@
 'use client';
 import React, { useState, useMemo } from 'react';
-import DataTable from 'react-data-table-component';
 import { transactionHistoryData, transactionTableStyles } from '@/data/data';
-import AgentTransactionSlip from './AgentTransactionSlip';
+import AgentTransactionSlip from '@/components/owner/agentProfile/AgentTransactionSlip';
+// at the top of your file
+import dynamic from 'next/dynamic';
 
-function AgentTransactionHistory() {
+const DataTable = dynamic(() => import('react-data-table-component'), {
+  ssr: false,
+});
+
+function PropertyOwnerPaymentDetails() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
@@ -22,7 +27,7 @@ function AgentTransactionHistory() {
       {
         name: 'Invoice Id',
         selector: (row) => row.invoiceID,
-        width: '50%',
+        // width: '40%',
       },
       {
         name: 'Date',
@@ -45,7 +50,7 @@ function AgentTransactionHistory() {
               ? 'bg-green-500'
               : '';
           return (
-            <span className={`px-2 py-1 w-[65px] text-center rounded text-white ${bgClass}`}>
+            <span className={`px-2 py-1 w-[80px] text-center rounded text-white ${bgClass}`}>
               {row.paymentStatus}
             </span>
           );
@@ -67,8 +72,8 @@ function AgentTransactionHistory() {
   );
 
   return (
-    <div className="px-5 py-4 bg-white  rounded-lg shadow-lg">
-      <h1 className="text-sm font-semibold mb-2">Transaction History</h1>
+    <div className="px-5 py-4  w-full  rounded-lg shadow-lg">
+      <h1 className="text-sm font-semibold mb-2">Payment History</h1>
       <DataTable
         data={transactionHistoryData.slice(0, 5)}
         columns={columns}
@@ -76,6 +81,15 @@ function AgentTransactionHistory() {
         customStyles={transactionTableStyles}
         fixedHeader
         fixedHeaderScrollHeight="70vh"
+        pagination
+        paginationPerPage={5}
+        paginationRowsPerPageOptions={[5, 10, 15]}
+        // progressPending={isLoading}
+        noDataComponent={
+          <div className="text-center py-8">
+            <p className="text-gray-500">No transaction history available</p>
+          </div>
+        }
       />
       {modalOpen && selectedRow && (
         <Modal onClose={closeModal}>
@@ -86,7 +100,7 @@ function AgentTransactionHistory() {
   );
 }
 
-export default AgentTransactionHistory;
+export default PropertyOwnerPaymentDetails;
 
 const Modal = ({ onClose, children, width }) => {
   return (
