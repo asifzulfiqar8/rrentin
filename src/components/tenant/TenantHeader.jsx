@@ -19,7 +19,7 @@ const TenantHeader = () => {
   useEffect(() => {
     setDate(getDate());
 
-    const handleClickOutside = (e) => {
+    const handleClickOutside = e => {
       if (notificationRef.current && !notificationRef.current.contains(e.target)) {
         setIsNotificationOpen(false);
       }
@@ -39,8 +39,8 @@ const TenantHeader = () => {
 
   return (
     <div>
-      <div className="flex items-center p-4 justify-between xl:hidden py-4">
-        <div className="bg-primary p-2 rounded-md cursor-pointer" onClick={mobileNavHandler}>
+      <div className="flex items-center justify-between p-4 py-4 xl:hidden">
+        <div className="bg-primary cursor-pointer rounded-md p-2" onClick={mobileNavHandler}>
           <RxHamburgerMenu color="#fff" fontSize={20} />
         </div>
         <div>
@@ -58,14 +58,14 @@ const TenantHeader = () => {
 
       {/* Mobile Nav Overlay */}
       <div
-        className={`block xl:hidden fixed w-full h-full inset-0 bg-[#00000071] z-50 transition-all duration-500 ${
-          mobileNav ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-50 block h-full w-full bg-[#00000071] transition-all duration-500 xl:hidden ${
+          mobileNav ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0'
         }`}
         onClick={() => setMobileNav(false)} // Close when clicking outside
       >
         <div
-          onClick={(e) => e.stopPropagation()}
-          className={`absolute top-0 left-0 h-full  w-[246px] transition-transform duration-500 ${
+          onClick={e => e.stopPropagation()}
+          className={`absolute top-0 left-0 h-full w-[246px] transition-transform duration-500 ${
             mobileNav ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -73,9 +73,9 @@ const TenantHeader = () => {
           {/* Your Sidebar component */}
         </div>
       </div>
-      <header className="bg-white rounded-lg h-[74px] p-4 flex items-center justify-between gap-4">
+      <header className="flex h-[74px] items-center justify-between gap-4 rounded-lg bg-white p-4">
         <div>
-          <h2 className="text-xl lg:text-[22px] font-semibold text-text-textColor capitalize">
+          <h2 className="text-text-textColor text-xl font-semibold capitalize lg:text-[22px]">
             Tenant
           </h2>
           <p className="text-xs text-[#969696]">{date}</p>
@@ -84,7 +84,7 @@ const TenantHeader = () => {
           <SwitchButton />
           <div className="relative" ref={notificationRef}>
             <button
-              className="p-2 rounded-[5px] cursor-pointer"
+              className="cursor-pointer rounded-[5px] p-2"
               style={{ boxShadow: '0px 1px 6px 0px #00000014' }}
               onClick={() => setIsNotificationOpen(!isNotificationOpen)}
             >
@@ -104,7 +104,7 @@ export default TenantHeader;
 
 const SwitchButton = () => (
   <button
-    className="hidden md:flex items-center gap-3 py-2 px-5 rounded-[5px] text-sm md:text-base font-medium text-text-textColor cursor-pointer"
+    className="text-text-textColor hidden cursor-pointer items-center gap-3 rounded-[5px] px-5 py-2 text-sm font-medium md:flex md:text-base"
     style={{ boxShadow: '0px 1px 6px 0px #00000014' }}
   >
     <ReloadIcon />
@@ -117,7 +117,7 @@ const LanguageSwitch = () => {
   const [locale, setLocale] = useState('th');
   const router = useRouter();
 
-  const changeLanguage = (lang) => {
+  const changeLanguage = lang => {
     if (lang === locale) return;
     localStorage.setItem('lang', lang);
     setLocale(lang);
@@ -126,7 +126,7 @@ const LanguageSwitch = () => {
   return (
     <div className="relative">
       <button
-        className="py-2 px-5 rounded-[5px] hidden md:flex items-center gap-1 text-xs text-[#969696] cursor-pointer"
+        className="hidden cursor-pointer items-center gap-1 rounded-[5px] px-5 py-2 text-xs text-[#969696] md:flex"
         onClick={() => setIsOpen(!isOpen)}
         style={{ boxShadow: '0px 1px 6px 0px #00000014' }}
       >
@@ -135,16 +135,16 @@ const LanguageSwitch = () => {
           width={20}
           height={13}
           alt="flag"
-          className="rounded-[] object-cover w-[20px]"
+          className="rounded-[] w-[20px] object-cover"
         />
         {locale === 'en' ? 'English' : 'ไทย'}
         <IoIosArrowDown className="text-base text-[#969696]" />
       </button>
 
       {isOpen && (
-        <div className="absolute top-10 left-0 w-[120px] bg-white rounded-md shadow-lg">
+        <div className="absolute top-10 left-0 w-[120px] rounded-md bg-white shadow-lg">
           <button
-            className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            className="w-full cursor-pointer px-4 py-2 text-left hover:bg-gray-100"
             onClick={() => {
               changeLanguage('en');
               setIsOpen(false);
@@ -153,7 +153,7 @@ const LanguageSwitch = () => {
             🇬🇧 English
           </button>
           <button
-            className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            className="w-full cursor-pointer px-4 py-2 text-left hover:bg-gray-100"
             onClick={() => {
               changeLanguage('th');
               setIsOpen(false);

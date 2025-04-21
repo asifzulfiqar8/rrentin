@@ -1,4 +1,4 @@
-import ChatPage from "@/components/owner/messages/ChatPage";
+import ChatPage from '@/components/owner/messages/ChatPage';
 
 const Messages = () => {
   return <ChatPage />;

@@ -1,24 +1,18 @@
-import { notificationsData } from "@/data/data";
-import Image from "next/image";
-import { RiArrowRightUpLine } from "react-icons/ri";
+import { notificationsData } from '@/data/data';
+import Image from 'next/image';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 
 const NotificationMenu = ({ isNotificationOpen }) => {
   return (
     <div
-      className={`absolute top-[45px] right-0 z-[99] w-[300px] md:w-[400px] bg-white rounded-lg py-4 px-5 transition-all duration-200 overflow-y-scroll custom-scroll ${
-        isNotificationOpen
-          ? "h-[300px] md:h-[500px] opacity-100"
-          : "h-0 opacity-0"
+      className={`custom-scroll absolute top-[45px] right-0 z-[99] w-[300px] overflow-y-scroll rounded-lg bg-white px-5 py-4 transition-all duration-200 md:w-[400px] ${
+        isNotificationOpen ? 'h-[300px] opacity-100 md:h-[500px]' : 'h-0 opacity-0'
       }`}
-      style={{ boxShadow: "0px 2px 12px 0px #3582E71A" }}
+      style={{ boxShadow: '0px 2px 12px 0px #3582E71A' }}
     >
-      <h6 className="text-base md:text-xl font-semibold text-text-textColor">
-        Notifications
-      </h6>
+      <h6 className="text-text-textColor text-base font-semibold md:text-xl">Notifications</h6>
       <div className="mt-4">
-        <h6 className="text-sm md:text-base font-medium text-text-textColor">
-          Today
-        </h6>
+        <h6 className="text-text-textColor text-sm font-medium md:text-base">Today</h6>
         <div className="mt-4 flex flex-col gap-4">
           {notificationsData.slice(0, 3).map((list, i) => (
             <List list={list} key={i} />
@@ -26,9 +20,7 @@ const NotificationMenu = ({ isNotificationOpen }) => {
         </div>
       </div>
       <div className="mt-4">
-        <h6 className="text-sm md:text-base font-medium text-text-textColor">
-          Yesterday
-        </h6>
+        <h6 className="text-text-textColor text-sm font-medium md:text-base">Yesterday</h6>
         <div className="mt-4 flex flex-col gap-4">
           {notificationsData.slice(0, 2).map((list, i) => (
             <List list={list} key={i} />
@@ -37,9 +29,9 @@ const NotificationMenu = ({ isNotificationOpen }) => {
       </div>
       {/* view more button */}
       <div className="mt-4">
-        <button className="flex items-center justify-center gap-[6px] bg-primary py-[6px] px-2 rounded-[4px] text-white text-sm font-medium mx-auto cursor-pointer">
+        <button className="bg-primary mx-auto flex cursor-pointer items-center justify-center gap-[6px] rounded-[4px] px-2 py-[6px] text-sm font-medium text-white">
           View more
-          <RiArrowRightUpLine className="text-white text-base mt-1" />
+          <RiArrowRightUpLine className="mt-1 text-base text-white" />
         </button>
       </div>
     </div>
@@ -56,13 +48,13 @@ const List = ({ list }) => {
         width={28}
         height={28}
         alt="flag image"
-        className="size-[28px] object-cover rounded-full"
+        className="size-[28px] rounded-full object-cover"
       />
       <div>
-        <h6 className="text-xs md:text-sm text-[#5F5F5F]">
+        <h6 className="text-xs text-[#5F5F5F] md:text-sm">
           <span className="font-medium">{list?.reason}</span> - {list?.message}
         </h6>
-        <span className="text-[#5F5F5F99] text-xs">{list?.time}</span>
+        <span className="text-xs text-[#5F5F5F99]">{list?.time}</span>
       </div>
     </div>
   );

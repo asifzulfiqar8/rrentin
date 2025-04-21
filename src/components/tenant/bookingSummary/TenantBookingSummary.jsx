@@ -57,7 +57,7 @@ function TenantBookingSummary() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
-  const openModal = (row) => {
+  const openModal = row => {
     setSelectedRow(row);
     setModalOpen(true);
   };
@@ -70,7 +70,7 @@ function TenantBookingSummary() {
     () => [
       {
         name: 'Property',
-        cell: (row) => {
+        cell: row => {
           return (
             <div className="flex gap-3.5">
               <div>
@@ -82,7 +82,7 @@ function TenantBookingSummary() {
                 <div>
                   <span className="text-base font-semibold">
                     {row.price}
-                    <span className="text-[8px] text-[#969696] font-semibold">{row.period}</span>
+                    <span className="text-[8px] font-semibold text-[#969696]">{row.period}</span>
                   </span>
                 </div>
               </div>
@@ -93,11 +93,11 @@ function TenantBookingSummary() {
       },
       {
         name: 'Monthly Rent',
-        selector: (row) => row.monthlyRent,
+        selector: row => row.monthlyRent,
       },
       {
         name: 'Start - End',
-        cell: (row) => (
+        cell: row => (
           <div className="flex flex-col">
             <div>{row.startDate}</div>
             <div>{row.endDate}</div>
@@ -106,21 +106,21 @@ function TenantBookingSummary() {
       },
       {
         name: 'Security Deposit',
-        selector: (row) => row.security,
+        selector: row => row.security,
       },
       {
         name: 'Status',
-        cell: (row) => {
+        cell: row => {
           // Determine color based on paymentStatus value
           const status = row.paymentStatus ? row.paymentStatus.toLowerCase() : '';
           const statusClass =
             status === 'active'
               ? 'text-[#34C759]'
               : status === 'expire'
-              ? 'text-[#E35454]'
-              : 'text-gray-500';
+                ? 'text-[#E35454]'
+                : 'text-gray-500';
           return (
-            <span className={`px-2 py-1 w-[65px] text-center rounded  ${statusClass}`}>
+            <span className={`w-[65px] rounded px-2 py-1 text-center ${statusClass}`}>
               {row.paymentStatus}
             </span>
           );
@@ -128,11 +128,11 @@ function TenantBookingSummary() {
       },
       {
         name: 'Agreement Slip',
-        cell: (row) => {
+        cell: row => {
           return (
             <button
               onClick={() => openModal(row)}
-              className="px-2 py-1 text-center text-nowrap text-[#34C759] rounded bg-[#34C759]/20 "
+              className="rounded bg-[#34C759]/20 px-2 py-1 text-center text-nowrap text-[#34C759]"
             >
               Agreement
             </button>
@@ -144,8 +144,8 @@ function TenantBookingSummary() {
   );
 
   return (
-    <div className="px-5 py-4 bg-white rounded-lg shadow-lg">
-      <h1 className="text-sm font-semibold mb-2">Transaction History</h1>
+    <div className="rounded-lg bg-white px-5 py-4 shadow-lg">
+      <h1 className="mb-2 text-sm font-semibold">Transaction History</h1>
       <DataTable
         data={properties}
         columns={columns}
@@ -168,14 +168,14 @@ export default TenantBookingSummary;
 const Modal = ({ onClose, children, width }) => {
   return (
     <div
-      className="modal bg-[#000000c5] fixed top-0 left-0 inset-0 z-[99] p-6 flex items-center justify-center"
+      className="modal fixed inset-0 top-0 left-0 z-[99] flex items-center justify-center bg-[#000000c5] p-6"
       onClick={onClose}
     >
       <div
-        className={`bg-white rounded-[12px] shadow-lg overflow-hidden ${
+        className={`overflow-hidden rounded-[12px] bg-white shadow-lg ${
           width ? width : 'w-[500px]'
         } h-[488px]`}
-        onClick={(e) => e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
       >
         {children}
       </div>

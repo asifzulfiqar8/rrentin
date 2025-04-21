@@ -28,7 +28,7 @@ const InfoItem = ({ label, value }) => (
   <div className="flex flex-col gap-2.5">
     <div className="flex justify-between">
       <p className="text-xs text-[#5F5F5F]">{label}</p>
-      <p className="text-xs text-[#5F5F5F] font-medium">{value}</p>
+      <p className="text-xs font-medium text-[#5F5F5F]">{value}</p>
     </div>
     <div className="border-t-1 border-[#5F5F5F]" />
   </div>
@@ -38,7 +38,7 @@ const InfoItem = ({ label, value }) => (
 const InfoSection = ({ title, columns, data }) => (
   <section>
     <h2 className="text-sm font-semibold">{title}</h2>
-    <div className={`grid gap-5 grid-cols-1 lg:grid-cols-${columns} mt-[17.5px]`}>
+    <div className={`grid grid-cols-1 gap-5 lg:grid-cols-${columns} mt-[17.5px]`}>
       {data.map((colItems, colIdx) => (
         <div key={colIdx} className="flex flex-col gap-2.5">
           {colItems.map((item, idx) => (
@@ -65,7 +65,7 @@ const IconItem = ({ Icon, label }) => (
 const IconSection = ({ title, columns, data }) => (
   <section>
     <h2 className="text-sm font-semibold">{title}</h2>
-    <div className={`grid gap-5 grid-cols-1 lg:grid-cols-${columns} mt-[17.5px]`}>
+    <div className={`grid grid-cols-1 gap-5 lg:grid-cols-${columns} mt-[17.5px]`}>
       {data.map((colItems, colIdx) => (
         <div key={colIdx} className="flex flex-col gap-2.5">
           {colItems.map((item, idx) => (
@@ -146,8 +146,8 @@ export default function Description() {
 
   return (
     <div>
-      <h1 className="text-[18px] font-semibold mb-3.5">Description</h1>
-      <p className="text-[#5F5F5FCC] text-sm">
+      <h1 className="mb-3.5 text-[18px] font-semibold">Description</h1>
+      <p className="text-sm text-[#5F5F5FCC]">
         Experience unparalleled luxury and sophistication at The Crest Sukhumvit 34, located in one
         of Bangkok’s most sought-after neighborhoods. This exceptional residence effortlessly blends
         contemporary design with timeless elegance, offering a lifestyle of comfort and refinement
@@ -155,8 +155,8 @@ export default function Description() {
       </p>
 
       <section className="mt-5">
-        🏡 <span className="text-base ml-1.5 font-semibold">Key Features:</span>
-        <div className="px-5 flex flex-col gap-2 mt-3.5">
+        🏡 <span className="ml-1.5 text-base font-semibold">Key Features:</span>
+        <div className="mt-3.5 flex flex-col gap-2 px-5">
           <InfoSection title="Rental Agreement Details" columns={2} data={rentalAgreementDetails} />
 
           <InfoSection title="Payment History & Dues" columns={2} data={paymentHistory} />

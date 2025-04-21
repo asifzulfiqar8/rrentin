@@ -1,12 +1,6 @@
 const EyeIcon = () => {
   return (
-    <svg
-      width="17"
-      height="16"
-      viewBox="0 0 17 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M1.26123 7.73078C1.39585 3.98847 4.492 1 8.26124 1C11.3574 1 13.9959 3.01923 14.9113 5.81924"
         stroke="white"

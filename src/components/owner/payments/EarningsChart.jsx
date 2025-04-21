@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Arrow } from '@/assets/icon';
 import React, { useState } from 'react';
 import {
@@ -9,7 +9,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
 // Sample data for each time period
@@ -20,14 +20,14 @@ const weekData = [
   { name: 'Thu', amt: 400 },
   { name: 'Fri', amt: 350 },
   { name: 'Sat', amt: 500 },
-  { name: 'Sun', amt: 450 }
+  { name: 'Sun', amt: 450 },
 ];
 
 const monthlyData = [
   { name: 'Week 1', amt: 1500 },
   { name: 'Week 2', amt: 2000 },
   { name: 'Week 3', amt: 1800 },
-  { name: 'Week 4', amt: 2200 }
+  { name: 'Week 4', amt: 2200 },
 ];
 
 const yearlyData = [
@@ -42,7 +42,7 @@ const yearlyData = [
   { name: 'Sep', amt: 5600 },
   { name: 'Oct', amt: 5900 },
   { name: 'Nov', amt: 6200 },
-  { name: 'Dec', amt: 6000 }
+  { name: 'Dec', amt: 6000 },
 ];
 
 const EarningsChart = () => {
@@ -62,21 +62,27 @@ const EarningsChart = () => {
   const totalEarnings = data.reduce((acc, item) => acc + item.amt, 0);
 
   return (
-    <div className='h-[294px]' style={{ padding: '1rem' }}>
+    <div className="h-[294px]" style={{ padding: '1rem' }}>
       {/* Header with Earnings title, total earnings and dropdown */}
-      <div className='items-start' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-        <div className='flex flex-col  '>
-
-          <h2 className='text-base font-semibold'>Earnings - Total</h2>
-          <h2 className='text-3xl font-bold mt-3'> ${totalEarnings}</h2>
-          <div className='flex gap-2 items-center '>
+      <div
+        className="items-start"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '1rem',
+        }}
+      >
+        <div className="flex flex-col">
+          <h2 className="text-base font-semibold">Earnings - Total</h2>
+          <h2 className="mt-3 text-3xl font-bold"> ${totalEarnings}</h2>
+          <div className="flex items-center gap-2">
             <Arrow />
-            <p className='text-xs font-bold'>12%</p>
+            <p className="text-xs font-bold">12%</p>
           </div>
         </div>
-        <div className=' h-full border p-1 rounded-md'>  
-
-          <select value={timePeriod} onChange={(e) => setTimePeriod(e.target.value)}>
+        <div className="h-full rounded-md border p-1">
+          <select value={timePeriod} onChange={e => setTimePeriod(e.target.value)}>
             <option value="week">Week</option>
             <option value="monthly">Monthly</option>
             <option value="yearly">Yearly</option>

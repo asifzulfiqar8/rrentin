@@ -1,24 +1,16 @@
-"use client";
+'use client';
 
-import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
+import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from 'recharts';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
 export function PieChartHalf({ title, data, config, totalLabel }) {
-  const totalValue = Object.keys(config).reduce(
-    (sum, key) => sum + (data[0][key] || 0),
-    0
-  );
-
+  const totalValue = Object.keys(config).reduce((sum, key) => sum + (data[0][key] || 0), 0);
 
   return (
     <Card className="!p-4 lg:!p-5">
       <CardHeader className="items-center pb-0">
-        <CardTitle className="text-center text-textColor text-base font-semibold">
+        <CardTitle className="text-textColor text-center text-base font-semibold">
           {title}
         </CardTitle>
       </CardHeader>
@@ -34,7 +26,7 @@ export function PieChartHalf({ title, data, config, totalLabel }) {
               ></div>
               <h6 className="text-sm text-[#76808D]">{config[key].label}</h6>
             </div>
-            <p className="mt-2 text-textColor text-base md:text-lg font-medium">
+            <p className="text-textColor mt-2 text-base font-medium md:text-lg">
               ${data[0][key].toLocaleString()}
             </p>
           </div>
@@ -44,7 +36,7 @@ export function PieChartHalf({ title, data, config, totalLabel }) {
       <CardContent className="flex flex-1 items-center pb-0">
         <ChartContainer
           config={config}
-          className="mx-auto aspect-square w-full max-w-[250px] -mb-[7rem]"
+          className="mx-auto -mb-[7rem] aspect-square w-full max-w-[250px]"
         >
           <RadialBarChart
             data={data}
@@ -54,26 +46,23 @@ export function PieChartHalf({ title, data, config, totalLabel }) {
             paddingAngle={5}
             barGap={10}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
               <Label
                 content={({ viewBox }) =>
-                  viewBox && "cx" in viewBox && "cy" in viewBox ? (
+                  viewBox && 'cx' in viewBox && 'cy' in viewBox ? (
                     <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle">
                       <tspan
                         x={viewBox.cx}
                         y={(viewBox.cy || 0) - 16}
-                        className="fill-foreground text-2xl font-bold text-textColor"
+                        className="fill-foreground text-textColor text-2xl font-bold"
                       >
                         ${totalValue.toLocaleString()}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
                         y={(viewBox.cy || 0) + 4}
-                        className="fill-muted-foreground text-[#71717A] text-sm"
+                        className="fill-muted-foreground text-sm text-[#71717A]"
                       >
                         {totalLabel}
                       </tspan>

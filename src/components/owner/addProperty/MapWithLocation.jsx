@@ -24,7 +24,7 @@ const RecenterAutomatically = ({ latlng }) => {
   return null;
 };
 
-const getCoordinates = async (locationName) => {
+const getCoordinates = async locationName => {
   const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
     locationName
   )}&limit=1`;
@@ -44,7 +44,7 @@ const MapWithLocation = ({ location }) => {
 
   useEffect(() => {
     if (location) {
-      getCoordinates(location).then((coords) => {
+      getCoordinates(location).then(coords => {
         if (coords) {
           setPosition(coords);
           setError('');
@@ -62,7 +62,7 @@ const MapWithLocation = ({ location }) => {
   }
 
   return (
-    <div className='h-[300px] md:h-[400px] w-full' >
+    <div className="h-[300px] w-full md:h-[400px]">
       <MapContainer
         center={position || defaultCenter}
         zoom={13}

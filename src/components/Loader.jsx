@@ -1,6 +1,6 @@
 const Loader = () => {
   return (
-    <div className="fixed inset-0 z-[998] w-screen h-screen bg-white text-black font-bold grid place-items-center">
+    <div className="fixed inset-0 z-[998] grid h-screen w-screen place-items-center bg-white font-bold text-black">
       <div className="animate-ping">
         <svg
           width="129"
@@ -92,14 +92,7 @@ const Loader = () => {
             fill="#32343C"
           />
           <rect x="104.5" y="14" width="6" height="6" rx="3" fill="white" />
-          <rect
-            x="104.5"
-            y="14"
-            width="6"
-            height="6"
-            rx="3"
-            fill="url(#paint9_linear_816_29077)"
-          />
+          <rect x="104.5" y="14" width="6" height="6" rx="3" fill="url(#paint9_linear_816_29077)" />
           <defs>
             <linearGradient
               id="paint0_linear_816_29077"

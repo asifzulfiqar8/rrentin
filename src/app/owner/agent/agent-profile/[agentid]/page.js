@@ -1,13 +1,13 @@
-import Profile from '@/components/owner/agentProfile/Profiles'
-import React from 'react'
+import Profile from '@/components/owner/agentProfile/Profiles';
+import React from 'react';
 
 function AgentProfile() {
-    return (
-        <div>
-            <span className="text-[22px] font-semibold">Properties Views</span>
-            <Profile />
-        </div>
-    )
+  return (
+    <div>
+      <span className="text-[22px] font-semibold">Properties Views</span>
+      <Profile />
+    </div>
+  );
 }
 
-export default AgentProfile
+export default AgentProfile;

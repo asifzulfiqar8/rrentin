@@ -1,15 +1,15 @@
-"use client";
-import { proposalSummaryData, tableStyles } from "@/data/data";
-import { useState } from "react";
-import DataTable from "react-data-table-component";
-import ProposalModal from "./ProposalModal";
-import { GoArrowUpRight } from "react-icons/go";
+'use client';
+import { proposalSummaryData, tableStyles } from '@/data/data';
+import { useState } from 'react';
+import DataTable from 'react-data-table-component';
+import ProposalModal from './ProposalModal';
+import { GoArrowUpRight } from 'react-icons/go';
 
 const ProposalSummary = () => {
   const [modal, setModal] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
-  const modalOpenHandler = (row) => {
+  const modalOpenHandler = row => {
     setSelectedRow(row);
     setModal(true);
   };
@@ -18,10 +18,8 @@ const ProposalSummary = () => {
     setModal(false);
   };
   return (
-    <section className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm">
-      <div className="text-sm text-textColor font-semibold">
-        Proposal Summary
-      </div>
+    <section className="rounded-lg border bg-white p-4 shadow-sm lg:p-5">
+      <div className="text-textColor text-sm font-semibold">Proposal Summary</div>
       <DataTable
         data={proposalSummaryData}
         columns={columns(modalOpenHandler)}
@@ -30,8 +28,8 @@ const ProposalSummary = () => {
         fixedHeader
         fixedHeaderScrollHeight="70vh"
       />
-      <div className="flex justify-center mt-4">
-        <button className="flex items-center gap-1 bg-primary py-[6px] px-2 rounded-sm text-white text-sm found-medium cursor-pointer">
+      <div className="mt-4 flex justify-center">
+        <button className="bg-primary found-medium flex cursor-pointer items-center gap-1 rounded-sm px-2 py-[6px] text-sm text-white">
           View more
           <GoArrowUpRight className="text-base text-white" />
         </button>
@@ -43,77 +41,64 @@ const ProposalSummary = () => {
           width="w-[300px] md:w-[500px]"
         >
           <div>
-            <p className="text-base md:text-2xl text-center text-textColor">
-              <strong className="text-2xl font-semibold">
-                Proposal Overview
-              </strong>
+            <p className="text-textColor text-center text-base md:text-2xl">
+              <strong className="text-2xl font-semibold">Proposal Overview</strong>
             </p>
-            <p className="text-base md:text-2xl text-center text-textColor">
+            <p className="text-textColor text-center text-base md:text-2xl">
               Proposal ID: {selectedRow.proposalId}
             </p>
-            <p className="text-center text-textColor text-sm md:text-base">
+            <p className="text-textColor text-center text-sm md:text-base">
               {selectedRow.dateSent} 10:54 PM
             </p>
-            <hr className="my-2 border-textColor border-dashed" />
+            <hr className="border-textColor my-2 border-dashed" />
             <div className="space-y-2">
-              <div className="px-8 py-6 border-[#32343C] border-b  ">
+              <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Sent To:</strong>
-                  <p>
-                    {selectedRow.sentTo}
-                  </p>
+                  <p>{selectedRow.sentTo}</p>
                 </p>
               </div>
-              <div className="px-8 py-6 border-[#32343C] border-b  ">
+              <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Property Name:</strong>
-                  <p>
-                    {selectedRow.propertyName}
-                  </p>
+                  <p>{selectedRow.propertyName}</p>
                 </p>
               </div>
-              <div className="px-8 py-6 border-[#32343C] border-b  ">
+              <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Property Address:</strong>
-                  <p>
-                    {selectedRow.proposalType}
-                  </p>
+                  <p>{selectedRow.proposalType}</p>
                 </p>
               </div>
-              <div className="px-8 py-6 border-[#32343C] border-b  ">
+              <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Rent Amount:</strong>
-                  <p>
-                    {selectedRow.dateSent}
-                  </p>
+                  <p>{selectedRow.dateSent}</p>
                 </p>
               </div>
-              <div className="px-8 py-6 border-[#32343C] border-b  ">
+              <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Contact Duration:</strong>
-                  <p>
-                    {selectedRow.dateSent}
-                  </p>
+                  <p>{selectedRow.dateSent}</p>
                 </p>
               </div>
-              <div className="px-8 py-6 border-[#32343C] border-b  ">
+              <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Proposed Move-in Date:</strong>
-                  <p>
-                    {selectedRow.dateSent}
-                  </p>
+                  <p>{selectedRow.dateSent}</p>
                 </p>
               </div>
-              <div className="px-8 py-6 border-[#32343C] border-b  ">
+              <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
-                  <strong>Status:</strong>{" "}
+                  <strong>Status:</strong>{' '}
                   <span
-                    className={`capitalize ${selectedRow.status === "accepted"
-                      ? "text-green-500"
-                      : selectedRow.status === "pending"
-                        ? "text-yellow-500"
-                        : "text-red-500"
-                      }`}
+                    className={`capitalize ${
+                      selectedRow.status === 'accepted'
+                        ? 'text-green-500'
+                        : selectedRow.status === 'pending'
+                          ? 'text-yellow-500'
+                          : 'text-red-500'
+                    }`}
                   >
                     {selectedRow.status}
                   </span>
@@ -129,45 +114,40 @@ const ProposalSummary = () => {
 
 export default ProposalSummary;
 
-const columns = (modalOpenHandler) => [
+const columns = modalOpenHandler => [
   {
-    name: "Proposal ID",
-    selector: (row) => row.proposalId,
+    name: 'Proposal ID',
+    selector: row => row.proposalId,
   },
   {
-    name: "Property",
-    selector: (row) => row.propertyName,
+    name: 'Property',
+    selector: row => row.propertyName,
   },
   {
-    name: "Proposal Type",
-    selector: (row) => row.proposalType,
+    name: 'Proposal Type',
+    selector: row => row.proposalType,
   },
   {
-    name: "Sent To",
-    selector: (row) => row.sentTo,
+    name: 'Sent To',
+    selector: row => row.sentTo,
   },
   {
-    name: "Date Sent",
-    selector: (row) => row.dateSent,
+    name: 'Date Sent',
+    selector: row => row.dateSent,
   },
   {
-    name: "Status",
-    selector: (row) => (
+    name: 'Status',
+    selector: row => (
       <span className="flex items-center gap-1 capitalize">
-        {row.status === "accepted"
-          ? "✅"
-          : row.status === "pending"
-            ? "⌛"
-            : "❌"}{" "}
-        {row.status}
+        {row.status === 'accepted' ? '✅' : row.status === 'pending' ? '⌛' : '❌'} {row.status}
       </span>
     ),
   },
   {
-    name: "Actions",
-    selector: (row) => (
+    name: 'Actions',
+    selector: row => (
       <button
-        className="bg-primary py-[2px] px-4 rounded-[4px] text-white text-xs font-medium cursor-pointer"
+        className="bg-primary cursor-pointer rounded-[4px] px-4 py-[2px] text-xs font-medium text-white"
         onClick={() => modalOpenHandler(row)}
       >
         View

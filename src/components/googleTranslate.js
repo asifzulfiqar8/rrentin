@@ -1,12 +1,12 @@
-"use client";
-import { useEffect } from "react";
+'use client';
+import { useEffect } from 'react';
 
 const GoogleTranslate = () => {
   useEffect(() => {
     const addScript = () => {
-      const script = document.createElement("script");
+      const script = document.createElement('script');
       script.src =
-        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
       script.async = true;
       document.body.appendChild(script);
     };
@@ -14,11 +14,11 @@ const GoogleTranslate = () => {
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
         {
-          pageLanguage: "en",
-          includedLanguages: "en,th",
+          pageLanguage: 'en',
+          includedLanguages: 'en,th',
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         },
-        "google_translate_element"
+        'google_translate_element'
       );
     };
 

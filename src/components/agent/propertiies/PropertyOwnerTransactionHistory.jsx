@@ -2,13 +2,21 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { transactionHistoryData, transactionTableStyles } from '@/data/data';
 import AgentTransactionSlip from '@/components/owner/agentProfile/AgentTransactionSlip';
-import Modal from '@/components/shared/small/Modal';
+import Modal from '@/components/shared/common/Modal';
 import dynamic from 'next/dynamic';
+
+// Dynamic import for better performance
 const DataTable = dynamic(() => import('react-data-table-component'), {
   ssr: false,
+  loading: () => (
+    <div className="flex h-64 items-center justify-center">
+      <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
+    </div>
+  ),
 });
+
 // Status styling utility function
-const getStatusStyle = (status) => {
+const getStatusStyle = status => {
   const statusMap = {
     pending: 'bg-yellow-500',
     rejected: 'bg-red-500',
@@ -23,7 +31,7 @@ function PropertyOwnerTransactionHistory() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const openModal = useCallback((row) => {
+  const openModal = useCallback(row => {
     setSelectedRow(row);
     setModalOpen(true);
   }, []);
@@ -34,7 +42,7 @@ function PropertyOwnerTransactionHistory() {
   }, []);
 
   const handleViewClick = useCallback(
-    (row) => {
+    row => {
       try {
         openModal(row);
       } catch (err) {
@@ -49,29 +57,29 @@ function PropertyOwnerTransactionHistory() {
     () => [
       {
         name: 'Invoice Id',
-        selector: (row) => row.invoiceID,
+        selector: row => row.invoiceID,
         sortable: true,
         width: '20%',
       },
       {
         name: 'Date',
-        selector: (row) => row.date,
+        selector: row => row.date,
         sortable: true,
         width: '20%',
       },
       {
         name: 'Amount',
-        selector: (row) => row.amount,
+        selector: row => row.amount,
         sortable: true,
         width: '20%',
       },
       {
         name: 'Payment Status',
-        cell: (row) => {
+        cell: row => {
           const status = row.paymentStatus.toLowerCase();
           return (
             <span
-              className={`px-2 py-1 w-[80px] text-center rounded text-white ${getStatusStyle(
+              className={`w-[80px] rounded px-2 py-1 text-center text-white ${getStatusStyle(
                 status
               )}`}
               role="status"
@@ -85,10 +93,10 @@ function PropertyOwnerTransactionHistory() {
       },
       {
         name: 'Slip',
-        cell: (row) => (
+        cell: row => (
           <button
             onClick={() => handleViewClick(row)}
-            className="underline text-[13px] font-medium text-primary cursor-pointer hover:text-primary-dark transition-colors"
+            className="text-primary hover:text-primary-dark cursor-pointer text-[13px] font-medium underline transition-colors"
             aria-label={`View transaction slip for invoice ${row.invoiceID}`}
           >
             View
@@ -103,10 +111,10 @@ function PropertyOwnerTransactionHistory() {
   if (error) {
     return (
       <div className="px-5 py-4">
-        <div className="text-red-500 mb-4">{error}</div>
+        <div className="mb-4 text-red-500">{error}</div>
         <button
           onClick={() => setError(null)}
-          className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark"
+          className="bg-primary hover:bg-primary-dark rounded px-4 py-2 text-white"
         >
           Try Again
         </button>
@@ -116,13 +124,13 @@ function PropertyOwnerTransactionHistory() {
 
   return (
     <div className="px-5 py-4">
-      <h1 className="text-sm font-semibold mb-2">Transaction History</h1>
+      <h1 className="mb-2 text-sm font-semibold">Transaction History</h1>
       {isLoading ? (
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        <div className="flex h-64 items-center justify-center">
+          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
         </div>
       ) : transactionHistoryData.length === 0 ? (
-        <div className="text-center py-8">
+        <div className="py-8 text-center">
           <p className="text-gray-500">No transaction history available</p>
         </div>
       ) : (
@@ -138,7 +146,7 @@ function PropertyOwnerTransactionHistory() {
           paginationRowsPerPageOptions={[5, 10, 15]}
           progressPending={isLoading}
           noDataComponent={
-            <div className="text-center py-8">
+            <div className="py-8 text-center">
               <p className="text-gray-500">No transaction history available</p>
             </div>
           }

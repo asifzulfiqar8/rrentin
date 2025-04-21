@@ -3,9 +3,9 @@ import React from 'react';
 const leases = [
   {
     id: 1,
-    startDate: "2025-01-23",
-    endDate: "2025-02-23",
-    spendDays: '6'
+    startDate: '2025-01-23',
+    endDate: '2025-02-23',
+    spendDays: '6',
   },
 ];
 
@@ -26,35 +26,35 @@ function LeaseDuration({ startDate, endDate, spendDays }) {
 
   progress = Math.min(progress, 100);
 
-  const formattedStart = start.toLocaleDateString("en-GB", {
+  const formattedStart = start.toLocaleDateString('en-GB', {
     day: '2-digit',
     month: 'short',
-    year: 'numeric'
+    year: 'numeric',
   });
-  const formattedEnd = end.toLocaleDateString("en-GB", {
+  const formattedEnd = end.toLocaleDateString('en-GB', {
     day: '2-digit',
     month: 'short',
-    year: 'numeric'
+    year: 'numeric',
   });
 
   return (
-    <div className='my-[11px] shadow-lg bg-white rounded-lg p-[4px]'>
-      <div className='flex w-full items-center justify-center'>
+    <div className="my-[11px] rounded-lg bg-white p-[4px] shadow-lg">
+      <div className="flex w-full items-center justify-center">
         <span className="text-xs font-medium">Lease Duration</span>
       </div>
-      <div className="flex items-center mx-9 my-2">
-        <div className="w-[6px] h-[6px] bg-blue-500 rounded-full"></div>
-        <div className="flex-1 h-[2px] bg-gray-300 relative ">
+      <div className="mx-9 my-2 flex items-center">
+        <div className="h-[6px] w-[6px] rounded-full bg-blue-500"></div>
+        <div className="relative h-[2px] flex-1 bg-gray-300">
           <div style={{ width: `${progress}%` }} className="h-full bg-blue-500"></div>
         </div>
-        <div className="w-[6px] h-[6px] bg-gray-600 rounded-full"></div>
+        <div className="h-[6px] w-[6px] rounded-full bg-gray-600"></div>
       </div>
-      <div className="flex items-center mx-3 justify-between">
-        <div className='flex flex-col'>
+      <div className="mx-3 flex items-center justify-between">
+        <div className="flex flex-col">
           <span className="text-xs font-medium">Start Date</span>
           <span className="text-[8px] font-medium">{formattedStart}</span>
         </div>
-        <div className='flex flex-col'>
+        <div className="flex flex-col">
           <span className="text-xs font-medium">End Date</span>
           <span className="text-[8px] font-medium">{formattedEnd}</span>
         </div>
@@ -65,7 +65,7 @@ function LeaseDuration({ startDate, endDate, spendDays }) {
 
 function LeaseList() {
   return (
-    <div className=''>
+    <div className="">
       {leases.map(lease => (
         <LeaseDuration
           key={lease.id}

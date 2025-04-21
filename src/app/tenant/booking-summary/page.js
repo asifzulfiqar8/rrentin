@@ -1,13 +1,12 @@
-import TenantBookingSummary from '@/components/tenant/bookingSummary/TenantBookingSummary'
-import React from 'react'
+import TenantBookingSummary from '@/components/tenant/bookingSummary/TenantBookingSummary';
+import React from 'react';
 
 function BookingSummary() {
   return (
-    <div className='grid grid-cols-1 shadow-md w-full rounded-md bg-white'>
-
+    <div className="grid w-full grid-cols-1 rounded-md bg-white shadow-md">
       <TenantBookingSummary />
     </div>
-  )
+  );
 }
 
-export default BookingSummary
+export default BookingSummary;

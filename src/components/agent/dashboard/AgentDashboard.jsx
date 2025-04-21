@@ -14,20 +14,20 @@ const AgentDashboard = () => {
     <>
       <Welcome />
       <HomeCards data={agentHomeCardsData} />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 mt-4">
-        <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
-          <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm lg:col-span-6 xl:col-span-12 2xl:col-span-6">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-4 md:gap-6 lg:col-span-7 lg:grid-cols-12">
+          <div className="rounded-lg border bg-white p-4 shadow-sm lg:col-span-6 lg:p-5 xl:col-span-12 2xl:col-span-6">
             <RentOverview
               title={'Income OverView'}
               data={agentIncomeOverview}
               totalTitle={'Total Income'}
             />
           </div>
-          <div className=" bg-white rounded-lg border p-4 lg:p-5 shadow-sm lg:col-span-6 xl:col-span-12 2xl:col-span-6">
+          <div className="rounded-lg border bg-white p-4 shadow-sm lg:col-span-6 lg:p-5 xl:col-span-12 2xl:col-span-6">
             <RecentActivities />
           </div>
           <div className="lg:col-span-12">
-            <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm">
+            <div className="rounded-lg border bg-white p-4 shadow-sm lg:p-5">
               <CustomLineChart earningsData={earningsData} />
             </div>
           </div>

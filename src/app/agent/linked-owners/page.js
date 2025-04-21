@@ -78,10 +78,10 @@ function LinkedOwners() {
 
   return (
     <div>
-      <h3 className="text-lg md:text-[22px] font-semibold text-textColor">Owner List</h3>
-      <div className="bg-white rounded-lg p-4 mt-4">
+      <h3 className="text-textColor text-lg font-semibold md:text-[22px]">Owner List</h3>
+      <div className="mt-4 rounded-lg bg-white p-4">
         <LinkedAgentHeader />
-        <div className="grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-h-[800px] ">
+        <div className="mt-5 grid max-h-[800px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4">
           {cardsData.map((data, index) => (
             <LinkedOwnerCard key={index} data={data} />
           ))}

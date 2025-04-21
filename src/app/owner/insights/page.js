@@ -14,33 +14,33 @@ import {
 
 const Insights = () => {
   return (
-    <div className="flex flex-col h-full gap-4">
-      <h3 className="text-lg md:text-[22px] font-semibold text-textColor">Insight Details</h3>
+    <div className="flex h-full flex-col gap-4">
+      <h3 className="text-textColor text-lg font-semibold md:text-[22px]">Insight Details</h3>
       <TopCards data={insightCardsData} />
-      <div className="grid grid-cols-1 lg:grid-cols-12   gap-4 ">
-        <div className="flex bg-white grid-cols-12  lg:col-span-4 h-[247px] shadow-md rounded-md">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+        <div className="flex h-[247px] grid-cols-12 rounded-md bg-white shadow-md lg:col-span-4">
           <TenantIntent
             title="Tenant Intent"
             data={tenantIntent}
             legend={tenantIncomeLegendLabels}
           />
         </div>
-        <div className="flex bg-white grid-cols-12  lg:col-span-4 h-[247px] shadow-md rounded-md">
+        <div className="flex h-[247px] grid-cols-12 rounded-md bg-white shadow-md lg:col-span-4">
           <TotalRevenue />
         </div>
-        <div className="flex bg-white grid-cols-12  lg:col-span-4 h-[247px] shadow-md rounded-md">
+        <div className="flex h-[247px] grid-cols-12 rounded-md bg-white shadow-md lg:col-span-4">
           <InquiryRate />
         </div>
       </div>
-      <div className="grid grid-cols-1  lg:grid-cols-12 gap-4">
-        <div className=" bg-white lg:col-span-6 h-[336px] p-5 shadow-md rounded-md">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+        <div className="h-[336px] rounded-md bg-white p-5 shadow-md lg:col-span-6">
           <PropertyPerformance />
         </div>
-        <div className=" bg-white lg:col-span-6 h-[336px] p-5 shadow-md rounded-md">
+        <div className="h-[336px] rounded-md bg-white p-5 shadow-md lg:col-span-6">
           <TenantDisputes />
         </div>
       </div>
-      <div className="grid grid-cols-1 bg-white h-[370px] p-5 shadow-md rounded-md">
+      <div className="grid h-[370px] grid-cols-1 rounded-md bg-white p-5 shadow-md">
         <InsightEarning data={earningsData} />
       </div>
     </div>

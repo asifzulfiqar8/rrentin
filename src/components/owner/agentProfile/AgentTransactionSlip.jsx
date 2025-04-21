@@ -2,20 +2,14 @@ import React from 'react';
 
 function AgentTransactionSlip({ selectedRow }) {
   const { paymentStatus, invoiceID, date, amount } = selectedRow;
-  
+
   return (
-    <div className="p-4 h-full">
-      <div className="flex flex-col mt-[28px] gap-2 items-center justify-center">
-        <span className="text-2xl text-[#32343C] font-semibold">
-          Transaction {paymentStatus}
-        </span>
-        <p className="text-2xl text-[#32343C]">
-          Invoice ID {invoiceID}
-        </p>
+    <div className="h-full p-4">
+      <div className="mt-[28px] flex flex-col items-center justify-center gap-2">
+        <span className="text-2xl font-semibold text-[#32343C]">Transaction {paymentStatus}</span>
+        <p className="text-2xl text-[#32343C]">Invoice ID {invoiceID}</p>
         <p className="text-lg text-[#32343C]">Date: {date}</p>
-        <p className="text-3xl mt-4 mb-3.5 text-[#32343C] font-semibold">
-          {amount}
-        </p>
+        <p className="mt-4 mb-3.5 text-3xl font-semibold text-[#32343C]">{amount}</p>
       </div>
       <div className="h-full">
         <div className="border-t-2 border-dashed"></div>

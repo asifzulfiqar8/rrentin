@@ -11,12 +11,12 @@ const LinkedAgentHeader = ({ tabView, setTabView }) => {
   const [Favorite, setFavorite] = useState('Favorite');
 
   return (
-    <section className="flex flex-col md:flex-row w-full items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
-      <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
+    <section className="flex w-full flex-col items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4 md:flex-row">
+      <div className="text-textColor flex items-center gap-[10px] text-sm font-semibold">
         <Image src="/images/dashboard/rental.png" width={32} height={32} alt="icon" />
         Linked Owners
       </div>
-      <div className="flex flex-col w-full md:flex-row justify-end items-center gap-2 md:gap-6">
+      <div className="flex w-full flex-col items-center justify-end gap-2 md:flex-row md:gap-6">
         <div className="w-full lg:w-[440px]">
           <SearchInput placeholder="properties" cn="!w-full md:!w-[200px] lg:!w-[440px]" />
         </div>

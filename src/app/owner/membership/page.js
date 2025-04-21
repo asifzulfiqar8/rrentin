@@ -1,4 +1,4 @@
-import MembershipDetails from "@/components/owner/memebership/MembershipDetails";
+import MembershipDetails from '@/components/owner/memebership/MembershipDetails';
 
 const Membership = () => {
   return <MembershipDetails />;

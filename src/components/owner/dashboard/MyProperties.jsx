@@ -1,20 +1,15 @@
-import { RightArrowForwardIcon } from "@/assets/icon";
-import Image from "next/image";
-import Link from "next/link";
-import PropertyCard from "./PropertyCard";
-import { propertiesData } from "@/data/data";
+import { RightArrowForwardIcon } from '@/assets/icon';
+import Image from 'next/image';
+import Link from 'next/link';
+import PropertyCard from './PropertyCard';
+import { propertiesData } from '@/data/data';
 
 const MyProperties = () => {
   return (
-    <div className="bg-white rounded-lg border p-4 lg:p-5 shadow-sm h-[710px] xl:h-full 2xl:h-[730px] overflow-y-scroll scroll-0">
+    <div className="scroll-0 h-[710px] overflow-y-scroll rounded-lg border bg-white p-4 shadow-sm lg:p-5 xl:h-full 2xl:h-[730px]">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
-          <Image
-            src="/images/dashboard/rental.png"
-            width={32}
-            height={32}
-            alt="icon"
-          />
+        <div className="text-textColor flex items-center gap-[10px] text-sm font-semibold">
+          <Image src="/images/dashboard/rental.png" width={32} height={32} alt="icon" />
           My Properties
         </div>
         <Link href="">

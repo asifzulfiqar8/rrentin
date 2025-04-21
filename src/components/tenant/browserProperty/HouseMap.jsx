@@ -1,5 +1,4 @@
-
-'use client'
+'use client';
 import L from 'leaflet';
 import { useEffect, useState } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -28,7 +27,7 @@ const RecenterAutomatically = ({ latlng }) => {
   return null;
 };
 
-const getCoordinates = async (locationName) => {
+const getCoordinates = async locationName => {
   const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
     locationName
   )}&limit=1`;
@@ -52,7 +51,7 @@ const HouseMap = ({ location, image, name, status }) => {
 
   useEffect(() => {
     if (location) {
-      getCoordinates(location).then((coords) => {
+      getCoordinates(location).then(coords => {
         if (coords) {
           setPosition(coords);
           setError('');
@@ -70,7 +69,7 @@ const HouseMap = ({ location, image, name, status }) => {
   }
 
   return (
-    <div className="h-[300px] md:h-[400px] w-full">
+    <div className="h-[300px] w-full md:h-[400px]">
       <MapContainer
         center={position || defaultCenter}
         zoom={13}
@@ -88,24 +87,17 @@ const HouseMap = ({ location, image, name, status }) => {
             position={position}
             icon={customDivIcon}
             eventHandlers={{
-              mouseover: (e) => {
+              mouseover: e => {
                 e.target.openTooltip();
               },
-              mouseout: (e) => {
+              mouseout: e => {
                 e.target.closeTooltip();
               },
             }}
           >
-            <Tooltip
-              direction="top"
-              offset={[0, -30]}
-              opacity={1}
-              className="custom-tooltip"
-            >
+            <Tooltip direction="top" offset={[0, -30]} opacity={1} className="custom-tooltip">
               <MapHover image={image} name={name} status={status} location={location} />
-
             </Tooltip>
-
           </Marker>
         )}
       </MapContainer>
@@ -114,5 +106,4 @@ const HouseMap = ({ location, image, name, status }) => {
   );
 };
 
-
-export default HouseMap
+export default HouseMap;

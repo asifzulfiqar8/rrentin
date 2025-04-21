@@ -1,14 +1,12 @@
-"use client";
-import { Cell, Pie, PieChart } from "recharts";
+'use client';
+import { Cell, Pie, PieChart } from 'recharts';
 
-const colors = ["#003f9a", "#5c9df5", "#f04444"];
+const colors = ['#003f9a', '#5c9df5', '#f04444'];
 
 const CustomPieChart = ({ title, data, legend }) => {
   return (
-    <div className="bg-white flex flex-col gap-6 rounded-lg border p-4 lg:p-5 shadow-sm h-full">
-      <h6 className="text-center text-gray-700 text-base font-semibold">
-        {title}
-      </h6>
+    <div className="flex h-full flex-col gap-6 rounded-lg border bg-white p-4 shadow-sm lg:p-5">
+      <h6 className="text-center text-base font-semibold text-gray-700">{title}</h6>
       <div className="flex items-center gap-5">
         {/* Pie Chart */}
         {data?.length > 0 && (
@@ -42,7 +40,7 @@ const CustomPieChart = ({ title, data, legend }) => {
                 className="size-[22px] rounded-sm"
                 style={{ backgroundColor: colors[index] }}
               ></div>
-              <p className="text-gray-700 text-sm">{item}</p>
+              <p className="text-sm text-gray-700">{item}</p>
             </div>
           ))}
         </div>

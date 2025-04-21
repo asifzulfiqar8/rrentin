@@ -1,12 +1,12 @@
-import TenantProposal from '@/components/tenant/perposal/TenantProposal'
-import React from 'react'
+import TenantProposal from '@/components/tenant/perposal/TenantProposal';
+import React from 'react';
 
 function Proposals() {
   return (
     <div>
-      <TenantProposal/>
+      <TenantProposal />
     </div>
-  )
+  );
 }
 
-export default Proposals
+export default Proposals;

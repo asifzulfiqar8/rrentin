@@ -1,9 +1,7 @@
-import DashboardLayout from "@/components/shared/DashboardLayout"
+import DashboardLayout from '@/components/shared/DashboardLayout';
 
-const OwnerLayout = ({children}) => {
-  return (
-    <DashboardLayout>{children}</DashboardLayout>
-  )
-}
+const OwnerLayout = ({ children }) => {
+  return <DashboardLayout>{children}</DashboardLayout>;
+};
 
-export default OwnerLayout
+export default OwnerLayout;

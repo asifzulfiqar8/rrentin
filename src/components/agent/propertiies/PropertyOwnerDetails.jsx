@@ -32,7 +32,7 @@ function PropertyOwnerDetails() {
     ],
   ];
   return (
-    <div className="bg-white rounded-lg h-full w-full px-6 py-8 ">
+    <div className="h-full w-full rounded-lg bg-white px-6 py-8">
       <div className="flex flex-col gap-6 md:flex-row">
         <div className="flex items-center justify-center">
           <Image
@@ -41,16 +41,16 @@ function PropertyOwnerDetails() {
             layout="intrinsic"
             width={176}
             height={176}
-            className="rounded-full w-44 h-w-44 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44"
+            className="h-w-44 w-44 rounded-full sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-44 lg:w-44"
           />
         </div>
-        <div className="flex flex-col w-full items-center justify-center md:flex-row md:justify-between ">
-          <div className="w-full ">
-            <div className="  flex flex-col">
+        <div className="flex w-full flex-col items-center justify-center md:flex-row md:justify-between">
+          <div className="w-full">
+            <div className="flex flex-col">
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col">
-                  <div className="flex flex-col sm:flex-row mt-3 items-center justify-between">
-                    <button className="py-[6px] px-[8px] bg-primary rounded-md text-white">
+                  <div className="mt-3 flex flex-col items-center justify-between sm:flex-row">
+                    <button className="bg-primary rounded-md px-[8px] py-[6px] text-white">
                       <div className="flex items-end gap-2">
                         <p>Property Owner</p>
                       </div>
@@ -62,29 +62,29 @@ function PropertyOwnerDetails() {
                   <h1 className="text-base font-medium">Certified Inspection Officer</h1>
                   <BsPatchCheckFill className="text-primary" />
                 </div>
-                <div className="flex items-center text-xl text-primary">
+                <div className="text-primary flex items-center text-xl">
                   <IoHomeOutline />
                   <h1>123 Sukhumvit Rd, Bangkok, Thailand</h1>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex items-end h-full justify-center gap-4 mt-4 sm:mt-0">
-            <div className="size-9 flex items-center justify-center bg-[#E9F2FF]">
+          <div className="mt-4 flex h-full items-end justify-center gap-4 sm:mt-0">
+            <div className="flex size-9 items-center justify-center bg-[#E9F2FF]">
               <BsChatSquareDotsFill className="text-[#0245A5]" />
             </div>
-            <div className="size-9 flex items-center justify-center bg-[#E9F2FF]">
+            <div className="flex size-9 items-center justify-center bg-[#E9F2FF]">
               <FaBookmark className="text-[#0245A5]" />
             </div>
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-4 mt-3.5">
-        <div className="col-span-12 md:col-span-8 bg-white shadow-xl border  rounded-md px-5 py-2.5">
-          <div className="flex flex-col w-full justify-center">
+      <div className="mt-3.5 grid grid-cols-12 gap-4">
+        <div className="col-span-12 rounded-md border bg-white px-5 py-2.5 shadow-xl md:col-span-8">
+          <div className="flex w-full flex-col justify-center">
             <div>
               <p className="text-lg font-semibold">Rental Agreement Details</p>
-              <p className="text-lg font-bold text-primary">Luxury Apartment - 5th Avenue, NY</p>
+              <p className="text-primary text-lg font-bold">Luxury Apartment - 5th Avenue, NY</p>
             </div>
             <InfoSection
               //   title="Rental Agreement Details"
@@ -93,7 +93,7 @@ function PropertyOwnerDetails() {
             />
           </div>
         </div>
-        <div className="col-span-12 md:col-span-4 bg-white shadow-xl border  rounded-md">
+        <div className="col-span-12 rounded-md border bg-white shadow-xl md:col-span-4">
           <RentOverview
             title={'Income OverView'}
             data={agentIncomeOverview}
@@ -101,19 +101,19 @@ function PropertyOwnerDetails() {
           />
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-4 mt-3.5">
-        <div className="md:col-span-6 col-span-12 bg-white shadow-xl border rounded-md px-5 py-2.5">
+      <div className="mt-3.5 grid grid-cols-12 gap-4">
+        <div className="col-span-12 rounded-md border bg-white px-5 py-2.5 shadow-xl md:col-span-6">
           <InfoSection title="Payment History & Dues" columns={2} data={paymentHistory} />
         </div>
-        <div className="md:col-span-6 col-span-12 bg-white shadow-xl border rounded-md px-5 py-2.5">
+        <div className="col-span-12 rounded-md border bg-white px-5 py-2.5 shadow-xl md:col-span-6">
           <InfoSection title="Lease & Contract Overview" columns={2} data={paymentHistory} />
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-4 mt-3.5">
-        <div className="col-span-12 md:col-span-7 bg-white shadow-xl border rounded-md">
+      <div className="mt-3.5 grid grid-cols-12 gap-4">
+        <div className="col-span-12 rounded-md border bg-white shadow-xl md:col-span-7">
           <PropertyOwnerPaymentDetails />
         </div>
-        <div className="col-span-12 md:col-span-5 bg-white shadow-xl border rounded-md">
+        <div className="col-span-12 rounded-md border bg-white shadow-xl md:col-span-5">
           <PropertyOwnerTransactionHistory />
         </div>
       </div>
@@ -127,7 +127,7 @@ const InfoItem = ({ label, value }) => (
   <div className="flex flex-col gap-2.5">
     <div className="flex justify-between">
       <p className="text-xs text-[#5F5F5F]">{label}</p>
-      <p className="text-xs text-[#5F5F5F] font-medium">{value}</p>
+      <p className="text-xs font-medium text-[#5F5F5F]">{value}</p>
     </div>
     <div className="border-t-1 border-[#5F5F5F]" />
   </div>
@@ -136,7 +136,7 @@ const InfoItem = ({ label, value }) => (
 const InfoSection = ({ title, columns, data }) => (
   <section>
     <h2 className="text-sm font-semibold">{title}</h2>
-    <div className={`grid gap-5 grid-cols-1 lg:grid-cols-${columns} mt-[17.5px]`}>
+    <div className={`grid grid-cols-1 gap-5 lg:grid-cols-${columns} mt-[17.5px]`}>
       {data.map((colItems, colIdx) => (
         <div key={colIdx} className="flex flex-col gap-2.5">
           {colItems.map((item, idx) => (

@@ -1,24 +1,24 @@
-"use client";
-import { ArrowIcon } from "@/assets/icon";
-import BasicInfo from "@/components/owner/addProperty/BasicInfo";
-import FeatureAndAmenities from "@/components/owner/addProperty/FeatureAndAmenities";
-import PhotosAndDetails from "@/components/owner/addProperty/PhotosAndDetails";
-import Pricing from "@/components/owner/addProperty/Pricing";
-import PropertyInfo from "@/components/owner/addProperty/PropertyInfo";
-import { useState } from "react";
+'use client';
+import { ArrowIcon } from '@/assets/icon';
+import BasicInfo from '@/components/owner/addProperty/BasicInfo';
+import FeatureAndAmenities from '@/components/owner/addProperty/FeatureAndAmenities';
+import PhotosAndDetails from '@/components/owner/addProperty/PhotosAndDetails';
+import Pricing from '@/components/owner/addProperty/Pricing';
+import PropertyInfo from '@/components/owner/addProperty/PropertyInfo';
+import { useState } from 'react';
 
 const AddProperty = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const steps = [
-    "Basic Info",
-    "Property Info",
-    "Feature & Amenities",
-    "Photos & Details",
-    "Pricing",
+    'Basic Info',
+    'Property Info',
+    'Feature & Amenities',
+    'Photos & Details',
+    'Pricing',
   ];
 
-  const renderStepContent = (step) => {
+  const renderStepContent = step => {
     switch (step) {
       case 0:
         return <BasicInfo setCurrentStep={setCurrentStep} />;
@@ -35,11 +35,11 @@ const AddProperty = () => {
     }
   };
   return (
-    <div className="py-[30px] px-5 md:px-10 rounded-[10px] bg-white shadow-custom">
-      <h2 className="text-xl md:text-[22px] font-semibold text-textColor text-center">
+    <div className="shadow-custom rounded-[10px] bg-white px-5 py-[30px] md:px-10">
+      <h2 className="text-textColor text-center text-xl font-semibold md:text-[22px]">
         Add Property
       </h2>
-      <div className="mt-4 md:mt-5 flex flex-wrap items-center justify-between gap-4 md:gap-8 max-w-[900px] mx-auto">
+      <div className="mx-auto mt-4 flex max-w-[900px] flex-wrap items-center justify-between gap-4 md:mt-5 md:gap-8">
         {steps.map((step, i) => (
           <Step
             step={step}
@@ -51,9 +51,7 @@ const AddProperty = () => {
           />
         ))}
       </div>
-      <div className="mt-4 md:mt-6 2xl:mt-8">
-        {renderStepContent(currentStep)}
-      </div>
+      <div className="mt-4 md:mt-6 2xl:mt-8">{renderStepContent(currentStep)}</div>
     </div>
   );
 };
@@ -63,18 +61,18 @@ export default AddProperty;
 const Step = ({ step, index, currentStep, setCurrentStep, stepsLength }) => {
   return (
     <div
-      className={`flex flex-col items-center gap-2 relative z-10 ${currentStep >= index
-          ? "opacity-100 cursor-pointer"
-          : "opacity-95 grayscale pointer-events-none"
-        }`}
+      className={`relative z-10 flex flex-col items-center gap-2 ${
+        currentStep >= index
+          ? 'cursor-pointer opacity-100'
+          : 'pointer-events-none opacity-95 grayscale'
+      }`}
       onClick={() => setCurrentStep(index)}
     >
-      <span className=" size-[30px] md:size-[50px] rounded-full bg-primary text-white text-base md:text-2xl font-semibold grid place-items-center">
+      <span className="bg-primary grid size-[30px] place-items-center rounded-full text-base font-semibold text-white md:size-[50px] md:text-2xl">
         {index + 1}
       </span>
-      <p className="text-[8px] md:text-sm  text-primary font-medium">{step}</p>
+      <p className="text-primary text-[8px] font-medium md:text-sm">{step}</p>
       <div className="hidden lg:block">
-
         {index < stepsLength - 1 && (
           <span className="absolute top-[30%] left-[67%] z-0">
             <svg

@@ -1,10 +1,10 @@
-import PropertiesImageSlider from "@/components/owner/properties/PropertiesImageSlider";
-import PropertyDescription from "@/components/owner/properties/PropertyDescription";
+import PropertiesImageSlider from '@/components/owner/properties/PropertiesImageSlider';
+import PropertyDescription from '@/components/owner/properties/PropertyDescription';
 
 const PropertyDetails = () => {
   return (
     <div className="flex flex-col gap-4">
-      <h6 className="text-lg md:text-[22px] font-semibold text-textColor mb-[18px]">
+      <h6 className="text-textColor mb-[18px] text-lg font-semibold md:text-[22px]">
         Property Details
       </h6>
       <PropertiesImageSlider />

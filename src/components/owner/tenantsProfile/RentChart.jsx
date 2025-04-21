@@ -29,7 +29,7 @@ const data = [
 
 const ChartComponent = () => {
   return (
-    <div className='px-5 py-2.5 bg-white h-[238px] rounded-lg shadow-lg"'>
+    <div className='shadow-lg" h-[238px] rounded-lg bg-white px-5 py-2.5'>
       <h1 className="text-sm font-semibold">Rent Payment Trend</h1>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>

@@ -16,15 +16,15 @@ const PropertyDetails = () => {
     }
   };
 
-  const buttonStyle = (tab) =>
+  const buttonStyle = tab =>
     ` hover:bg-secondary cursor-pointer  rounded w-[131px] ${
       activeTab === tab ? 'bg-primary text-white' : 'bg-transparent text-gray-400'
     }`;
 
   return (
-    <div className="py-4 ">
-      <div className="bg-white p-1 flex justify-center flex-col lg:flex-row space-x-2 w-[140px] lg:w-[276px] item-center  lg:h-10 rounded-md">
-        <section className="flex flex-col md:gap-1  lg:flex-row">
+    <div className="py-4">
+      <div className="item-center flex w-[140px] flex-col justify-center space-x-2 rounded-md bg-white p-1 lg:h-10 lg:w-[276px] lg:flex-row">
+        <section className="flex flex-col md:gap-1 lg:flex-row">
           <button
             className={buttonStyle('Basic Details')}
             onClick={() => setActiveTab('Basic Details')}

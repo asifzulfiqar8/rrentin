@@ -12,13 +12,13 @@ const AgentPropertiesHeader = ({ tabView, setTabView }) => {
   const [selectedType, setSelectedType] = useState('Type');
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4">
-      <div className="flex items-center gap-[10px] text-sm font-semibold text-textColor">
+    <section className="flex flex-col items-center justify-between gap-5 border-b border-[#395d8c4d] pb-4 md:flex-row">
+      <div className="text-textColor flex items-center gap-[10px] text-sm font-semibold">
         <Image src="/images/dashboard/rental.png" width={32} height={32} alt="icon" />
         <p>My Properties</p>
       </div>
       <div className="flex items-center gap-2 md:gap-6">
-        <div className=" !w-full xl:w-[440px] ">
+        <div className="!w-full xl:w-[440px]">
           <SearchInput placeholder="properties" cn="" />
         </div>
         <Selector
@@ -36,7 +36,7 @@ const AgentPropertiesHeader = ({ tabView, setTabView }) => {
         {['Map View', 'Grid View'].map((view, i) => (
           <button
             key={i}
-            className={`flex items-center gap-[6px] h-[30px]  rounded-sm px-2 text-sm text-white font-medium cursor-pointer ${
+            className={`flex h-[30px] cursor-pointer items-center gap-[6px] rounded-sm px-2 text-sm font-medium text-white ${
               view === tabView ? 'bg-primary' : 'bg-[#7C848DB2]'
             }`}
             onClick={() => setTabView(view)}

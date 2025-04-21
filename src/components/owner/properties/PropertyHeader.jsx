@@ -29,8 +29,8 @@ const PropertyHeader = ({ title }) => {
         </Modal>
       )}
 
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        <h3 className="text-lg md:text-[22px] font-semibold text-textColor">{title}</h3>
+      <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <h3 className="text-textColor text-lg font-semibold md:text-[22px]">{title}</h3>
         <div className="flex items-center gap-4 md:gap-5">
           {/* ✅ Fixed: Correct onClick handler */}
           <Button onClick={modalOpenHandler} text="Property Views" icon={<EyeIcon />} />
@@ -50,7 +50,7 @@ const Button = ({ className, text, icon, ...rest }) => {
   return (
     <button
       {...rest}
-      className={`${className} flex items-center gap-2 bg-primary p-2 rounded-[4px] text-white font-medium text-sm cursor-pointer`}
+      className={`${className} bg-primary flex cursor-pointer items-center gap-2 rounded-[4px] p-2 text-sm font-medium text-white`}
     >
       {icon}
       {text}

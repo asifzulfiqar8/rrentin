@@ -1,4 +1,4 @@
-import AddProperty from "@/components/owner/addProperty/AddProperty";
+import AddProperty from '@/components/owner/addProperty/AddProperty';
 
 const page = () => {
   return <AddProperty />;

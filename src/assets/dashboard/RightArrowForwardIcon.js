@@ -1,12 +1,6 @@
 const RightArrowForwardIcon = () => {
   return (
-    <svg
-      width="27"
-      height="24"
-      viewBox="0 0 27 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.461426" width="25.8462" height="24" rx="3" fill="#0245A5" />
       <rect
         x="0.561426"

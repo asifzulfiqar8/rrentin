@@ -9,35 +9,35 @@ import TenantTransactionHistory from './TenantTransactionHistory';
 
 function TenantDashboard() {
   return (
-    <div className="flex flex-col h-full gap-4">
-      <h3 className="text-lg md:text-[22px] font-semibold text-textColor">
-        Welcome! <span className="font-normal text-xl">Mikal</span>
+    <div className="flex h-full flex-col gap-4">
+      <h3 className="text-textColor text-lg font-semibold md:text-[22px]">
+        Welcome! <span className="text-xl font-normal">Mikal</span>
       </h3>
-      <div className="w-full grid grid-cols-1 gap-4">
-        <div className="grid  grid-cols-12 gap-4">
-          <div className="  col-span-12 lg:col-span-5 ">
+      <div className="grid w-full grid-cols-1 gap-4">
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-12 lg:col-span-5">
             <PropertiesRented />
           </div>
-          <div className="  bg-white  col-span-12 lg:col-span-3 shadow-md w-full rounded-md">
+          <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-3">
             <RentOverview
               title={'Rent OverView'}
               data={tenantRentOverview}
               totalTitle={'Total Rent'}
             />
           </div>
-          <div className="  bg-white col-span-12 lg:col-span-4 shadow-md w-full rounded-md">
+          <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-4">
             <RecentActivities />
           </div>
         </div>
-        <div className="grid grid-cols-12  gap-4">
-          <div className="col-span-12 lg:col-span-5 shadow-md w-full rounded-md bg-white">
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-5">
             <RecentChat />
           </div>
-          <div className="col-span-12 lg:col-span-7 shadow-md w-full rounded-md bg-white">
+          <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-7">
             <CustomLineChart title={'Compilation Rate'} earningsData={earningsData} />
           </div>
         </div>
-        <div className="grid grid-cols-1 shadow-md w-full rounded-md bg-white">
+        <div className="grid w-full grid-cols-1 rounded-md bg-white shadow-md">
           <TenantTransactionHistory />
         </div>
       </div>

@@ -17,13 +17,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text
-      x={x}
-      y={y}
-      fill="white"
-      textAnchor={x > cx ? 'start' : 'end'}
-      dominantBaseline="central"
-    >
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
       {`${(percent * 100).toFixed(0)}%`}
     </text>
   );
@@ -31,13 +25,12 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 const TenantPayment = () => {
   return (
-    <div className="px-5 py-4 bg-white h-[337px] rounded-lg shadow-lg flex flex-col">
+    <div className="flex h-[337px] flex-col rounded-lg bg-white px-5 py-4 shadow-lg">
       <div className="flex flex-col">
-        <h1 className="text-sm font-semibold mb-2">Tenant Payment Timeliness</h1>
-        <h1 className="text-sm text-[#717579] mb-2">Tenant Payment Timeliness</h1>
+        <h1 className="mb-2 text-sm font-semibold">Tenant Payment Timeliness</h1>
+        <h1 className="mb-2 text-sm text-[#717579]">Tenant Payment Timeliness</h1>
       </div>
       <div>
-
         <ResponsiveContainer width="100%" height={200}>
           <PieChart>
             <Pie
@@ -58,12 +51,12 @@ const TenantPayment = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="grid grid-cols-2 space-x-1 mt-4">
+      <div className="mt-4 grid grid-cols-2 space-x-1">
         {data.map((entry, index) => (
-          <div key={index} className="flex gap-2 items-center justify-center text-sm">
+          <div key={index} className="flex items-center justify-center gap-2 text-sm">
             {/* Colored circle for each slice */}
             <span
-              className="inline-block w-3 h-3 rounded-full"
+              className="inline-block h-3 w-3 rounded-full"
               style={{ backgroundColor: COLORS[index] }}
             />
             <span className="text-xs">

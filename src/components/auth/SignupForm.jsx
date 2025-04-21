@@ -1,63 +1,60 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Button from "../shared/small/Button";
-import Input from "../shared/small/Input";
-import PhoneInput from "react-phone-input-2";
-import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import Dropdown from "../shared/small/Dropdown";
-import Link from "next/link";
+import { useState } from 'react';
+import Button from '../shared/small/Button';
+import Input from '../shared/small/Input';
+import PhoneInput from 'react-phone-input-2';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
+import Dropdown from '../shared/small/Dropdown';
+import Link from 'next/link';
 
 const options = [
-  { option: "Property Owner", value: "property-owner" },
-  { option: "Tenant", value: "tenant" },
+  { option: 'Property Owner', value: 'property-owner' },
+  { option: 'Tenant', value: 'tenant' },
 ];
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    password: "",
-    role: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    password: '',
+    role: '',
     agreeToTerms: false,
     consent: false,
   });
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = e => {
     const { name, checked } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: checked }));
+    setFormData(prev => ({ ...prev, [name]: checked }));
   };
 
   const isFormValid =
-    formData.firstName.trim() !== "" &&
-    formData.lastName.trim() !== "" &&
-    formData.email.trim() !== "" &&
-    formData.phone.trim() !== "" &&
-    formData.password.trim() !== "" &&
-    formData.role.trim() !== "";
+    formData.firstName.trim() !== '' &&
+    formData.lastName.trim() !== '' &&
+    formData.email.trim() !== '' &&
+    formData.phone.trim() !== '' &&
+    formData.password.trim() !== '' &&
+    formData.role.trim() !== '';
 
-  const handleForm = (e) => {
+  const handleForm = e => {
     e.preventDefault();
-    console.log("formData", formData);
+    console.log('formData', formData);
   };
 
   return (
-    <form
-      className="bg-white p-5 lg:py-8 lg:px-[8%] rounded-xl w-full"
-      onSubmit={handleForm}
-    >
-      <h6 className="text-center md:text-left text-xl lg:text-2xl font-semibold text-text-textColor">
+    <form className="w-full rounded-xl bg-white p-5 lg:px-[8%] lg:py-8" onSubmit={handleForm}>
+      <h6 className="text-text-textColor text-center text-xl font-semibold md:text-left lg:text-2xl">
         Sign up now
       </h6>
-      <div className="mt-5 lg:mt-7 grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <div className="mt-5 grid grid-cols-1 gap-4 lg:mt-7 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <Input
             label="First name"
@@ -83,33 +80,33 @@ const SignupForm = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className="lg:col-span-3 flex items-end">
-          <button className="bg-primary text-white w-full h-[56px] rounded-xl text-sm md:text-base font-medium px-4">
+        <div className="flex items-end lg:col-span-3">
+          <button className="bg-primary h-[56px] w-full rounded-xl px-4 text-sm font-medium text-white md:text-base">
             Verify Email
           </button>
         </div>
         <div className="lg:col-span-12">
           <PhoneInput
-            country={"us"}
+            country={'us'}
             value={formData.phone}
-            onChange={(phone) => setFormData((prev) => ({ ...prev, phone }))}
+            onChange={phone => setFormData(prev => ({ ...prev, phone }))}
             containerClass="phone-input-container"
             inputClass="phone-input-field"
             buttonClass="phone-input-button"
             autoComplete="new-phone"
           />
         </div>
-        <div className="lg:col-span-12 relative">
+        <div className="relative lg:col-span-12">
           <Input
             label="Password"
             name="password"
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             value={formData.password}
             onChange={handleInputChange}
             autoComplete="new-password"
           />
           <div
-            className="absolute top-0 right-0 flex items-center gap-2 cursor-pointer text-sm lg:text-lg text-[#666666CC]"
+            className="absolute top-0 right-0 flex cursor-pointer items-center gap-2 text-sm text-[#666666CC] lg:text-lg"
             onClick={() => setShowPassword(!showPassword)}
           >
             {!showPassword ? (
@@ -131,9 +128,7 @@ const SignupForm = () => {
             name="role"
             options={options}
             value={formData.role}
-            onSelect={(option) =>
-              setFormData((prev) => ({ ...prev, role: option.value }))
-            }
+            onSelect={option => setFormData(prev => ({ ...prev, role: option.value }))}
           />
         </div>
         <div className="lg:col-span-12">
@@ -141,11 +136,11 @@ const SignupForm = () => {
             name="agreeToTerms"
             label={
               <>
-                By creating an account, I agree to our{" "}
+                By creating an account, I agree to our{' '}
                 <Link href="" className="underline">
                   Terms of use
-                </Link>{" "}
-                and{" "}
+                </Link>{' '}
+                and{' '}
                 <Link href="" className="underline">
                   Privacy Policy
                 </Link>
@@ -163,17 +158,17 @@ const SignupForm = () => {
             onChange={handleCheckboxChange}
           />
         </div>
-        <div className="lg:col-span-12 flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6">
+        <div className="flex flex-col items-center justify-center gap-6 md:flex-row lg:col-span-12 lg:justify-start">
           <Button
             width="w-full md:w-[184px]"
             height="h-[43px]"
             text="Sign up"
             type="submit"
             disabled={!isFormValid}
-            cn={isFormValid ? "" : "opacity-50 cursor-not-allowed"}
+            cn={isFormValid ? '' : 'opacity-50 cursor-not-allowed'}
           />
-          <div className="text-sm lg:text-base text-[#666666]">
-            Already have an Account?{" "}
+          <div className="text-sm text-[#666666] lg:text-base">
+            Already have an Account?{' '}
             <Link href="/login" className="text-primary font-semibold">
               Login
             </Link>
@@ -188,17 +183,15 @@ export default SignupForm;
 
 const CheckBox = ({ label, checked, onChange, name }) => {
   return (
-    <label className="flex items-start gap-2 cursor-pointer">
+    <label className="flex cursor-pointer items-start gap-2">
       <input
         type="checkbox"
         name={name}
         checked={checked}
         onChange={onChange}
-        className="cursor-pointer mt-[3px]"
+        className="mt-[3px] cursor-pointer"
       />
-      <span className="text-sm lg:text-base text-[#333333CC] leading-5">
-        {label}
-      </span>
+      <span className="text-sm leading-5 text-[#333333CC] lg:text-base">{label}</span>
     </label>
   );
 };
