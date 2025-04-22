@@ -3,39 +3,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { FaStar, FaRegStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Sample reviews data
-const reviews = [
-  {
-    id: 1,
-    name: 'Micheal',
-    date: '22 Jul',
-    image: '/images/properties/Bg.png',
-    rating: 4,
-    comment:
-      'I really liked the location of this rental property. The market and public transport were nearby. The house was clean, and the landlord took care of maintenance on time. The only issue was that the internet speed was a bit slow, but overall, it was a good experience!',
-  },
-  {
-    id: 2,
-    name: 'Sarah',
-    date: '10 Aug',
-    image: '/images/properties/Bg.png',
-    rating: 5,
-    comment:
-      'The apartment was spacious and well-lit. The security measures were impressive, making me feel safe. However, parking was limited, which was a slight inconvenience.',
-  },
-  {
-    id: 3,
-    name: 'John',
-    date: '5 Sep',
-    image: '/images/properties/Bg.png',
-    rating: 3,
-    comment:
-      'Decent place to stay, but the noise levels were high during the night. The location was central, but the rent was slightly overpriced for the amenities offered.',
-  },
-  // Add more reviews here...
-];
-
-function UserReviewsCard() {
+function UserReviewsCard({ reviews }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 

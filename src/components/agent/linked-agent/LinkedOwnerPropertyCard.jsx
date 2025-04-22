@@ -1,20 +1,18 @@
 'use client';
+import IconButton from '@/components/shared/small/IconButton';
 import Image from 'next/image';
-import Link from 'next/link';
-import { FaRegEdit } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+import { useMemo } from 'react';
+import { GoArrowUpRight } from 'react-icons/go';
 import { PiMapPinFill } from 'react-icons/pi';
 import { TbStarFilled } from 'react-icons/tb';
-import { useRouter } from 'next/navigation';
-import IconButton from '@/components/shared/small/IconButton';
-import { GoArrowUpRight } from 'react-icons/go';
-import { useMemo } from 'react';
 
 const LinkedOwnerPropertyCard = ({ data }) => {
   const router = useRouter();
 
-  const ownerProfileHandle = useMemo(
+  const ownerPropertyHandle = useMemo(
     () => id => {
-      // router.push(`/agent/linked-owners/owner-profile/${id}`);
+      router.push(`/agent/properties/owner-property-details/${id}`);
     },
     []
   );
@@ -78,7 +76,7 @@ const LinkedOwnerPropertyCard = ({ data }) => {
               cn="!text-[10px] font-medium py-[3px] !w-[105px] !h-[29px]"
               text={'View Details'}
               rightIcon={<GoArrowUpRight />}
-              onClick={() => ownerProfileHandle(data.id)}
+              onClick={() => ownerPropertyHandle(data._id)}
             />
           </div>
         </div>
@@ -88,5 +86,3 @@ const LinkedOwnerPropertyCard = ({ data }) => {
 };
 
 export default LinkedOwnerPropertyCard;
-
-// export default LinkedOwnerLinkedOwnerPropertyCard

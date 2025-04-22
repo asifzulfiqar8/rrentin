@@ -3,7 +3,7 @@ import AgentPropertyDetails from '@/components/agent/propertiies/AgentPropertyDe
 import PropertyOwnerDetails from '@/components/agent/propertiies/PropertyOwnerDetails';
 import { useState } from 'react';
 const PropertyDetails = () => {
-  const [activeTab, setActiveTab] = useState('Linked Buildings');
+  const [activeTab, setActiveTab] = useState('Basic Details');
 
   const renderComponent = () => {
     switch (activeTab) {

@@ -10,26 +10,6 @@ import BedIcon from '../../../assets/propertyDetails/BedIcon';
 import FloorsIcon from '../../../assets/propertyDetails/FloorsIcon';
 import SqmIcon from '../../../assets/propertyDetails/SqmIcon';
 
-const mainImages = [
-  '/images/dashboard/property-card-1.png',
-  '/images/dashboard/property-two.jpeg',
-  '/images/dashboard/property-three.jpeg',
-  '/images/dashboard/property-four.jpeg',
-];
-
-const sideImages = [
-  '/images/dashboard/side-image.png',
-  '/images/dashboard/side-image-2.png',
-  '/images/dashboard/side-image-3.png',
-  '/images/dashboard/property-card-1.png',
-  '/images/dashboard/side-image-2.png',
-  '/images/dashboard/side-image-3.png',
-  '/images/dashboard/property-card-1.png',
-];
-
-// Combine main and side images for the modal carousel
-const allImages = [...mainImages, ...sideImages];
-
 const Modal = ({ onClose, children, width }) => {
   return (
     <div
@@ -46,9 +26,37 @@ const Modal = ({ onClose, children, width }) => {
   );
 };
 
-const PropertiesImageSlider = () => {
+const PropertiesImageSlider = ({
+  mainImages = [
+    '/images/dashboard/property-card-1.png',
+    '/images/dashboard/property-two.jpeg',
+    '/images/dashboard/property-three.jpeg',
+    '/images/dashboard/property-four.jpeg',
+  ],
+  sideImages = [
+    '/images/dashboard/side-image.png',
+    '/images/dashboard/side-image-2.png',
+    '/images/dashboard/side-image-3.png',
+    '/images/dashboard/property-card-1.png',
+  ],
+  propertyFeatures = [
+    { icon: 'BedIcon', label: 'Bed', count: 2 },
+    { icon: 'BathIcon', label: 'Bath', count: 2 },
+    { icon: 'SqmIcon', label: 'Sqm', count: 2 },
+    { icon: 'FloorsIcon', label: 'Floors', count: 2 },
+  ],
+  propertyInfo = {
+    title: 'The Crest Sukhumvit 34, Bangkok',
+    address: '778 Sukhumvit Road, Khong Tan, Khlong Toei, Bangkok',
+    price: 243,
+    status: 'Available',
+  },
+}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // Combine main and side images for the modal carousel
+  const allImages = [...mainImages, ...sideImages];
 
   // Open modal with the correct starting slide
   const openModal = index => {
@@ -136,18 +144,14 @@ const PropertiesImageSlider = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:col-span-12">
           <div className="space-y-2">
             <div className="flex items-center gap-4">
-              <span className="text-xl font-semibold text-black">
-                The Crest Sukhumvit 34, Bangkok
-              </span>
+              <span className="text-xl font-semibold text-black">{propertyInfo.title}</span>
               <span className="rounded-lg bg-[#34C75926] px-2 py-1.5 text-sm font-bold text-[#34C759]">
-                Available
+                {propertyInfo.status}
               </span>
             </div>
-            <span className="block text-lg text-[#32343C]">
-              778 Sukhumvit Road, Khong Tan, Khlong Toei, Bangkok
-            </span>
+            <span className="block text-lg text-[#32343C]">{propertyInfo.address}</span>
             <div className="text-[43px] font-bold">
-              $243
+              ${propertyInfo.price}
               <span className="text-base text-[#32343C]"> / month</span>
             </div>
             <button className="bg-primary flex h-10 w-[87px] cursor-pointer items-center justify-center gap-2 rounded-xl text-base font-medium text-white lg:text-xl">
@@ -157,18 +161,22 @@ const PropertiesImageSlider = () => {
           </div>
           {/* Property Features */}
           <div className="flex items-center justify-center gap-8 md:justify-end">
-            {[
-              { icon: <BedIcon />, label: 'Bed', count: 2 },
-              { icon: <BathIcon />, label: 'Bath', count: 2 },
-              { icon: <SqmIcon />, label: 'Sqm', count: 2 },
-              { icon: <FloorsIcon />, label: 'Floors', count: 2 },
-            ].map((item, index) => (
-              <div key={index} className="flex flex-col items-center text-[#0245A5]">
-                {item.icon}
-                <span className="text-lg font-medium">{item.count}</span>
-                <span className="text-sm">{item.label}</span>
-              </div>
-            ))}
+            {propertyFeatures.map((item, index) => {
+              const IconComponent = {
+                BedIcon: BedIcon,
+                BathIcon: BathIcon,
+                SqmIcon: SqmIcon,
+                FloorsIcon: FloorsIcon,
+              }[item.icon];
+
+              return (
+                <div key={index} className="flex flex-col items-center text-[#0245A5]">
+                  <IconComponent />
+                  <span className="text-lg font-medium">{item.count}</span>
+                  <span className="text-sm">{item.label}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
