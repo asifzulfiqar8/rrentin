@@ -12,6 +12,7 @@ import {
 import { LuChevronRight } from 'react-icons/lu';
 import { ListIcon } from '@/assets/icon';
 import { IoIosArrowDown } from 'react-icons/io';
+import CustomLoading from '../small/CustomLoading';
 
 const CustomActiveDot = props => {
   const { cx, cy, value } = props;
@@ -47,7 +48,13 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const CustomLineChart = ({ title, earningsData, width = '100%', height = 350 }) => {
+const CustomLineChart = ({
+  title,
+  earningsData,
+  width = '100%',
+  height = 350,
+  isLoading = false,
+}) => {
   const [selectedRange, setSelectedRange] = useState('daily');
   const [filteredData, setFilteredData] = useState(earningsData);
 
@@ -60,9 +67,27 @@ const CustomLineChart = ({ title, earningsData, width = '100%', height = 350 }) 
     } else if (range === 'weekly') {
       setFilteredData(earningsData.slice(0, 7)); // First 7 days, for example
     } else if (range === 'monthly') {
-      setFilteredData(earningsData); // Assuming we would have monthly data here
+      setFilteredData(earningsData); // Assuming we should have monthly data here
     }
   };
+
+  if (isLoading) {
+    return (
+      <div style={{ width, height }} className="p-4 lg:p-5">
+        <div className="flex items-center justify-between">
+          <div>
+            <h6 className="text-textColor text-sm font-semibold md:text-base">
+              {title || 'Earnings'}
+            </h6>
+          </div>
+          <div className="">
+            <CustomDropDown lists={['Week', 'Month', 'Year']} />
+          </div>
+        </div>
+        <CustomLoading />
+      </div>
+    );
+  }
 
   return (
     <div style={{ width, height }} className="p-4 lg:p-5">

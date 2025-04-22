@@ -1,3 +1,4 @@
+'use client';
 import dynamic from 'next/dynamic';
 import { PieChartHalf } from '@/components/shared/charts/PieChartHalf';
 import HomeCards from './HomeCards';
@@ -13,9 +14,20 @@ import {
 import MyProperties from './MyProperties';
 import CustomLineChart from '@/components/shared/charts/CustomLineChart';
 import BookingSummary from './BookingSummary';
+import { useEffect, useState } from 'react';
 const CustomPieChart = dynamic(() => import('@/components/shared/charts/CustomPieChart'));
 
 const Dashboard = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <Welcome />
@@ -39,7 +51,7 @@ const Dashboard = () => {
           </div>
           <div className="lg:col-span-12">
             <div className="rounded-lg border bg-white p-4 shadow-sm lg:p-5">
-              <CustomLineChart earningsData={earningsData} />
+              <CustomLineChart earningsData={earningsData} isLoading={isLoading} />
             </div>
           </div>
         </div>

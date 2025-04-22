@@ -2,6 +2,7 @@
 
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { useMemo, useState, useEffect } from 'react';
+import CustomLoading from '@/components/shared/small/CustomLoading';
 
 // Sample data (you can increase this list)
 const data = [
@@ -58,9 +59,7 @@ const OwnerPaymentOverview = ({ title }) => {
     return (
       <div className="h-full w-full">
         <h1 className="font-lg font-semibold">{title}</h1>
-        <div className="flex h-64 items-center justify-center">
-          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
-        </div>
+        <CustomLoading />
       </div>
     );
   }

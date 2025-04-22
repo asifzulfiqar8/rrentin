@@ -10,10 +10,17 @@ function LinkPropertyCards() {
         <Image src="/images/dashboard/rental.png" width={32} height={32} alt="icon" priority />
         <p>My Properties</p>
       </div>
-      <div className="flex w-full flex-row flex-wrap gap-6 overflow-auto p-4 pt-3">
-        {myPropertiesData.slice(0, 4).map((card, i) => (
-          <LinkedOwnerPropertyCard data={card} key={i} />
-        ))}
+      <div className="w-[67vw]">
+        <div className="scrollbar-hide flex w-[100vw] gap-4 overflow-x-auto pb-4">
+          {myPropertiesData.map((card, i) => (
+            <div
+              key={i}
+              className="w-[280px] flex-shrink-0 sm:w-[300px] md:w-[300px] lg:w-[320px] xl:w-[350px]"
+            >
+              <LinkedOwnerPropertyCard data={card} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

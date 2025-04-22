@@ -8,14 +8,11 @@ import {
 import AgentTransactionSlip from '@/components/owner/agentProfile/AgentTransactionSlip';
 import dynamic from 'next/dynamic';
 import Modal from '@/components/shared/small/Modal';
+import CustomLoading from '@/components/shared/small/CustomLoading';
 
 const DataTable = dynamic(() => import('react-data-table-component'), {
   ssr: false,
-  loading: () => (
-    <div className="flex h-64 items-center justify-center">
-      <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
-    </div>
-  ),
+  loading: () => <CustomLoading />,
 });
 
 // Status styling utility function
@@ -94,9 +91,7 @@ function PropertyOwnerPaymentDetails() {
     <div className="px-5 py-4">
       <h1 className="mb-2 text-sm font-semibold">Payment History</h1>
       {isLoading ? (
-        <div className="flex h-64 items-center justify-center">
-          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
-        </div>
+        <CustomLoading />
       ) : transactionHistoryData.length === 0 ? (
         <div className="py-8 text-center">
           <p className="text-gray-500">No transaction history available</p>

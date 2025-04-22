@@ -1,5 +1,6 @@
 'use client';
 
+import CustomLoading from '@/components/shared/small/CustomLoading';
 import React, { useMemo, useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -66,9 +67,7 @@ const RentOverview = ({ title, data, totalTitle }) => {
     return (
       <div className="relative flex w-full flex-col items-center">
         <h2 className="mt-3.5 mb-2 text-lg font-semibold">{title}</h2>
-        <div className="flex h-64 items-center justify-center">
-          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
-        </div>
+        <CustomLoading />
       </div>
     );
   }

@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import PropertiesRented from './PropertiesRented';
 import RentOverview from './RentOverview';
 import RecentActivities from './RecentActivities';
@@ -8,6 +9,16 @@ import { earningsData, tenantRentOverview } from '@/data/data';
 import TenantTransactionHistory from './TenantTransactionHistory';
 
 function TenantDashboard() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="flex h-full flex-col gap-4">
       <h3 className="text-textColor text-lg font-semibold md:text-[22px]">
@@ -34,7 +45,11 @@ function TenantDashboard() {
             <RecentChat />
           </div>
           <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-7">
-            <CustomLineChart title={'Compilation Rate'} earningsData={earningsData} />
+            <CustomLineChart
+              title={'Compilation Rate'}
+              earningsData={earningsData}
+              isLoading={isLoading}
+            />
           </div>
         </div>
         <div className="grid w-full grid-cols-1 rounded-md bg-white shadow-md">

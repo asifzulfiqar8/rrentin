@@ -26,7 +26,7 @@ const LinkedOwnerPropertyCard = ({ data }) => {
   );
 
   return (
-    <div className="relative h-full min-h-[255px] w-full rounded-md bg-white md:w-[300px]">
+    <div className="relative h-full min-h-[255px] rounded-md bg-white">
       <Image
         src={data?.image}
         width={270}
@@ -73,7 +73,7 @@ const LinkedOwnerPropertyCard = ({ data }) => {
           </div>
           <div>
             <IconButton
-              cn="!text-[10px] font-medium py-[3px] !w-[105px] !h-[29px]"
+              cn="!text-[10px] font-medium py-[3px] !w-[110px] !h-[29px]"
               text={'View Details'}
               rightIcon={<GoArrowUpRight />}
               onClick={() => ownerPropertyHandle(data._id)}
