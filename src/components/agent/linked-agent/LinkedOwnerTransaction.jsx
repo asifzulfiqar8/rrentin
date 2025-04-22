@@ -1,14 +1,10 @@
 'use client';
-import React, { useState, useMemo, useCallback } from 'react';
-import {
-  agentTransactionTableStyles,
-  transactionHistoryData,
-  transactionTableStyles,
-} from '@/data/data';
 import AgentTransactionSlip from '@/components/owner/agentProfile/AgentTransactionSlip';
+import { transactionHistoryData, transactionTableStyles } from '@/data/data';
+import React, { useCallback, useMemo, useState } from 'react';
 // import Modal from '@/components/shared/common/Modal';
-import dynamic from 'next/dynamic';
 import Modal from '@/components/shared/small/Modal';
+import dynamic from 'next/dynamic';
 
 // Dynamic import for better performance
 const DataTable = dynamic(() => import('react-data-table-component'), {
@@ -30,7 +26,7 @@ const getStatusStyle = status => {
   return statusMap[status.toLowerCase()] || '';
 };
 
-function PropertyOwnerTransactionHistory() {
+function LinkedOwnerTransaction() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -64,19 +60,19 @@ function PropertyOwnerTransactionHistory() {
         name: 'Invoice Id',
         selector: row => row.invoiceID,
         sortable: true,
-        width: '20%',
+        width: '50%',
       },
       {
         name: 'Date',
         selector: row => row.date,
         sortable: true,
-        width: '20%',
+        // width: '20%',
       },
       {
         name: 'Amount',
         selector: row => row.amount,
         sortable: true,
-        width: '20%',
+        // width: '20%',
       },
       {
         name: 'Payment Status',
@@ -94,7 +90,7 @@ function PropertyOwnerTransactionHistory() {
             </span>
           );
         },
-        width: '20%',
+        // width: '20%',
       },
       {
         name: 'Slip',
@@ -107,7 +103,7 @@ function PropertyOwnerTransactionHistory() {
             View
           </button>
         ),
-        width: '20%',
+        // width: '20%',
       },
     ],
     [handleViewClick]
@@ -143,7 +139,7 @@ function PropertyOwnerTransactionHistory() {
           data={transactionHistoryData.slice(0, 5)}
           columns={columns}
           selectableRowsHighlight
-          customStyles={agentTransactionTableStyles}
+          customStyles={transactionTableStyles}
           fixedHeader
           fixedHeaderScrollHeight="70vh"
           pagination
@@ -166,4 +162,6 @@ function PropertyOwnerTransactionHistory() {
   );
 }
 
-export default React.memo(PropertyOwnerTransactionHistory);
+export default React.memo(LinkedOwnerTransaction);
+
+// export default LinkedOwnerTransaction;

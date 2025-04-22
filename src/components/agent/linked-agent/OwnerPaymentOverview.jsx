@@ -1,16 +1,7 @@
 'use client';
 
-import React from 'react';
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-} from 'recharts';
+import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { useMemo, useState, useEffect } from 'react';
 
 // Sample data (you can increase this list)
 const data = [
@@ -26,17 +17,53 @@ const data = [
 ];
 
 // Constants for dynamic bar width
-const maxBarWidth = 65;
-const chartWidth = 900; // You can tweak this or make it responsive
-const barGap = 20; // Gap between bars
+const CHART_CONFIG = {
+  maxBarWidth: 65,
+  chartWidth: 900,
+  barGap: 20,
+  margin: { top: 20, right: 30, left: 20, bottom: 80 },
+  gradient: {
+    id: 'priceGradient',
+    colors: {
+      start: '#0245A5',
+      end: 'rgba(2,69,165,0)',
+    },
+  },
+};
 
 const OwnerPaymentOverview = ({ title }) => {
-  // Calculate dynamic bar size
-  const barCount = data.length;
-  const calculatedBarWidth = Math.min(
-    maxBarWidth,
-    (chartWidth - barGap * (barCount - 1)) / barCount
-  );
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const calculatedBarWidth = useMemo(() => {
+    const barCount = data.length;
+    return Math.min(
+      CHART_CONFIG.maxBarWidth,
+      (CHART_CONFIG.chartWidth - CHART_CONFIG.barGap * (barCount - 1)) / barCount
+    );
+  }, []);
+
+  const formatYAxis = useMemo(() => value => `$${value / 1000}k`, []);
+  const formatTooltip = useMemo(() => value => `$${value.toLocaleString()}`, []);
+
+  if (isLoading) {
+    return (
+      <div className="h-full w-full">
+        <h1 className="font-lg font-semibold">{title}</h1>
+        <div className="flex h-64 items-center justify-center">
+          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-full w-full">
@@ -44,28 +71,26 @@ const OwnerPaymentOverview = ({ title }) => {
       <div style={{ width: '100%', height: 330 }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            width={chartWidth}
+            width={CHART_CONFIG.chartWidth}
             data={data}
-            margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
-            barGap={barGap}
+            margin={CHART_CONFIG.margin}
+            barGap={CHART_CONFIG.barGap}
           >
-            {/* define the gradient once, using standard SVG tags */}
             <defs>
-              <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#0245A5" stopOpacity={1} />
-                <stop offset="100%" stopColor="rgba(2,69,165,0)" stopOpacity={1} />
+              <linearGradient id={CHART_CONFIG.gradient.id} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={CHART_CONFIG.gradient.colors.start} stopOpacity={1} />
+                <stop offset="100%" stopColor={CHART_CONFIG.gradient.colors.end} stopOpacity={1} />
               </linearGradient>
             </defs>
 
             <XAxis dataKey="name" angle={0} textAnchor="end" interval={0} height={80} />
-            <YAxis tickFormatter={value => `$${value / 1000}k`} />
-            <Tooltip formatter={value => `$${value.toLocaleString()}`} />
+            <YAxis tickFormatter={formatYAxis} />
+            <Tooltip formatter={formatTooltip} />
 
-            {/* apply the gradient URL to every bar */}
             <Bar
               dataKey="price"
               barSize={calculatedBarWidth}
-              fill="url(#priceGradient)"
+              fill={`url(#${CHART_CONFIG.gradient.id})`}
               radius={[4, 4, 0, 0]}
             />
           </BarChart>

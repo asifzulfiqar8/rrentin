@@ -29,6 +29,35 @@ const transactionTableStyles = {
       fontWeight: 600,
       color: '#32343C',
       borderBottom: '1px solid #32343CB2 !important',
+      // justifyContent: 'center', // center header content
+      // textAlign: 'center',
+    },
+  },
+  rows: {
+    style: {
+      background: 'transparent',
+      padding: '10px 0',
+      margin: '0',
+      borderBottomStyle: 'dashed !important',
+    },
+  },
+  cells: {
+    style: {
+      color: '#32343C',
+      fontSize: '14px',
+      fontWeight: 600,
+      // justifyContent: 'center', // center cell content
+      // textAlign: 'center',
+    },
+  },
+};
+export const agentTransactionTableStyles = {
+  headCells: {
+    style: {
+      fontSize: '14px',
+      fontWeight: 600,
+      color: '#32343C',
+      borderBottom: '1px solid #32343CB2 !important',
       justifyContent: 'center', // center header content
       textAlign: 'center',
     },

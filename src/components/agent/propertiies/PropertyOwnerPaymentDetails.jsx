@@ -1,17 +1,37 @@
 'use client';
 import React, { useState, useMemo } from 'react';
-import { transactionHistoryData, transactionTableStyles } from '@/data/data';
+import {
+  agentTransactionTableStyles,
+  transactionHistoryData,
+  transactionTableStyles,
+} from '@/data/data';
 import AgentTransactionSlip from '@/components/owner/agentProfile/AgentTransactionSlip';
-// at the top of your file
 import dynamic from 'next/dynamic';
+import Modal from '@/components/shared/small/Modal';
 
 const DataTable = dynamic(() => import('react-data-table-component'), {
   ssr: false,
+  loading: () => (
+    <div className="flex h-64 items-center justify-center">
+      <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
+    </div>
+  ),
 });
+
+// Status styling utility function
+const getStatusStyle = status => {
+  const statusMap = {
+    pending: 'bg-yellow-500',
+    rejected: 'bg-red-500',
+    paid: 'bg-green-500',
+  };
+  return statusMap[status.toLowerCase()] || '';
+};
 
 function PropertyOwnerPaymentDetails() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const openModal = row => {
     setSelectedRow(row);
@@ -27,7 +47,6 @@ function PropertyOwnerPaymentDetails() {
       {
         name: 'Invoice Id',
         selector: row => row.invoiceID,
-        // width: '40%',
       },
       {
         name: 'Date',
@@ -72,25 +91,35 @@ function PropertyOwnerPaymentDetails() {
   );
 
   return (
-    <div className="w-full rounded-lg px-5 py-4 shadow-lg">
+    <div className="px-5 py-4">
       <h1 className="mb-2 text-sm font-semibold">Payment History</h1>
-      <DataTable
-        data={transactionHistoryData.slice(0, 5)}
-        columns={columns}
-        selectableRowsHighlight
-        customStyles={transactionTableStyles}
-        fixedHeader
-        fixedHeaderScrollHeight="70vh"
-        pagination
-        paginationPerPage={5}
-        paginationRowsPerPageOptions={[5, 10, 15]}
-        // progressPending={isLoading}
-        noDataComponent={
-          <div className="py-8 text-center">
-            <p className="text-gray-500">No transaction history available</p>
-          </div>
-        }
-      />
+      {isLoading ? (
+        <div className="flex h-64 items-center justify-center">
+          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
+        </div>
+      ) : transactionHistoryData.length === 0 ? (
+        <div className="py-8 text-center">
+          <p className="text-gray-500">No transaction history available</p>
+        </div>
+      ) : (
+        <DataTable
+          data={transactionHistoryData.slice(0, 5)}
+          columns={columns}
+          selectableRowsHighlight
+          customStyles={agentTransactionTableStyles}
+          fixedHeader
+          fixedHeaderScrollHeight="70vh"
+          pagination
+          paginationPerPage={5}
+          paginationRowsPerPageOptions={[5, 10, 15]}
+          progressPending={isLoading}
+          noDataComponent={
+            <div className="py-8 text-center">
+              <p className="text-gray-500">No transaction history available</p>
+            </div>
+          }
+        />
+      )}
       {modalOpen && selectedRow && (
         <Modal onClose={closeModal}>
           <AgentTransactionSlip selectedRow={selectedRow} />
@@ -101,21 +130,3 @@ function PropertyOwnerPaymentDetails() {
 }
 
 export default PropertyOwnerPaymentDetails;
-
-const Modal = ({ onClose, children, width }) => {
-  return (
-    <div
-      className="modal fixed inset-0 top-0 left-0 z-[99] flex items-center justify-center bg-[#000000c5] p-6"
-      onClick={onClose}
-    >
-      <div
-        className={`overflow-hidden rounded-[12px] bg-white shadow-lg ${
-          width ? width : 'w-[500px]'
-        } h-[488px]`}
-        onClick={e => e.stopPropagation()}
-      >
-        {children}
-      </div>
-    </div>
-  );
-};
