@@ -4,11 +4,15 @@ import React from 'react';
 import { BsChatSquareDotsFill, BsPatchCheckFill } from 'react-icons/bs';
 import { FaBookmark } from 'react-icons/fa';
 import { IoHomeOutline } from 'react-icons/io5';
+import OwnerPaymentOverview from './OwnerPaymentOverview';
+import RentOverview from '@/components/tenant/dashboard/RentOverview';
+import { agentIncomeOverview } from '@/data/data';
+import LinkPropertyCards from './LinkPropertyCards';
 
 function OwnerProfileDetails() {
   return (
     <div>
-      <div className="flex w-full flex-col gap-4">
+      <div className="flex w-full flex-col gap-4 rounded-lg bg-white">
         <div className="h-full w-full rounded-lg bg-white p-3.5">
           {/* Header Image with Profile Overlay */}
           <div className="relative w-full">
@@ -22,7 +26,7 @@ function OwnerProfileDetails() {
               className="rounded-md object-cover"
             />
             {/* Profile image positioned relative to the frame image */}
-            <div className="absolute -bottom-8 left-4 sm:-bottom-12 sm:left-6 md:-bottom-16 lg:-bottom-20 2xl:-bottom-28">
+            <div className="absolute -bottom-8 left-4 sm:-bottom-12 sm:left-15 md:-bottom-16 lg:-bottom-40 2xl:-bottom-28">
               <Image
                 src="/images/agent/UserProfile.png"
                 alt="User Profile"
@@ -36,14 +40,10 @@ function OwnerProfileDetails() {
 
           {/* Agent Information */}
           <div className="w-full">
-            <div className="flex flex-col sm:ml-[260px] md:ml-[200px] lg:ml-[250px]">
+            <div className="mt-8 flex flex-col md:mt-0 md:ml-[250px] lg:ml-[290px]">
               <div className="flex w-full flex-col justify-between sm:flex-row">
-                <div className="flex flex-col gap-2">
+                <div className="mt-5 flex flex-col gap-2">
                   <h1 className="text-3xl font-semibold">John Doe</h1>
-                  <div className="flex items-center gap-2">
-                    <h1 className="text-base font-medium">Certified Inspection Officer</h1>
-                    <BsPatchCheckFill className="text-primary" />
-                  </div>
                   <div className="text-primary flex items-center text-xl">
                     <IoHomeOutline />
                     <h1>123 Sukhumvit Rd, Bangkok, Thailand</h1>
@@ -58,44 +58,24 @@ function OwnerProfileDetails() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center justify-end">
-                  <p className="text-primary">9 Am - 6 Pm</p>
-                </div>
-                <div className="mt-3 flex flex-col items-center justify-between sm:flex-row">
-                  <button className="bg-primary rounded-md px-5 py-3 text-white">
-                    <div className="flex items-end gap-2">
-                      <p>Message</p>
-                      <MessageUser />
-                    </div>
-                  </button>
-                  <div className="mt-3 flex gap-2 sm:mt-0">
-                    <div className="bg-primary flex size-8 items-center justify-center rounded-md">
-                      <p className="text-white">M</p>
-                    </div>
-                    <div className="bg-primary flex size-8 items-center justify-center rounded-md">
-                      <p className="text-white">M</p>
-                    </div>
-                    <div className="bg-primary flex size-8 items-center justify-center rounded-md">
-                      <p className="text-white">M</p>
-                    </div>
-                    <div className="bg-primary flex size-8 items-center justify-center rounded-md">
-                      <p className="text-white">M</p>
-                    </div>
-                    <div className="bg-primary flex size-8 items-center justify-center rounded-md">
-                      <p className="text-white">M</p>
-                    </div>
-                    <div className="bg-primary flex size-8 items-center justify-center rounded-md">
-                      <p className="text-white">M</p>
-                    </div>
-                    <div className="bg-primary flex size-8 items-center justify-center rounded-md">
-                      <p className="text-white">M</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
+        </div>
+        <div className="mt-4 grid grid-cols-12 gap-4">
+          <div className="col-span-12 h-[250px] rounded-lg bg-white p-3 shadow-xl lg:col-span-8">
+            <OwnerPaymentOverview title="Payment Overview" />
+          </div>
+          <div className="col-span-12 h-[250px] rounded-lg bg-white shadow-xl lg:col-span-4">
+            <RentOverview
+              title={'Payment OverView'}
+              data={agentIncomeOverview}
+              totalTitle={'Total Payment'}
+            />
+          </div>
+        </div>
+        <div className="rounded-lg bg-white shadow-xl w-full">
+          <LinkPropertyCards />
+          {/* ouityfdrdf */}
         </div>
       </div>
     </div>

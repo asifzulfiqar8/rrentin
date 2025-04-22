@@ -1,0 +1,22 @@
+import { myPropertiesData } from '@/data/data';
+import Image from 'next/image';
+import React from 'react';
+import LinkedOwnerPropertyCard from './LinkedOwnerPropertyCard';
+
+function LinkPropertyCards() {
+  return (
+    <div className='p-4 w-full'>
+      <div className="text-textColor flex items-center gap-[10px] text-sm font-semibold">
+        <Image src="/images/dashboard/rental.png" width={32} height={32} alt="icon" />
+        <p>My Properties</p>
+      </div>
+        <div className="flex flex-row overflow-auto w-full">
+          {myPropertiesData.slice(0,4).map((card, i) => (
+            <LinkedOwnerPropertyCard data={card} key={i} />
+          ))}
+        </div>
+    </div>
+  );
+}
+
+export default LinkPropertyCards;
