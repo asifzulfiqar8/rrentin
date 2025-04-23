@@ -6,6 +6,7 @@ import {
   MessagesIcon,
   NotificationIcon,
   PropertiesIcon,
+  ProposalsIcon,
   Task,
 } from '@/assets/icon';
 import Image from 'next/image';
@@ -51,6 +52,12 @@ const AgentAside = ({ mobileNav, setMobileNav }) => {
       title: 'Payments',
       link: ['/agent/payments'],
       icon: <Task />,
+    },
+    {
+      id: 7,
+      title: 'Proposals',
+      link: ['/agent/proposal'],
+      icon: <ProposalsIcon />,
     },
     {
       id: 5,

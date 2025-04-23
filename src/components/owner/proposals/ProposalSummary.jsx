@@ -1,6 +1,6 @@
 'use client';
 import { proposalSummaryData, tableStyles } from '@/data/data';
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import DataTable from 'react-data-table-component';
 import ProposalModal from './ProposalModal';
 import { GoArrowUpRight } from 'react-icons/go';
@@ -8,21 +8,88 @@ import { GoArrowUpRight } from 'react-icons/go';
 const ProposalSummary = () => {
   const [modal, setModal] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const modalOpenHandler = row => {
+  // Simulate data loading
+  useMemo(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const modalOpenHandler = useCallback(row => {
     setSelectedRow(row);
     setModal(true);
-  };
-  const modalCloseHandler = () => {
+  }, []);
+
+  const modalCloseHandler = useCallback(() => {
     setSelectedRow(null);
     setModal(false);
-  };
+  }, []);
+
+  const columns = useMemo(
+    () => [
+      {
+        name: 'Proposal ID',
+        selector: row => row.proposalId,
+      },
+      {
+        name: 'Property',
+        selector: row => row.propertyName,
+      },
+      {
+        name: 'Proposal Type',
+        selector: row => row.proposalType,
+      },
+      {
+        name: 'Sent To',
+        selector: row => row.sentTo,
+      },
+      {
+        name: 'Date Sent',
+        selector: row => row.dateSent,
+      },
+      {
+        name: 'Status',
+        selector: row => (
+          <span className="flex items-center gap-1 capitalize">
+            {row.status === 'accepted' ? '✅' : row.status === 'pending' ? '⌛' : '❌'} {row.status}
+          </span>
+        ),
+      },
+      {
+        name: 'Actions',
+        selector: row => (
+          <button
+            className="bg-primary cursor-pointer rounded-[4px] px-4 py-[2px] text-xs font-medium text-white"
+            onClick={() => modalOpenHandler(row)}
+          >
+            View
+          </button>
+        ),
+      },
+    ],
+    [modalOpenHandler]
+  );
+
+  if (isLoading) {
+    return (
+      <div className="rounded-lg border bg-white p-4 shadow-sm lg:p-5">
+        <div className="text-textColor text-sm font-semibold">Proposal Summary</div>
+        <div className="flex h-64 items-center justify-center">
+          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <section className="rounded-lg border bg-white p-4 shadow-sm lg:p-5">
       <div className="text-textColor text-sm font-semibold">Proposal Summary</div>
       <DataTable
         data={proposalSummaryData}
-        columns={columns(modalOpenHandler)}
+        columns={columns}
         selectableRowsHighlight
         customStyles={tableStyles}
         fixedHeader
@@ -113,45 +180,3 @@ const ProposalSummary = () => {
 };
 
 export default ProposalSummary;
-
-const columns = modalOpenHandler => [
-  {
-    name: 'Proposal ID',
-    selector: row => row.proposalId,
-  },
-  {
-    name: 'Property',
-    selector: row => row.propertyName,
-  },
-  {
-    name: 'Proposal Type',
-    selector: row => row.proposalType,
-  },
-  {
-    name: 'Sent To',
-    selector: row => row.sentTo,
-  },
-  {
-    name: 'Date Sent',
-    selector: row => row.dateSent,
-  },
-  {
-    name: 'Status',
-    selector: row => (
-      <span className="flex items-center gap-1 capitalize">
-        {row.status === 'accepted' ? '✅' : row.status === 'pending' ? '⌛' : '❌'} {row.status}
-      </span>
-    ),
-  },
-  {
-    name: 'Actions',
-    selector: row => (
-      <button
-        className="bg-primary cursor-pointer rounded-[4px] px-4 py-[2px] text-xs font-medium text-white"
-        onClick={() => modalOpenHandler(row)}
-      >
-        View
-      </button>
-    ),
-  },
-];

@@ -6,7 +6,7 @@ import DataTable from 'react-data-table-component';
 // import ProposalModal from './ProposalModal';
 import { GoArrowUpRight } from 'react-icons/go';
 
-const TenantProposal = () => {
+const AgentProposalDetails = () => {
   const [modal, setModal] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -123,37 +123,37 @@ const TenantProposal = () => {
               <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Sent To:</strong>
-                  <p>{selectedRow.sentTo}</p>
+                  <span>{selectedRow.sentTo}</span>
                 </p>
               </div>
               <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Property Name:</strong>
-                  <p>{selectedRow.propertyName}</p>
+                  <span>{selectedRow.propertyName}</span>
                 </p>
               </div>
               <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Property Address:</strong>
-                  <p>{selectedRow.proposalType}</p>
+                  <span>{selectedRow.proposalType}</span>
                 </p>
               </div>
               <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Rent Amount:</strong>
-                  <p>{selectedRow.dateSent}</p>
+                  <span>{selectedRow.dateSent}</span>
                 </p>
               </div>
               <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Contact Duration:</strong>
-                  <p>{selectedRow.dateSent}</p>
+                  <span>{selectedRow.dateSent}</span>
                 </p>
               </div>
               <div className="border-b border-[#32343C] px-8 py-6">
                 <p className="flex justify-between">
                   <strong>Proposed Move-in Date:</strong>
-                  <p>{selectedRow.dateSent}</p>
+                  <span>{selectedRow.dateSent}</span>
                 </p>
               </div>
               <div className="border-b border-[#32343C] px-8 py-6">
@@ -180,6 +180,4 @@ const TenantProposal = () => {
   );
 };
 
-export default TenantProposal;
-
-// export default TenantProposal
+export default AgentProposalDetails;
