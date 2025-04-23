@@ -1,88 +1,120 @@
 'use client';
+import { useCallback, useMemo, useRef, useState, useEffect } from 'react';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
+import Image from 'next/image';
 import Dropdown from '@/components/shared/small/Dropdown';
 import Input from '@/components/shared/small/Input';
 import InputDropdown from '@/components/shared/small/InputDropdown';
-import { UploadCloud } from 'lucide-react';
-import { useRef, useState } from 'react';
 import { FaUser } from 'react-icons/fa'; // Example icon from react-icons
-import { AiOutlineCloudUpload } from 'react-icons/ai';
-import Image from 'next/image';
+
+// Static data moved outside component to prevent recreation on each render
+const BEDROOM_OPTIONS = [
+  { option: '1 Bedroom', value: '1' },
+  { option: '2 Bedrooms', value: '2' },
+  { option: '3 Bedrooms', value: '3' },
+  { option: '4+ Bedrooms', value: '4plus' },
+];
+
+const BATHROOM_OPTIONS = [
+  { option: '1 Bathroom', value: '1' },
+  { option: '2 Bathrooms', value: '2' },
+  { option: '3+ Bathrooms', value: '3plus' },
+];
+
+const FREQUENCY_OPTIONS = [
+  { value: 'SqM', label: 'SqM' },
+  { value: 'SqW', label: 'SqW' },
+  { value: 'Sqft', label: 'Sqft' },
+];
+const CommonAreaMaintenanceFee = [
+  { value: 'THB', label: 'THB (Thai Baht)' },
+  { value: 'USD', label: 'USD (US Dollar)' },
+  { value: 'EUR', label: 'EUR (Euro)' },
+  { value: 'GBP', label: 'GBP (British Pound)' },
+  { value: 'JPY', label: 'JPY (Japanese Yen)' },
+  { value: 'PKR', label: 'PKR (Pakistani Rupee)' },
+  { value: 'INR', label: 'INR (Indian Rupee)' },
+  { value: 'CNY', label: 'CNY (Chinese Yuan)' },
+  { value: 'AED', label: 'AED (UAE Dirham)' },
+];
+
+const FLOOR_OPTIONS = [
+  { option: 'Ground Floor', value: 'ground' },
+  { option: '1st Floor', value: '1st' },
+  { option: '2nd Floor', value: '2nd' },
+  { option: '3rd Floor', value: '3rd' },
+];
+
+const CONDITION_OPTIONS = [
+  { option: 'Unfurnished', value: 'unfurnished' },
+  { option: 'Fully Furnished', value: 'fully_furnished' },
+  { option: 'Partly Furnished', value: 'partly_furnished' },
+  { option: 'Negotiable', value: 'negotiable' },
+];
+
+const BUILDING_OPTIONS = [
+  { option: 'Only 1 Bldg', value: 'only_1_bldg' },
+  { option: 'Bldg. A or 1', value: 'bldg_a_or_1' },
+  { option: 'Bldg. B or 2', value: 'bldg_b_or_2' },
+  { option: 'Bldg. C or 3', value: 'bldg_c_or_3' },
+  { option: 'Bldg. D or 4', value: 'bldg_d_or_4' },
+  { option: 'Other', value: 'other' },
+];
 
 const PropertyInfo = ({ setCurrentStep }) => {
-  const handleNext = () => setCurrentStep(prevStep => prevStep + 1);
-  const handlePrevious = () => setCurrentStep(prevStep => prevStep - 1);
-  const fileInputRef = useRef(null); // ✅ Define the ref
+  const fileInputRef = useRef(null);
   const [image, setImage] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [inputValue, setInputValue] = useState('');
 
-  const handleImageUpload = e => {
+  // Memoized handlers
+  const handleNext = useCallback(() => setCurrentStep(prevStep => prevStep + 1), [setCurrentStep]);
+  const handlePrevious = useCallback(
+    () => setCurrentStep(prevStep => prevStep - 1),
+    [setCurrentStep]
+  );
+
+  const handleImageUpload = useCallback(e => {
     const file = e.target.files?.[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
     }
-  };
+  }, []);
 
-  const handleDrop = e => {
+  const handleDrop = useCallback(e => {
     e.preventDefault();
     const file = e.dataTransfer.files?.[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
     }
-  };
+  }, []);
 
-  const handleClick = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
+  const handleClick = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
 
-  const handleButtonClick = event => {
-    event.stopPropagation(); // ✅ Prevent bubbling
-    handleClick();
-  };
-  // Updated arrays for dropdown values
-  const bedroomOptions = [
-    { option: '1 Bedroom', value: '1' },
-    { option: '2 Bedrooms', value: '2' },
-    { option: '3 Bedrooms', value: '3' },
-    { option: '4+ Bedrooms', value: '4plus' },
-  ];
+  const handleButtonClick = useCallback(
+    event => {
+      event.stopPropagation();
+      handleClick();
+    },
+    [handleClick]
+  );
 
-  const bathroomOptions = [
-    { option: '1 Bathroom', value: '1' },
-    { option: '2 Bathrooms', value: '2' },
-    { option: '3+ Bathrooms', value: '3plus' },
-  ];
-
-  const frequencyOptions = [
-    { value: 'monthly', label: 'Monthly' },
-    { value: 'quarterly', label: 'Quarterly' },
-    { value: 'yearly', label: 'Yearly' },
-  ];
-
-  const floorOptions = [
-    { option: 'Ground Floor', value: 'ground' },
-    { option: '1st Floor', value: '1st' },
-    { option: '2nd Floor', value: '2nd' },
-    { option: '3rd Floor', value: '3rd' },
-  ];
-
-  const conditionOptions = [
-    { option: 'Unfurnished', value: 'unfurnished' },
-    { option: 'Semi Furnished', value: 'semi_furnished' },
-    { option: 'Fully Furnished', value: 'fully_furnished' },
-  ];
-
-  const buildingOptions = [
-    { option: 'Only 1 Building', value: 'single' },
-    { option: 'Multiple Buildings', value: 'multiple' },
-  ];
-
-  // Callback function when an option is selected
-  const handleSelect = option => {
+  const handleSelect = useCallback(option => {
     console.log('Selected option:', option);
-  };
+  }, []);
+
+  // Cleanup image URL when component unmounts
+  useEffect(() => {
+    return () => {
+      if (image) {
+        URL.revokeObjectURL(image);
+      }
+    };
+  }, [image]);
 
   return (
     <div>
@@ -91,20 +123,22 @@ const PropertyInfo = ({ setCurrentStep }) => {
       </h4>
       <form className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <Dropdown placeholder="select" label="Bedrooms" options={bedroomOptions} shadow />
+          <Dropdown placeholder="select" label="Bedrooms" options={BEDROOM_OPTIONS} shadow />
         </div>
         <div className="lg:col-span-6">
-          <Dropdown placeholder="select" label="BathRooms" options={bathroomOptions} shadow />
+          <Dropdown placeholder="select" label="BathRooms" options={BATHROOM_OPTIONS} shadow />
         </div>
         <div className="lg:col-span-6">
           <InputDropdown
             placeholder="0"
             label="Unit Area"
-            options={frequencyOptions}
+            options={FREQUENCY_OPTIONS}
             defaultText=""
-            onSelect={handleSelect}
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
+            onSelect={option => setSelectedOption(option)}
+            shadow={true}
             mainClassName="custom-dropdown"
-            dropdownIcon={'SqM'}
             width="w--[79px]"
           />
         </div>
@@ -112,13 +146,13 @@ const PropertyInfo = ({ setCurrentStep }) => {
           <Input placeholder="i. e A302" label="Unit Number (optional)" shadow />
         </div>
         <div className="lg:col-span-6">
-          <Dropdown placeholder="select" label="Floor" options={floorOptions} shadow />
+          <Dropdown placeholder="select" label="Floor" options={FLOOR_OPTIONS} shadow />
         </div>
         <div className="lg:col-span-6">
           <Dropdown
             placeholder="Unfurnished"
             label="Property Condition"
-            options={conditionOptions}
+            options={CONDITION_OPTIONS}
             shadow
           />
         </div>
@@ -126,7 +160,7 @@ const PropertyInfo = ({ setCurrentStep }) => {
           <Dropdown
             placeholder="Only 1 Bldg"
             label="Building Your Property Located"
-            options={buildingOptions}
+            options={BUILDING_OPTIONS}
             shadow
           />
         </div>
@@ -134,7 +168,7 @@ const PropertyInfo = ({ setCurrentStep }) => {
           <InputDropdown
             placeholder="0"
             label="Common Area Maintenance Fee"
-            options={frequencyOptions}
+            options={CommonAreaMaintenanceFee}
             defaultText=""
             onSelect={handleSelect}
             mainClassName="custom-dropdown"
@@ -161,7 +195,7 @@ const PropertyInfo = ({ setCurrentStep }) => {
               type="file"
               accept="image/*"
               className="hidden"
-              ref={fileInputRef} // ✅ Attach the ref here
+              ref={fileInputRef}
               onChange={handleImageUpload}
             />
 
@@ -175,7 +209,13 @@ const PropertyInfo = ({ setCurrentStep }) => {
 
             {image && (
               <div className="relative mt-3 h-40 w-40">
-                <Image src={image} alt="Uploaded" fill className="rounded-lg object-cover" />
+                <Image
+                  src={image}
+                  alt="Uploaded"
+                  fill
+                  className="rounded-lg object-cover"
+                  priority
+                />
               </div>
             )}
           </div>
