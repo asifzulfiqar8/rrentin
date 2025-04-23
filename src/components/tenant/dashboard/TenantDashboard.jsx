@@ -1,11 +1,11 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import CustomLineChart from '@/components/shared/charts/CustomLineChart';
+import { dummyPropertyStatuses, earningsData, tenantRentOverview } from '@/data/data';
+import { useEffect, useState } from 'react';
 import PropertiesRented from './PropertiesRented';
-import RentOverview from './RentOverview';
 import RecentActivities from './RecentActivities';
 import RecentChat from './RecentChat';
-import CustomLineChart from '@/components/shared/charts/CustomLineChart';
-import { earningsData, tenantRentOverview } from '@/data/data';
+import RentOverview from './RentOverview';
 import TenantTransactionHistory from './TenantTransactionHistory';
 
 function TenantDashboard() {
@@ -27,13 +27,14 @@ function TenantDashboard() {
       <div className="grid w-full grid-cols-1 gap-4">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 lg:col-span-5">
-            <PropertiesRented />
+            <PropertiesRented data={dummyPropertyStatuses} title={'Total Properties Rented'} />
           </div>
           <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-3">
             <RentOverview
               title={'Rent OverView'}
               data={tenantRentOverview}
               totalTitle={'Total Rent'}
+              isLoading={isLoading}
             />
           </div>
           <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-4">

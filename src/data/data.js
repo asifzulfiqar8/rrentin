@@ -685,6 +685,106 @@ const agentCardsData = [
   },
 ];
 
+export const dummyPropertyStatuses = [
+  {
+    count: '02',
+    color: '#049478',
+    label: 'Paid Properties',
+  },
+  {
+    count: '02',
+    color: '#FF8D42',
+    label: 'Unpaid Properties',
+  },
+];
+export const taskStatuses = [
+  {
+    count: '02',
+    color: '#049478',
+    label: 'Paid Properties',
+  },
+  {
+    count: '02',
+    color: '#FF8D42',
+    label: 'Unpaid Properties',
+  },
+  {
+    count: '02',
+    color: '#FF8D42',
+    label: 'Unpaid Properties',
+  },
+  {
+    count: '02',
+    color: '#FF8D42',
+    label: 'Unpaid Properties',
+  },
+];
+// data.js or within your component file
+export const ToDoTasks = [
+  {
+    image: '/images/agent/Frame.png',
+    name: 'Dream House',
+    address: 'Evergreen 15 Jakarta, Thailand',
+    time: '10:00 AM - 05:00 PM',
+    date: '24 Feb - 28 Feb',
+    price: '$500',
+    map: 'https://maps.google.com/?q=Evergreen+15+Jakarta+Thailand',
+  },
+
+  // Add more as needed
+];
+export const InProgressTasks = [
+  {
+    image: '/images/agent/Frame.png',
+    name: 'Dream House',
+    address: 'Evergreen 15 Jakarta, Thailand',
+    time: '10:00 AM - 05:00 PM',
+    date: '24 Feb - 28 Feb',
+    price: '$500',
+    map: 'https://maps.google.com/?q=Evergreen+15+Jakarta+Thailand',
+  },
+  {
+    image: '/images/agent/Frame.png',
+    name: 'Sunny Villa',
+    address: '123 Beachside Ave, Bali',
+    time: '09:00 AM - 03:00 PM',
+    date: '10 Mar - 15 Mar',
+    price: '$750',
+    map: 'https://maps.google.com/?q=123+Beachside+Ave+Bali',
+  },
+  // Add more as needed
+];
+export const DoneTasks = [
+  {
+    image: '/images/agent/Frame.png',
+    name: 'Dream House',
+    address: 'Evergreen 15 Jakarta, Thailand',
+    time: '10:00 AM - 05:00 PM',
+    date: '24 Feb - 28 Feb',
+    price: '$500',
+    map: 'https://maps.google.com/?q=Evergreen+15+Jakarta+Thailand',
+  },
+  {
+    image: '/images/agent/Frame.png',
+    name: 'Sunny Villa',
+    address: '123 Beachside Ave, Bali',
+    time: '09:00 AM - 03:00 PM',
+    date: '10 Mar - 15 Mar',
+    price: '$750',
+    map: 'https://maps.google.com/?q=123+Beachside+Ave+Bali',
+  },
+  {
+    image: '/images/agent/Frame.png',
+    name: 'Sunny Villa',
+    address: '123 Beachside Ave, Bali',
+    time: '09:00 AM - 03:00 PM',
+    date: '10 Mar - 15 Mar',
+    price: '$750',
+    map: 'https://maps.google.com/?q=123+Beachside+Ave+Bali',
+  },
+  // Add more as needed
+];
+
 const myPropertiesData = [
   {
     _id: 1,

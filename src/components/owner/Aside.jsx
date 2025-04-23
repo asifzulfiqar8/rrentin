@@ -44,12 +44,12 @@ const Aside = ({ mobileNav, setMobileNav }) => {
       link: ['/owner/tenants', `/owner/tenants/tenants-profile/${tenantId}`],
       icon: <TenantIcon />,
     },
-    {
-      id: 4,
-      title: 'My Agent',
-      link: ['/owner/agent', `/owner/agent/agent-profile/${agentid}`],
-      icon: <OnDemandIcon />,
-    },
+    // {
+    //   id: 4,
+    //   title: 'My Agent',
+    //   link: ['/owner/agent', `/owner/agent/agent-profile/${agentid}`],
+    //   icon: <OnDemandIcon />,
+    // },
     {
       id: 4,
       title: 'On Demand Service',

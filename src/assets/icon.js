@@ -55,6 +55,9 @@ import Kitchens from './tenant/browser-property/Kitchens';
 import Garage from './tenant/browser-property/Garage';
 import LinkedOwner from './aside/LinkedOwner';
 import Task from './aside/Task';
+import Todo from './agent/Todo';
+import Progress from './agent/Progress';
+import Done from './agent/Done';
 export {
   DashboardIcon,
   PropertiesIcon,
@@ -113,4 +116,7 @@ export {
   Garage,
   LinkedOwner,
   Task,
+  Todo,
+  Progress,
+  Done,
 };
