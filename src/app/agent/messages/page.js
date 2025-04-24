@@ -1,7 +1,12 @@
+import ChatPage from '@/components/owner/messages/ChatPage';
 import React from 'react';
 
 function Message() {
-  return <div>Message</div>;
+  return (
+    <div>
+      <ChatPage />
+    </div>
+  );
 }
 
 export default Message;
