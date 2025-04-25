@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 function AgentFlowLayout({ children }) {
@@ -16,7 +17,13 @@ function AgentFlowLayout({ children }) {
                 className="mx-auto h-auto w-[150px] lg:top-[80px] lg:w-[219px]"
               />
             </div>
-            <div className="flex items-center justify-center">{children}</div>
+            <div className="flex w-full items-center justify-center">{children}</div>
+            <div className="mt-8 flex w-full items-center justify-center text-sm text-white lg:text-base">
+              Already have an Account?{' '}
+              <Link href="/login" className="text-primary font-semibold">
+                Login
+              </Link>
+            </div>
           </div>
         </section>
       </section>
