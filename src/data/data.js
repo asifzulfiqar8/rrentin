@@ -51,6 +51,35 @@ const transactionTableStyles = {
     },
   },
 };
+export const requestTableStyles = {
+  headCells: {
+    style: {
+      fontSize: '14px',
+      fontWeight: 600,
+      color: '#32343C',
+      borderBottom: '1px solid #32343CB2 !important',
+      justifyContent: 'center', // center header content
+      textAlign: 'center',
+    },
+  },
+  rows: {
+    style: {
+      background: 'transparent',
+      padding: '10px 0',
+      margin: '0',
+      borderBottomStyle: 'dashed !important',
+    },
+  },
+  cells: {
+    style: {
+      color: '#32343C',
+      fontSize: '14px',
+      fontWeight: 600,
+      justifyContent: 'center', // center cell content
+      textAlign: 'center',
+    },
+  },
+};
 export const agentTransactionTableStyles = {
   headCells: {
     style: {
@@ -144,6 +173,80 @@ const homeCardsData = [
     valueAdded: '08',
     para: "<span class='font-medium text-[#E35454]'>+$8.45</span> growth in tenant inquiries.",
     img: '/images/dashboard/inquiry.png',
+  },
+];
+export const CardsData = [
+  {
+    title: 'Total Properties',
+    value: '$273,38',
+    valueAdded: '12',
+    para: "It’s <span class='font-medium text-[#39DA4C]'>+$23.14</span> better then last month",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Active Properties',
+    value: '32%',
+    valueAdded: '10',
+    para: "Your properties are generating <span class='font-medium text-[#39DA4C]'>+10%</span> returns.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Pending Approvals',
+    value: '77%',
+    valueAdded: '43',
+    para: "<span class='font-medium text-[#39DA4C]'>+43</span> of tenants have renewed their leases.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Rented Properties',
+    value: '45%',
+    valueAdded: '23',
+    para: "<span class='font-medium text-[#39DA4C]'>+43%</span> tenants showed interest in leasing.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Rejected Properties',
+    value: '123',
+    valueAdded: '08',
+    para: "<span class='font-medium text-[#E35454]'>+$8.45</span> growth in tenant inquiries.",
+    img: '/images/dashboard/lease.png',
+  },
+];
+export const adminCardsData = [
+  {
+    title: 'Total Tenants',
+    value: '$273,38',
+    valueAdded: '12',
+    para: "It’s <span class='font-medium text-[#39DA4C]'>+$23.14</span> better then last month",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'New Tenants',
+    value: '32%',
+    valueAdded: '10',
+    para: "Your properties are generating <span class='font-medium text-[#39DA4C]'>+10%</span> returns.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Active Tenants',
+    value: '77%',
+    valueAdded: '43',
+    para: "<span class='font-medium text-[#39DA4C]'>+43</span> of tenants have renewed their leases.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Pending Approvals',
+    value: '45%',
+    valueAdded: '23',
+    para: "<span class='font-medium text-[#39DA4C]'>+43%</span> tenants showed interest in leasing.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Eviction Notices',
+    value: '123',
+    valueAdded: '08',
+    para: "<span class='font-medium text-[#E35454]'>+$8.45</span> growth in tenant inquiries.",
+    img: '/images/dashboard/lease.png',
   },
 ];
 export const adminHomeCardsData = [
@@ -665,6 +768,254 @@ const paymentTransactionData = [
     slip: '',
   },
 ];
+export const agentRequestData = [
+  {
+    invoiceId: 'Invoice#1001',
+    PropertyName: 'Sunset Villas',
+    date: '01-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1002',
+    PropertyName: 'Ocean Breeze Apartments',
+    date: '03-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1003',
+    PropertyName: 'Greenfield Residences',
+    date: '05-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1004',
+    PropertyName: 'Skyline Towers',
+    date: '07-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1005',
+    PropertyName: 'Maple Grove',
+    date: '10-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1006',
+    PropertyName: 'Willow Creek Homes',
+    date: '12-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1007',
+    PropertyName: 'Riverstone Condos',
+    date: '14-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1008',
+    PropertyName: 'Pinewood Estates',
+    date: '16-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1009',
+    PropertyName: 'Lakeside Retreat',
+    date: '18-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#1010',
+    PropertyName: 'Golden Fields',
+    date: '20-May-2025',
+    requestType: 'Agent',
+    agentStatus: 'pending',
+    slip: '',
+  },
+];
+export const tenantRequestData = [
+  {
+    invoiceId: 'Invoice#4001',
+    PropertyName: 'Palm Springs Residences',
+    date: '02-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4002',
+    PropertyName: 'Harbor View Apartments',
+    date: '04-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4003',
+    PropertyName: 'Cedar Park Homes',
+    date: '06-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4004',
+    PropertyName: 'Evergreen Villas',
+    date: '08-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4005',
+    PropertyName: 'Silver Lake Condos',
+    date: '10-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4006',
+    PropertyName: 'Rosewood Heights',
+    date: '12-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4007',
+    PropertyName: 'Blue Horizon Apartments',
+    date: '14-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4008',
+    PropertyName: 'Aspen Court Villas',
+    date: '16-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4009',
+    PropertyName: 'Meadow Brook Residences',
+    date: '18-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#4010',
+    PropertyName: 'Canyon View Homes',
+    date: '20-Jun-2025',
+    requestType: 'Tenant',
+    agentStatus: 'pending',
+    slip: '',
+  },
+];
+
+export const ownerRequestData = [
+  {
+    invoiceId: 'Invoice#3001',
+    PropertyName: 'Royal Palm Residences',
+    date: '02-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3002',
+    PropertyName: 'Cedarwood Villas',
+    date: '04-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3003',
+    PropertyName: 'Blue Lagoon Heights',
+    date: '06-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3004',
+    PropertyName: 'Silver Creek Apartments',
+    date: '08-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3005',
+    PropertyName: 'Grandview Meadows',
+    date: '10-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3006',
+    PropertyName: 'Amberwood Court',
+    date: '12-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3007',
+    PropertyName: 'Willowbend Estates',
+    date: '14-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'rejected',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3008',
+    PropertyName: 'Bayside Horizon',
+    date: '16-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'pending',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3009',
+    PropertyName: 'Parklane Residences',
+    date: '18-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'paid',
+    slip: '',
+  },
+  {
+    invoiceId: 'Invoice#3010',
+    PropertyName: 'Sunridge Villas',
+    date: '20-Jun-2025',
+    requestType: 'Owner',
+    agentStatus: 'pending',
+    slip: '',
+  },
+];
+
 const propertiesCardsData = [
   {
     title: 'Total Properties',
