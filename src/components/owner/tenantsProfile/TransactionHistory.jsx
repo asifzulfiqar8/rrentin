@@ -67,7 +67,7 @@ function TransactionHistory() {
   );
 
   return (
-    <div className="h-[340px] rounded-lg px-5 py-4 shadow-lg">
+    <div className="rounded-lg px-5 py-4 shadow-lg">
       <h1 className="mb-2 text-sm font-semibold">Transaction History</h1>
       <DataTable
         data={transactionHistoryData.slice(0, 5)}
