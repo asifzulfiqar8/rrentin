@@ -146,6 +146,43 @@ const homeCardsData = [
     img: '/images/dashboard/inquiry.png',
   },
 ];
+export const adminHomeCardsData = [
+  {
+    title: 'Total Revenue',
+    value: '$273,38',
+    valueAdded: '12',
+    para: "It’s <span class='font-medium text-[#39DA4C]'>+$23.14</span> better then last month",
+    img: '/images/dashboard/dollar.png',
+  },
+  {
+    title: 'Total Buildings',
+    value: '32%',
+    valueAdded: '10',
+    para: "Your properties are generating <span class='font-medium text-[#39DA4C]'>+10%</span> returns.",
+    img: '/images/dashboard/rental.png',
+  },
+  {
+    title: 'Total Owners',
+    value: '77%',
+    valueAdded: '43',
+    para: "<span class='font-medium text-[#39DA4C]'>+43</span> of tenants have renewed their leases.",
+    img: '/images/dashboard/lease.png',
+  },
+  {
+    title: 'Total Tenants',
+    value: '45%',
+    valueAdded: '23',
+    para: "<span class='font-medium text-[#39DA4C]'>+43%</span> tenants showed interest in leasing.",
+    img: '/images/dashboard/tenant.png',
+  },
+  {
+    title: 'Total Agents',
+    value: '123',
+    valueAdded: '08',
+    para: "<span class='font-medium text-[#E35454]'>+$8.45</span> growth in tenant inquiries.",
+    img: '/images/dashboard/inquiry.png',
+  },
+];
 export const agentHomeCardsData = [
   {
     title: 'Total Revenue',
@@ -183,7 +220,116 @@ export const agentHomeCardsData = [
     img: '/images/dashboard/inquiry.png',
   },
 ];
-
+export const activitiesData = [
+  {
+    type: 'Tracking Failure',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '10 min ago',
+    description: 'Driver’s real-time location is not updating correctly in the system',
+  },
+  {
+    type: 'Driver Overload',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '20 min ago',
+    description: 'Driver exceeded maximum allowed drive time.',
+  },
+  {
+    type: 'Truck Offline',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '25 min ago',
+    description: 'Truck connection lost. Last seen near station X.',
+  },
+  {
+    type: 'Sensor Malfunction',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '30 min ago',
+    description: 'Temperature sensor not providing valid readings.',
+  },
+  {
+    type: 'Tracking Failure',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '10 min ago',
+    description: 'Driver’s real-time location is not updating correctly in the system',
+  },
+  {
+    type: 'Driver Overload',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '20 min ago',
+    description: 'Driver exceeded maximum allowed drive time.',
+  },
+  {
+    type: 'Truck Offline',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '25 min ago',
+    description: 'Truck connection lost. Last seen near station X.',
+  },
+  {
+    type: 'Sensor Malfunction',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '30 min ago',
+    description: 'Temperature sensor not providing valid readings.',
+  },
+  {
+    type: 'Tracking Failure',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '10 min ago',
+    description: 'Driver’s real-time location is not updating correctly in the system',
+  },
+  {
+    type: 'Driver Overload',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '20 min ago',
+    description: 'Driver exceeded maximum allowed drive time.',
+  },
+  {
+    type: 'Truck Offline',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '25 min ago',
+    description: 'Truck connection lost. Last seen near station X.',
+  },
+  {
+    type: 'Sensor Malfunction',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '30 min ago',
+    description: 'Temperature sensor not providing valid readings.',
+  },
+  {
+    type: 'Driver Overload',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '20 min ago',
+    description: 'Driver exceeded maximum allowed drive time.',
+  },
+  {
+    type: 'Truck Offline',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '25 min ago',
+    description: 'Truck connection lost. Last seen near station X.',
+  },
+  {
+    type: 'Sensor Malfunction',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '30 min ago',
+    description: 'Temperature sensor not providing valid readings.',
+  },
+  {
+    type: 'Driver Overload',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '20 min ago',
+    description: 'Driver exceeded maximum allowed drive time.',
+  },
+  {
+    type: 'Truck Offline',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '25 min ago',
+    description: 'Truck connection lost. Last seen near station X.',
+  },
+  {
+    type: 'Sensor Malfunction',
+    icon: '/images/tenant/dashboard/leasing.png',
+    time: '30 min ago',
+    description: 'Temperature sensor not providing valid readings.',
+  },
+];
 const totalEarningsChartData = [{ month: 'January', desktop: 1260, mobile: 570 }];
 export const totalEarningsRentChartData = [{ month: 'January', desktop: 1260, mobile: 570 }];
 const totalEarningschartConfig = {

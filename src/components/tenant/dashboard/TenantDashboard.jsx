@@ -1,6 +1,11 @@
 'use client';
 import CustomLineChart from '@/components/shared/charts/CustomLineChart';
-import { dummyPropertyStatuses, earningsData, tenantRentOverview } from '@/data/data';
+import {
+  activitiesData,
+  dummyPropertyStatuses,
+  earningsData,
+  tenantRentOverview,
+} from '@/data/data';
 import { useEffect, useState } from 'react';
 import PropertiesRented from './PropertiesRented';
 import RecentActivities from './RecentActivities';
@@ -38,7 +43,7 @@ function TenantDashboard() {
             />
           </div>
           <div className="col-span-12 w-full rounded-md bg-white shadow-md lg:col-span-4">
-            <RecentActivities />
+            <RecentActivities cn={'h-[200px]'} data={activitiesData} />
           </div>
         </div>
         <div className="grid grid-cols-12 gap-4">

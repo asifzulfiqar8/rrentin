@@ -6,7 +6,7 @@ import Welcome from '@/components/owner/dashboard/Welcome';
 import CustomLineChart from '@/components/shared/charts/CustomLineChart';
 import RecentActivities from '@/components/tenant/dashboard/RecentActivities';
 import RentOverview from '@/components/tenant/dashboard/RentOverview';
-import { agentHomeCardsData, agentIncomeOverview, earningsData } from '@/data/data';
+import { activitiesData, agentHomeCardsData, agentIncomeOverview, earningsData } from '@/data/data';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
@@ -36,7 +36,7 @@ const AgentDashboard = () => {
             />
           </div>
           <div className="rounded-lg border bg-white p-4 shadow-sm lg:col-span-6 lg:p-5 xl:col-span-12 2xl:col-span-6">
-            <RecentActivities />
+            <RecentActivities cn={'h-[200px]'} data={activitiesData} />
           </div>
           <div className="lg:col-span-12">
             <div className="rounded-lg border bg-white p-4 shadow-sm lg:p-5">
@@ -48,7 +48,7 @@ const AgentDashboard = () => {
           <MyProperties />
         </div>
         <div className="lg:col-span-12">
-          <BookingSummary />
+          <BookingSummary title={'Booking Summary'} />
         </div>
       </div>
     </>

@@ -3,7 +3,14 @@ import { Done, Progress, Todo } from '@/assets/icon';
 import CustomLineChart from '@/components/shared/charts/CustomLineChart';
 import PropertiesRented from '@/components/tenant/dashboard/PropertiesRented';
 import RecentActivities from '@/components/tenant/dashboard/RecentActivities';
-import { DoneTasks, earningsData, InProgressTasks, taskStatuses, ToDoTasks } from '@/data/data';
+import {
+  activitiesData,
+  DoneTasks,
+  earningsData,
+  InProgressTasks,
+  taskStatuses,
+  ToDoTasks,
+} from '@/data/data';
 import { useEffect, useState, useMemo } from 'react';
 import AgentTaskHeader from './AgentTaskHeader';
 import CalendarComponent from './Calender';
@@ -86,7 +93,7 @@ function TaskDetails() {
                 <CalendarComponent />
               </div>
               <div className="rounded-lg border bg-white p-4 shadow-sm lg:p-5">
-                <RecentActivities />
+                <RecentActivities cn={'h-[200px]'} data={activitiesData} />
               </div>
             </div>
           </div>

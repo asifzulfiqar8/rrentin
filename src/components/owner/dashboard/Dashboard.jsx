@@ -59,7 +59,7 @@ const Dashboard = () => {
           <MyProperties />
         </div>
         <div className="lg:col-span-12">
-          <BookingSummary />
+          <BookingSummary title={'Booking Summary'} />
         </div>
       </div>
     </>
