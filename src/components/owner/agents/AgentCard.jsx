@@ -10,8 +10,17 @@ import { GoBookmarkFill } from 'react-icons/go';
 import { IoHomeOutline } from 'react-icons/io5';
 import { GoArrowUpRight } from 'react-icons/go';
 
-const AgentCard = ({ data }) => {
+const AgentCard = ({ data, role }) => {
   const router = useRouter();
+  const handleViewDetails = () => {
+    if (role === 'agent') {
+      router.push(`/owner/agent/agent-profile/${data?._id}`);
+    } else if (role === 'admin') {
+      router.push(`/admin/users/agent/agent-profile/${data?._id}`);
+    } else {
+      console.warn('Unknown role:', role);
+    }
+  };
   return (
     <div className="relative h-full min-h-[255px] w-full min-w-[270px] rounded-md">
       <Image
@@ -62,7 +71,8 @@ const AgentCard = ({ data }) => {
 
         <div className="flex items-center justify-center border-t border-[#d8d8d8dc] pt-[8px]">
           <button
-            onClick={() => router.push(`/owner/agent/agent-profile/${data?._id}`)}
+            onClick={handleViewDetails}
+            // onClick={() => router.push(`/owner/agent/agent-profile/${data?._id}`)}
             className="bg-primary cursor-pointer rounded-sm px-[4px] py-[3px]"
           >
             <div className="flex items-center gap-1">

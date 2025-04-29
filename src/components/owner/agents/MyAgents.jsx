@@ -3,7 +3,7 @@ import AgentCardHeader from './AgentCardHeader';
 import AgentCard from './AgentCard';
 import { myAgentData, myPropertiesData } from '@/data/data';
 
-function MyAgents() {
+function MyAgents({role}) {
   return (
     <section
       className="mt-4 rounded-lg bg-white p-4"
@@ -12,7 +12,7 @@ function MyAgents() {
       <AgentCardHeader />
       <div className="scroll-0 mt-5 grid max-h-[800px] grid-cols-1 gap-6 overflow-y-scroll md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3">
         {myAgentData.map((card, i) => (
-          <AgentCard data={card} key={i} />
+          <AgentCard data={card} key={i} role={role}/>
         ))}
       </div>
     </section>

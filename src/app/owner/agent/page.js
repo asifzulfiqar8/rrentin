@@ -9,7 +9,7 @@ function Agent() {
     <div>
       <AgentHeader />
       <TopCards data={agentCardsData} />
-      <MyAgents />
+      <MyAgents role={'agent'} />
     </div>
   );
 }
