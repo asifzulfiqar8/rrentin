@@ -1,44 +1,38 @@
 'use client';
-import Dropdown from '@/components/shared/small/Dropdown';
 import Input from '@/components/shared/small/Input';
 import Textarea from '@/components/shared/small/Textarea';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
-import { AiOutlineCloudUpload } from 'react-icons/ai';
+import { useCallback, useRef, useState } from 'react';
+import { AiOutlineClose, AiOutlineCloudUpload } from 'react-icons/ai';
 
 const PhotosAndDetails = ({ setCurrentStep }) => {
   const handleNext = () => setCurrentStep(prevStep => prevStep + 1);
   const handlePrevious = () => setCurrentStep(prevStep => prevStep - 1);
 
   const fileInputRef = useRef(null);
-  const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]);
+
+  const handleFiles = useCallback(fileList => {
+    const filesArray = Array.from(fileList);
+    const newUrls = filesArray.map(file => URL.createObjectURL(file));
+    setImages(prev => [...prev, ...newUrls]);
+  }, []);
 
   const handleImageUpload = event => {
-    const file = event.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
-    }
+    handleFiles(event.target.files);
   };
 
   const handleDrop = event => {
     event.preventDefault();
-    const file = event.dataTransfer.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
-    }
+    handleFiles(event.dataTransfer.files);
   };
 
   const handleClick = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
+    fileInputRef.current?.click();
   };
 
-  const handleButtonClick = event => {
-    event.stopPropagation(); // ✅ Stop event bubbling to parent
-    handleClick();
+  const removeImage = index => {
+    setImages(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -50,9 +44,9 @@ const PhotosAndDetails = ({ setCurrentStep }) => {
         <div className="lg:col-span-12">
           <Input label="Property Title" shadow />
         </div>
-        <div className="lg:col-span-12">
+        {/* <div className="lg:col-span-12">
           <Input label="Project Name" shadow />
-        </div>
+        </div> */}
         <div className="lg:col-span-12">
           <Textarea
             label="Description"
@@ -60,17 +54,6 @@ const PhotosAndDetails = ({ setCurrentStep }) => {
             shadow={true}
           />
         </div>
-        <div className="lg:col-span-6">
-          <Dropdown
-            label="Type of property"
-            options={[{ option: 'Condo', value: 'condo' }]}
-            shadow
-          />
-        </div>
-        <div className="lg:col-span-6">
-          <Input type="date" label="Project Name" shadow />
-        </div>
-
         <div className="grid grid-cols-12 gap-4 lg:col-span-12">
           <div
             className="col-span-6 flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 p-4 hover:border-blue-500"
@@ -80,7 +63,7 @@ const PhotosAndDetails = ({ setCurrentStep }) => {
           >
             <AiOutlineCloudUpload className="text-primary h-10 w-10" />
             <p className="mt-2 text-xs text-[#32343C]">
-              Click here to upload your ownership documents
+              Click or drag here to upload ownership documents
             </p>
             <p className="mt-2 text-sm text-[#32343C]">
               (Condo Title Deed, House Book, Land Title, Etc.)
@@ -89,29 +72,38 @@ const PhotosAndDetails = ({ setCurrentStep }) => {
             <input
               type="file"
               accept="image/*"
+              multiple
               className="hidden"
               ref={fileInputRef}
               onChange={handleImageUpload}
             />
             <button
-              type="button" // ✅ Add this line
-              onClick={handleButtonClick}
+              type="button"
+              onClick={e => {
+                e.stopPropagation();
+                handleClick();
+              }}
               className="bg-primary mt-3 cursor-pointer rounded-lg px-4 py-2 text-white hover:bg-blue-600"
             >
               Browse
             </button>
           </div>
 
-          <div className="col-span-6 flex items-center justify-center">
-            {image ? (
-              <div className="relative h-[180px] w-full rounded-lg border-2 border-dashed border-gray-300 p-4">
-                <Image
-                  src={image}
-                  alt="Uploaded"
-                  layout="fill" // Makes the image fill the parent container
-                  objectFit="cover" // Ensures the image covers the container without distortion
-                  className="rounded-lg" // Optional: adds rounded corners
-                />
+          <div className="col-span-6">
+            {images.length > 0 ? (
+              <div className="flex h-full w-full flex-wrap items-center justify-center gap-2 rounded-lg border-2 border-dashed">
+                {images.map((src, idx) => (
+                  <div key={idx} className="relative h-20 w-20 overflow-hidden rounded-md">
+                    <Image src={src} alt={`upload-${idx}`} layout="fill" objectFit="cover" />
+                    <button
+                      type="button"
+                      onClick={() => removeImage(idx)}
+                      className="absolute top-0 right-0 rounded-full bg-white p-1"
+                    >
+                      <AiOutlineClose size={12} />
+                    </button>
+                  </div>
+                ))}
               </div>
             ) : (
               <div className="flex h-full w-full flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 p-4">

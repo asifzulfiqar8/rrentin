@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import Dropdown from '@/components/shared/small/Dropdown';
+import DropdownCheckbox from '@/components/shared/small/DropdownCheckbox';
 
 const propertyFeatures = [
   { option: 'Private Gym / Fitness Room', value: 'private_gym_fitness_room' },
@@ -94,7 +95,9 @@ const FeatureAndAmenities = ({ setCurrentStep }) => {
     () => setCurrentStep(prevStep => prevStep - 1),
     [setCurrentStep]
   );
-
+  const handleSelect = selectedValues => {
+    console.log('Checked items:', selectedValues);
+  };
   return (
     <div>
       <h4 className="text-textColor text-center text-base font-medium md:text-lg">
@@ -102,17 +105,23 @@ const FeatureAndAmenities = ({ setCurrentStep }) => {
       </h4>
       <form className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <Dropdown label="Property Feature" options={propertyFeatures} shadow />
+          <DropdownCheckbox label="Property Feature" options={propertyFeatures} shadow />
         </div>
 
         <div className="lg:col-span-6">
-          <Dropdown label="Amenities" options={amenities} shadow />
+          <DropdownCheckbox label="Amenities" options={amenities} shadow />
         </div>
         <div className="lg:col-span-6">
-          <Dropdown label="Rental Feature" options={rentalFeatures} shadow />
+          <DropdownCheckbox label="Rental Feature" options={rentalFeatures} shadow />
         </div>
         <div className="lg:col-span-6">
-          <Dropdown label="View from the property" options={propertyViews} shadow />
+          <DropdownCheckbox
+            label="View from the property"
+            options={propertyViews}
+            onSelect={handleSelect}
+            defaultText="Select fruits"
+          />
+          {/* <Dropdown label="View from the property" options={propertyViews} shadow /> */}
         </div>
 
         <div className="flex justify-end gap-[14px] lg:col-span-12">

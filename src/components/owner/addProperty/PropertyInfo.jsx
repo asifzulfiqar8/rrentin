@@ -60,6 +60,11 @@ const BUILDING_OPTIONS = [
   { option: 'Bldg. D or 4', value: 'bldg_d_or_4' },
   { option: 'Other', value: 'other' },
 ];
+const Building = [
+  { option: 'High ', value: 'high ' },
+  { option: 'Rise', value: 'rise' },
+  { option: 'Low ', value: 'low ' },
+];
 
 const PropertyInfo = ({ setCurrentStep }) => {
   const fileInputRef = useRef(null);
@@ -165,7 +170,7 @@ const PropertyInfo = ({ setCurrentStep }) => {
           />
         </div>
         <div className="lg:col-span-6">
-          <InputDropdown
+          {/* <InputDropdown
             placeholder="0"
             label="Common Area Maintenance Fee"
             options={CommonAreaMaintenanceFee}
@@ -174,7 +179,8 @@ const PropertyInfo = ({ setCurrentStep }) => {
             mainClassName="custom-dropdown"
             dropdownIcon={'$ '}
             width="w--[79px]"
-          />
+          /> */}
+          <Dropdown placeholder="Building " label="Building" options={Building} shadow />
         </div>
         <div className="lg:col-span-12">
           <div
