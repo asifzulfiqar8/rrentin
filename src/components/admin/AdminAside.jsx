@@ -3,94 +3,105 @@ import {
   ArrowIcon,
   DashboardIcon,
   InsightsIcon,
-  LinkedOwner,
-  MessagesIcon,
   NotificationIcon,
   OnDemandIcon,
   PaymentsIcon,
   PropertiesIcon,
-  ProposalsIcon,
   Task,
 } from '@/assets/icon';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
 import { IoSettingsOutline } from 'react-icons/io5';
-import { MdLogout } from 'react-icons/md';
+import { MdLogout, MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 const AdminAside = ({ mobileNav, setMobileNav }) => {
-  const { id } = useParams();
-  const params = useParams();
-  const tenantId = params.tenantId;
-  const agentid = params.agentid;
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openMenuId, setOpenMenuId] = useState(null); // ⭐ New
+  useEffect(() => {
+    const matchedPage = pages.find(
+      page => page.children && page.children.some(child => child.link === pathname)
+    );
+    if (matchedPage) {
+      setOpenMenuId(matchedPage.id);
+    }
+  }, [pathname]);
+
   const pages = [
     {
       id: 1,
-      title: 'admin',
-      link: ['/agent'],
+      title: 'Admin',
+      link: '/agent',
       icon: <DashboardIcon />,
     },
     {
       id: 2,
       title: 'Properties',
-      link: ['/admin/properties'],
+      link: '/admin/properties',
       icon: <PropertiesIcon />,
     },
     {
       id: 3,
       title: 'Users',
-      link: ['/admin/users'],
       icon: <OnDemandIcon />,
+      children: [
+        { id: 1, title: 'Agent', link: '/admin/users/agent' },
+        { id: 2, title: 'Owner', link: '/admin/users/owner' },
+        { id: 3, title: 'Tenant', link: '/admin/users/tenant' },
+      ],
     },
     {
       id: 4,
       title: 'Request',
-      link: ['/admin/requests'],
       icon: <Task />,
-    },
-    {
-      id: 7,
-      title: 'Payments',
-      link: ['/admin/payments'],
-      icon: <PaymentsIcon />,
-    },
-    {
-      id: 7,
-      title: 'Insights',
-      link: ['/admin/insights'],
-      icon: <InsightsIcon />,
+      children: [
+        { id: 1, title: 'SignUp Request', link: '/admin/requests/signUp-request' },
+        { id: 2, title: 'Building Request', link: '/admin/requests/building-request' },
+        { id: 3, title: 'Property Request', link: '/admin/requests/property-request' },
+        { id: 4, title: 'Agent Request', link: '/admin/requests/agent-request' },
+        { id: 5, title: 'Owner Request', link: '/admin/requests/owner-request' },
+        { id: 6, title: 'Tenant Request', link: '/admin/requests/tenant-request' },
+        { id: 7, title: 'Certification Request', link: '/admin/requests/certification-request' },
+      ],
     },
     {
       id: 5,
+      title: 'Payments',
+      link: '/admin/payments',
+      icon: <PaymentsIcon />,
+    },
+    {
+      id: 6,
+      title: 'Insights',
+      link: '/admin/insights',
+      icon: <InsightsIcon />,
+    },
+    {
+      id: 7,
       title: 'Notification',
-      link: ['/admin/notification'],
+      link: '/admin/notification',
       icon: <NotificationIcon />,
     },
   ];
 
-  const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <aside
-      className={`relative transition-all duration-300 ${
-        mobileNav ? 'block h-full xl:hidden' : 'hidden xl:block'
-      } ${isMenuOpen ? 'w-[84px]' : 'w-[246px]'}`}
+      className={`relative transition-all duration-300 ${mobileNav ? 'block h-full xl:hidden' : 'hidden xl:block'} ${isMenuOpen ? 'w-[84px]' : 'w-[246px]'}`}
     >
-      {/* Arrow icon */}
       <div
-        className={`absolute top-[37px] -right-[10px] z-50 hidden cursor-pointer transition-all duration-300 xl:block ${
-          isMenuOpen ? 'rotate-180' : 'rotate-0'
-        }`}
+        className={`absolute top-[37px] -right-[10px] z-50 hidden cursor-pointer transition-all duration-300 xl:block ${isMenuOpen ? 'rotate-180' : 'rotate-0'}`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <ArrowIcon />
       </div>
+
       <div
-        className="scroll-0 relative flex h-full w-full flex-col overflow-x-hidden overflow-y-auto rounded-lg bg-white px-[11px] py-5"
+        className="relative flex h-full w-full flex-col overflow-x-hidden overflow-y-auto rounded-lg bg-white px-[11px] py-5"
         style={{ boxShadow: '0px 4px 14px 0px #3582E729' }}
       >
+        {/* Logo */}
         <Image
           src={isMenuOpen ? '/images/default/home.png' : '/images/default/logo.png'}
           width={isMenuOpen ? 35 : 129}
@@ -98,23 +109,31 @@ const AdminAside = ({ mobileNav, setMobileNav }) => {
           alt="logo"
           className="mx-auto"
         />
+
+        {/* Menu */}
         <div className="mt-5">
           <h4 className={`text-xs font-bold text-[#545454] ${isMenuOpen ? 'text-center' : 'pl-2'}`}>
             MENU
           </h4>
+
           <div className="mt-3 flex flex-col gap-2">
-            {pages.map((page, i) => (
-              <LinkItem
-                key={i}
+            {pages.map(page => (
+              <MenuItem
+                key={page.id}
                 page={page}
                 pathname={pathname}
                 isMenuOpen={isMenuOpen}
                 setMobileNav={setMobileNav}
+                openMenuId={openMenuId}
+                setOpenMenuId={setOpenMenuId}
               />
             ))}
           </div>
-          <div className="mt-5 h-[1px] w-full bg-[#EBEBEB] lg:mt-[50px]"></div>
+
+          <div className="mt-5 h-[1px] w-full bg-[#EBEBEB] lg:mt-[50px]" />
         </div>
+
+        {/* Profile Section */}
         <div className="mt-5 flex flex-1 items-end">
           <ProfileSec isMenuOpen={isMenuOpen} />
         </div>
@@ -125,48 +144,16 @@ const AdminAside = ({ mobileNav, setMobileNav }) => {
 
 export default AdminAside;
 
-const LinkItem = ({ page, pathname, isMenuOpen, setMobileNav }) => {
-  const isLinkActive = page?.link.some(item => item === pathname);
-  return (
-    <Link
-      onClick={() => setMobileNav(false)} // Close when clicking outside
-      href={page?.link[0]}
-      className={`flex items-center rounded-lg px-[13px] py-[10px] text-sm font-medium transition-all duration-300 ${
-        isMenuOpen ? 'justify-center gap-0' : 'gap-3'
-      } ${isLinkActive ? 'text-primary bg-[#E8F2FF]' : 'text-[#1F1F1F]'}`}
-    >
-      {React.cloneElement(page?.icon, { isLinkActive })}
-      <span
-        className={`text-nowrap transition-all duration-300 ${
-          isMenuOpen ? 'h-0 w-0 scale-x-0 opacity-0' : 'h-auto w-auto scale-x-100 opacity-100'
-        }`}
-      >
-        {page?.title}
-      </span>
-      {!isMenuOpen && (page?.title === 'Notification' || page?.title === 'Messages') && (
-        <span className="flex flex-1 justify-end">
-          <div className="grid h-[18px] w-[27px] place-items-center rounded-[31px] bg-[#FF2F00] text-[10px] font-semibold text-white">
-            {page?.title === 'Notification' && '21'}
-            {page?.title === 'Messages' && '3'}
-          </div>
-        </span>
-      )}
-    </Link>
-  );
-};
-
 const ProfileSec = ({ isMenuOpen }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  // Close the dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = e => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setMenuOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -192,13 +179,10 @@ const ProfileSec = ({ isMenuOpen }) => {
       </div>
       {!isMenuOpen && (
         <div className="relative inline-block">
-          {/* Three dots icon - click to toggle the menu */}
           <BsThreeDots
             onClick={() => setMenuOpen(!menuOpen)}
             className="cursor-pointer text-base text-[#141B34]"
           />
-
-          {/* Dropdown Menu positioned above the icon */}
           {menuOpen && (
             <div
               ref={menuRef}
@@ -226,4 +210,78 @@ const ProfileSec = ({ isMenuOpen }) => {
   );
 };
 
-// export default AdminAside;
+import Link from 'next/link';
+
+const MenuItem = ({ page, pathname, isMenuOpen, setMobileNav, openMenuId, setOpenMenuId }) => {
+  const isChildActive = page?.children?.some(child => child.link === pathname);
+  const isParentActive = page?.link === pathname;
+  const isOpen = openMenuId === page.id;
+
+  const handleParentClick = () => {
+    if (!page.children && page.link) {
+      setMobileNav(false);
+    }
+  };
+
+  const toggleSubmenu = () => {
+    if (page.children) {
+      setOpenMenuId(isOpen ? null : page.id); // ⭐ Close others when open new
+    }
+  };
+
+  return (
+    <div className="flex flex-col">
+      {/* Parent Link or Dropdown */}
+      {page.children ? (
+        <div
+          onClick={toggleSubmenu}
+          className={`flex cursor-pointer items-center rounded-lg px-[13px] py-[10px] text-sm font-medium transition-all duration-300 ${
+            isMenuOpen ? 'justify-center' : 'justify-between'
+          } ${isChildActive ? 'text-primary bg-[#E8F2FF]' : 'text-[#1F1F1F]'}`}
+        >
+          <div className={`flex items-center ${isMenuOpen ? 'justify-center' : 'gap-3'}`}>
+            {React.cloneElement(page.icon, { isLinkActive: isChildActive })}
+            {!isMenuOpen && <span>{page.title}</span>}
+          </div>
+          {!isMenuOpen && (
+            <span className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}>
+              <MdOutlineKeyboardArrowDown />
+            </span>
+          )}
+        </div>
+      ) : (
+        <Link
+          href={page.link}
+          onClick={handleParentClick}
+          className={`flex items-center rounded-lg px-[13px] py-[10px] text-sm font-medium transition-all duration-300 ${
+            isMenuOpen ? 'justify-center' : 'gap-3'
+          } ${isParentActive ? 'text-primary bg-[#E8F2FF]' : 'text-[#1F1F1F]'}`}
+        >
+          {React.cloneElement(page.icon, { isLinkActive: isParentActive })}
+          {!isMenuOpen && <span>{page.title}</span>}
+        </Link>
+      )}
+
+      {/* Child Items */}
+      {isOpen && page.children && !isMenuOpen && (
+        <div className="border-primary mt-2 ml-5 flex flex-col gap-2 border-l-2">
+          {page.children.map((child, index) => {
+            const isActiveChild = pathname === child.link;
+            return (
+              <Link
+                href={child.link}
+                key={index}
+                onClick={() => setMobileNav(false)}
+                className={`ml-2.5 flex items-center rounded-lg px-[13px] py-[10px] text-sm font-medium transition-all duration-300 ${
+                  isActiveChild ? 'text-primary bg-[#E8F2FF]' : 'text-[#1F1F1F]'
+                }`}
+              >
+                {child.title}
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};

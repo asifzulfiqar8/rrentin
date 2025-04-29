@@ -6,15 +6,22 @@ import {
   transactionTableStyles,
 } from '@/data/data';
 import { useMemo, useState } from 'react';
-import DataTable from 'react-data-table-component';
+// import DataTable from 'react-data-table-component';
 // import PaymentTransactionSlip from './PaymentTransactionSlip';
 import PaymentTransactionSlip from '@/components/owner/payments/PaymentTransactionSlip';
 import ViewRequest from './ViewRequest';
+import dynamic from 'next/dynamic';
+import CustomLoading from '@/components/shared/small/CustomLoading';
+const DataTable = dynamic(() => import('react-data-table-component'), {
+  ssr: false,
+  loading: () => <CustomLoading />,
+});
 
 function RequestTable({ title, data }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [filterOption, setFilterOption] = useState('weekly');
+  const [isLoading, setIsLoading] = useState(false);
 
   const openModal = row => {
     setSelectedRow(row);
@@ -103,6 +110,7 @@ function RequestTable({ title, data }) {
         customStyles={requestTableStyles}
         fixedHeader
         fixedHeaderScrollHeight="70vh"
+        progressPending={isLoading}
       />
       {modalOpen && selectedRow && (
         <Modal onClose={closeModal}>

@@ -6,7 +6,7 @@ import { BsChatSquareDotsFill } from 'react-icons/bs';
 import { FaBookmark } from 'react-icons/fa';
 import TenantsProfileDetails from '@/components/owner/tenantsProfile/TenantsProfileDetails';
 
-const UserTenantProfile = () => {
+const TenantProfileById = () => {
   return (
     <div className="flex flex-col gap-4">
       <h6 className="text-textColor mb-[18px] text-lg font-semibold md:text-[22px]">
@@ -24,7 +24,7 @@ const UserTenantProfile = () => {
   );
 };
 
-export default UserTenantProfile;
+export default TenantProfileById;
 
 const TenantsProfileHeader = () => {
   return (
@@ -70,3 +70,5 @@ const TenantsProfileHeader = () => {
     </section>
   );
 };
+
+// export default TenantProfileById;

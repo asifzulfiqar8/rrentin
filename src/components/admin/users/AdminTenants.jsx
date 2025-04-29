@@ -66,7 +66,7 @@ function AdminTenants() {
                 </div>
                 <div className="flex h-6 justify-end rounded-[2px]">
                   <Button
-                    onClick={() => router.push(`/admin/users/tenant-profile/${tenant?.id}`)}
+                    onClick={() => router.push(`/admin/users/tenant/tenant-profile/${tenant?.id}`)}
                     text={'View Profile'}
                     icon={<GoArrowUpRight />}
                   />

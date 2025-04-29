@@ -7,6 +7,10 @@ function UserReviewsCard({ reviews }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
+  if (!reviews || reviews.length === 0) {
+    return <div>No reviews available.</div>;
+  }
+
   const currentReview = reviews[currentIndex];
 
   const toggleReadMore = () => {
